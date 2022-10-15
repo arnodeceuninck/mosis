@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<trace>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track3to4_enter_track">
+    <token age="0" place="Shared_station3"/>
+    <token age="0" place="track3to4_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track5to6light_enter_track">
+    <token age="0" place="Shared_station5"/>
+    <token age="0" place="track5to6light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track3to4_exit_track">
+    <token age="0" place="track3to4_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track5to6light_exit_track">
+    <token age="0" place="track5to6light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T1">
+    <token age="0" place="bottom_light_bottom_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_red_free"/>
+  </transition>
+  <transition id="middle_right_T1">
+    <token age="0" place="middle_right_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_red_free"/>
+  </transition>
+  <transition id="top_light_T0">
+    <token age="0" place="Shared_top_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_green_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T3">
+    <token age="0" place="bottom_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T3">
+    <token age="0" place="middle_right_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T2">
+    <token age="0" place="top_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track6to1_enter_track">
+    <token age="0" place="Shared_station6"/>
+    <token age="0" place="track6to1_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track4to5_enter_track">
+    <token age="0" place="Shared_station4"/>
+    <token age="0" place="track4to5_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track4to5_exit_track">
+    <token age="0" place="track4to5_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track6to1_exit_track">
+    <token age="0" place="track6to1_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T0">
+    <token age="0" place="Shared_bottom_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_green_free"/>
+  </transition>
+  <transition id="middle_right_T0">
+    <token age="0" place="Shared_middle_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_green_free"/>
+  </transition>
+  <transition id="top_light_T1">
+    <token age="0" place="top_light_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_red_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T2">
+    <token age="0" place="bottom_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T2">
+    <token age="0" place="middle_right_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T3">
+    <token age="0" place="top_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track1to2_track1_enter">
+    <token age="0" place="Shared_station1"/>
+    <token age="0" place="track1to2_track1_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track5to6light_enter_track">
+    <token age="0" place="Shared_station5"/>
+    <token age="0" place="track5to6light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track1to2_track1_exit">
+    <token age="0" place="track1to2_track1_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track5to6light_exit_track">
+    <token age="0" place="track5to6light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T1">
+    <token age="0" place="bottom_light_bottom_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_red_free"/>
+  </transition>
+  <transition id="middle_right_T1">
+    <token age="0" place="middle_right_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_red_free"/>
+  </transition>
+  <transition id="top_light_T0">
+    <token age="0" place="Shared_top_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_green_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T3">
+    <token age="0" place="bottom_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T3">
+    <token age="0" place="middle_right_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T2">
+    <token age="0" place="top_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track6to1_enter_track">
+    <token age="0" place="Shared_station6"/>
+    <token age="0" place="track6to1_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track2to3light_enter_track">
+    <token age="0" place="Shared_station2"/>
+    <token age="0" place="track2to3light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track2to3light_exit_track">
+    <token age="0" place="track2to3light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track6to1_exit_track">
+    <token age="0" place="track6to1_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T0">
+    <token age="0" place="Shared_bottom_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_green_free"/>
+  </transition>
+  <transition id="middle_right_T0">
+    <token age="0" place="Shared_middle_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_green_free"/>
+  </transition>
+  <transition id="top_light_T1">
+    <token age="0" place="top_light_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_red_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T2">
+    <token age="0" place="bottom_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T2">
+    <token age="0" place="middle_right_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T3">
+    <token age="0" place="top_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track1to2_track1_enter">
+    <token age="0" place="Shared_station1"/>
+    <token age="0" place="track1to2_track1_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track3to4_enter_track">
+    <token age="0" place="Shared_station3"/>
+    <token age="0" place="track3to4_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track1to2_track1_exit">
+    <token age="0" place="track1to2_track1_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track3to4_exit_track">
+    <token age="0" place="track3to4_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T1">
+    <token age="0" place="bottom_light_bottom_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_red_free"/>
+  </transition>
+  <transition id="middle_right_T1">
+    <token age="0" place="middle_right_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_red_free"/>
+  </transition>
+  <transition id="top_light_T0">
+    <token age="0" place="Shared_top_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_green_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T3">
+    <token age="0" place="bottom_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T3">
+    <token age="0" place="middle_right_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T2">
+    <token age="0" place="top_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track2to3light_enter_track">
+    <token age="0" place="Shared_station2"/>
+    <token age="0" place="track2to3light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track4to5_enter_track">
+    <token age="0" place="Shared_station4"/>
+    <token age="0" place="track4to5_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track2to3light_exit_track">
+    <token age="0" place="track2to3light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track4to5_exit_track">
+    <token age="0" place="track4to5_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T0">
+    <token age="0" place="Shared_bottom_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_green_free"/>
+  </transition>
+  <transition id="middle_right_T0">
+    <token age="0" place="Shared_middle_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_green_free"/>
+  </transition>
+  <transition id="top_light_T1">
+    <token age="0" place="top_light_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_red_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T2">
+    <token age="0" place="bottom_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T2">
+    <token age="0" place="middle_right_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T3">
+    <token age="0" place="top_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track3to4_enter_track">
+    <token age="0" place="Shared_station3"/>
+    <token age="0" place="track3to4_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track5to6light_enter_track">
+    <token age="0" place="Shared_station5"/>
+    <token age="0" place="track5to6light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track3to4_exit_track">
+    <token age="0" place="track3to4_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track5to6light_exit_track">
+    <token age="0" place="track5to6light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T1">
+    <token age="0" place="bottom_light_bottom_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_red_free"/>
+  </transition>
+  <transition id="middle_right_T1">
+    <token age="0" place="middle_right_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_red_free"/>
+  </transition>
+  <transition id="top_light_T0">
+    <token age="0" place="Shared_top_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_green_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T3">
+    <token age="0" place="bottom_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T3">
+    <token age="0" place="middle_right_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T2">
+    <token age="0" place="top_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track4to5_enter_track">
+    <token age="0" place="Shared_station4"/>
+    <token age="0" place="track4to5_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track6to7_enter_track">
+    <token age="0" place="Shared_station6"/>
+    <token age="0" place="track6to7_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track4to5_exit_track">
+    <token age="0" place="track4to5_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track6to7_exit_track">
+    <token age="0" place="track6to7_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T0">
+    <token age="0" place="Shared_bottom_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_green_free"/>
+  </transition>
+  <transition id="middle_right_T0">
+    <token age="0" place="Shared_middle_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_green_free"/>
+  </transition>
+  <transition id="top_light_T1">
+    <token age="0" place="top_light_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_red_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T2">
+    <token age="0" place="bottom_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T2">
+    <token age="0" place="middle_right_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T3">
+    <token age="0" place="top_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track5to6light_enter_track">
+    <token age="0" place="Shared_station5"/>
+    <token age="0" place="track5to6light_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track7to8_enter_track">
+    <token age="0" place="Shared_station7"/>
+    <token age="0" place="track7to8_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track5to6light_exit_track">
+    <token age="0" place="track5to6light_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track7to8_exit_track">
+    <token age="0" place="track7to8_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="clock_T25">
+    <token age="0" place="clock_check_lights"/>
+  </transition>
+  <transition id="bottom_light_T1">
+    <token age="0" place="bottom_light_bottom_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="bottom_light_red_free"/>
+  </transition>
+  <transition id="middle_right_T1">
+    <token age="0" place="middle_right_top_green"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="middle_right_red_free"/>
+  </transition>
+  <transition id="top_light_T0">
+    <token age="0" place="Shared_top_red_light"/>
+    <token age="0" place="Shared_light_semaphore"/>
+    <token age="0" place="top_light_green_free"/>
+  </transition>
+  <transition id="clock_T24">
+    <token age="0" place="clock_P24"/>
+  </transition>
+  <transition id="bottom_light_T3">
+    <token age="0" place="bottom_light_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="middle_right_T3">
+    <token age="0" place="middle_right_P4"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="top_light_T2">
+    <token age="0" place="top_light_P0"/>
+    <token age="0" place="Shared_all_light_check"/>
+  </transition>
+  <transition id="clock_T26">
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+    <token age="0" place="Shared_all_light_changed"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track6to7_enter_track">
+    <token age="0" place="Shared_station6"/>
+    <token age="0" place="track6to7_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track8to9light_red_pseudo_movement">
+    <token age="0" place="Shared_trolley_semaphore"/>
+    <token age="0" place="Shared_station8"/>
+    <token age="0" place="Shared_bottom_red_light"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track6to7_exit_track">
+    <token age="0" place="track6to7_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track8to9light_T1">
+    <token age="0" place="track8to9light_P1"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+</trace>

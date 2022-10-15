@@ -1,0 +1,38 @@
+<testsuite name="TrolleyTest" time="">
+  <testcase name="testDepartureCondition" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testDepartureCondition" time="">
+  </testcase>
+  <testcase name="testBoardPassenger" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testBoardPassenger" time="">
+  </testcase>
+  <testcase name="testBoardWaitingPassengers" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testBoardWaitingPassengers" time="">
+  </testcase>
+  <testcase name="testBoardNonWaitingPassengers" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testBoardNonWaitingPassengers" time="">
+  </testcase>
+  <testcase name="testBoardAndUnboardPassengers" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testBoardAndUnboardPassengers" time="">
+  </testcase>
+  <testcase name="testPassengerOverflow" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testPassengerOverflow" time="">
+  </testcase>
+  <testcase name="testPassengerUnderflow" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testPassengerUnderflow" time="">
+  </testcase>
+  <testcase name="testRushedPassenger" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testRushedPassenger" time="">
+  </testcase>
+  <testcase name="testRequestStation" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testRequestStation" time="">
+  </testcase>
+  <testcase name="testMultipleRequests" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testMultipleRequests" time="">
+  </testcase>
+  <testcase name="testBoarding" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testBoarding" time="">
+  </testcase>
+  <testcase name="testEmergencyOpenDoorsWithoutDelayAtStation" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testEmergencyOpenDoorsWithoutDelayAtStation" time="">
+  </testcase>
+  <testcase name="testEmergencyStopStandStill" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testEmergencyStopStandStill" time="">
+  </testcase>
+  <testcase name="testStartEmergencyArrival" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testStartEmergencyArrival" time="">
+  </testcase>
+  <testcase name="testStopEmergencyArrival" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testStopEmergencyArrival" time="">
+  </testcase>
+  <testcase name="testEarlyStopEmergencyDeparture" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testEarlyStopEmergencyDeparture" time="">
+  </testcase>
+  <testcase name="testStopEmergencyDeparture" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testStopEmergencyDeparture" time="">
+  </testcase>
+  <testcase name="testSchedulingDuringEmergency" classname="platform:/resource/Mosis21/TrolleyTest.sctunit#TrolleyTest.testSchedulingDuringEmergency" time="">
+  </testcase>
+</testsuite>

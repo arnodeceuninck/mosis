@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<trace>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="clock_T21">
+    <token age="0" place="Shared_clock_trollies"/>
+  </transition>
+  <transition id="track3to4_enter_track">
+    <token age="0" place="Shared_station3"/>
+    <token age="0" place="track3to4_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="track9to4_enter_track">
+    <token age="0" place="Shared_station9"/>
+    <token age="0" place="track9to4_track_free"/>
+    <token age="0" place="Shared_trolley_semaphore"/>
+  </transition>
+  <transition id="clock_T20">
+    <token age="0" place="clock_P14"/>
+  </transition>
+  <transition id="track3to4_exit_track">
+    <token age="0" place="track3to4_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="track9to4_exit_track">
+    <token age="0" place="track9to4_track_taken"/>
+    <token age="0" place="Shared_all_trolley_check"/>
+  </transition>
+  <transition id="clock_clock_change">
+    <token age="0" place="Shared_all_trolley_moved"/>
+    <token age="0" place="Shared_all_trolley_moved"/>
+  </transition>
+</trace>

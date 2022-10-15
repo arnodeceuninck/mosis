@@ -1,0 +1,1149 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CBD.Core &mdash; CBD Simulator  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167094275-1"></script>
+  <script src="../../_static/js/googleanalytics.min.js"></script>
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+
+      <div class="main-menu">
+        <ul>
+
+          <li>
+            <div class="ecosystem-dropdown">
+              <a id="dropdownMenuButtonEcosystem" data-toggle="ecosystem-dropdown">
+                Ecosystem
+              </a>
+              <div class="ecosystem-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://alchemy.host">
+                  <span class=dropdown-title>Alchemy</span>
+                  <p>Experiments logging & visualization</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">
+                  <span class=dropdown-title>Catalyst</span>
+                  <p>Accelerated deep learning R&D</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">
+                  <span class=dropdown-title>Reaction</span>
+                  <p>Convenient deep learning models serving</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="projects-dropdown">
+              <a id="dropdownMenuButtonProjects" data-toggle="projects-dropdown">
+                Projects
+              </a>
+              <div class="projects-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">
+                  <span class=dropdown-title>Codestyle</span>
+                  <p>Joint R&D codestyle</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">
+                  <span class=dropdown-title>Catalyst.Neuro</span>
+                  <p>Catalyst.Team and TReNDS collaborative project</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">
+                  <span class=dropdown-title>Classification</span>
+                  <p>Image classification pipeline with transfer learning</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">
+                  <span class=dropdown-title>Detection</span>
+                  <p>Object detection pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">
+                  <span class=dropdown-title>Segmentation</span>
+                  <p>Image semantic segmentation pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">
+                  <span class=dropdown-title>Catalyst.GAN</span>
+                  <p>GAN pipelines</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/dl-course">Deep learning course</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="catalyst-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="catalyst-left-menu" id="catalyst-left-menu">
+      <div class="catalyst-side-scroll">
+        <div class="catalyst-menu catalyst-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="catalyst-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">How to install the CBD framework?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../running.html">How to run a CBD simulation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../issues.html">Common Issues and Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simple Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/SinGen.html">Sine Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/EvenNumberGen.html">Hierarchical Even Number Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/Fibonacci.html">Fibonacci Sequence Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/LCG.html">Linear Congruential Generator</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/RealTime.html">Realtime Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/LivePlot.html">Live Plotting of Data During the Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/Dashboard.html">TkInter Dashboard with Editable Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/ContinuousTime.html">Continuous Time Simulation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Internal Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CBD.html">CBD package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="catalyst-container">
+      <div class="catalyst-page-level-bar" id="catalyst-page-level-bar">
+        <div class="catalyst-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="catalyst-breadcrumbs">
+    
+      <li>
+        <a href="../../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="../index.html">Module code</a> &gt;</li>
+        
+      <li>CBD.Core</li>
+    
+    
+      <li class="catalyst-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="catalyst-shortcuts-wrapper" id="catalyst-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="catalyst-content-wrap" class="catalyst-content-wrap">
+        <div class="catalyst-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="catalyst-article" class="catalyst-article">
+              
+  <h1>Source code for CBD.Core</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.util</span> <span class="kn">import</span> <span class="n">enum</span><span class="p">,</span> <span class="n">hash64</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="n">InputLink</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;InputLink&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;block&quot;</span><span class="p">,</span> <span class="s2">&quot;output_port&quot;</span><span class="p">])</span>
+<span class="n">Signal</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Signal&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">])</span>
+
+
+<span class="n">level</span> <span class="o">=</span> <span class="n">enum</span><span class="p">(</span><span class="n">WARNING</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ERROR</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">FATAL</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+
+<div class="viewcode-block" id="BaseBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock">[docs]</a><span class="k">class</span> <span class="nc">BaseBlock</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A base class for all types of basic blocks</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str):             The name of the block. When empty, a :func:`CBD.util.hash64`</span>
+<span class="sd">                                encoded name of the instance :func:`id` will be used.</span>
+<span class="sd">        input_ports (iter):     List of input port names (strings).</span>
+<span class="sd">        output_ports (iter):    List of output port names (strings).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">input_ports</span><span class="p">,</span> <span class="n">output_ports</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__block_name</span> <span class="o">=</span> <span class="n">hash64</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setBlockName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># The output signals produced by this block is encoded as a dictionary.</span>
+        <span class="c1"># The key of this dictionary is the name of the output port.</span>
+        <span class="c1"># Each element of the dictionary contains an ordered list of values.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">output_port</span> <span class="ow">in</span> <span class="n">output_ports</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">output_port</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># The input links produced by this block is encoded as a dictionary.</span>
+        <span class="c1"># The key of this dictionary is the name of the input port.</span>
+        <span class="c1"># Each element of the dictionary contains</span>
+        <span class="c1"># a tuple of the block and the output name of the other block.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="c1"># The list of possible input ports</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span> <span class="o">=</span> <span class="n">input_ports</span>
+        <span class="c1"># In wich CBD the baseblock is situated</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="BaseBlock.addInputPort"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.addInputPort">[docs]</a>    <span class="k">def</span> <span class="nf">addInputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an input port if there is no port with the given name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): The name of the port.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseBlock.addOutputPort"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.addOutputPort">[docs]</a>    <span class="k">def</span> <span class="nf">addOutputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an output port if there is no port with the given name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): The name of the port.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.clone"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.clone">[docs]</a>    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        (Deep) copies the current block, ignoring all connections or links</span>
+<span class="sd">        that were set on this block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">other</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getBlockName"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getBlockName">[docs]</a>    <span class="k">def</span> <span class="nf">getBlockName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the name of the block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__block_name</span></div>
+
+<div class="viewcode-block" id="BaseBlock.setBlockName"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.setBlockName">[docs]</a>    <span class="k">def</span> <span class="nf">setBlockName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the name of the block.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            block_name (str):   The name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__block_name</span> <span class="o">=</span> <span class="n">block_name</span></div>
+
+<div class="viewcode-block" id="BaseBlock.setParent"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.setParent">[docs]</a>    <span class="k">def</span> <span class="nf">setParent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the block&#39;s parent.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            parent (CBD):   The parent of the block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="n">parent</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getBlockType"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getBlockType">[docs]</a>    <span class="k">def</span> <span class="nf">getBlockType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the type of the block. This is the name of the class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getLinksIn"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getLinksIn">[docs]</a>    <span class="k">def</span> <span class="nf">getLinksIn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the inputs of this block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getInputPortNames"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getInputPortNames">[docs]</a>    <span class="k">def</span> <span class="nf">getInputPortNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getOutputNameOfInput"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getOutputNameOfInput">[docs]</a>    <span class="k">def</span> <span class="nf">getOutputNameOfInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputBlock</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the name of the output port in the :code:`inputBlock` that is linked to this block.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputBlock (BaseBlock): The block of which the output port must be obtained.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">block</span> <span class="o">==</span> <span class="n">inputBlock</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">output_port</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getInputName"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getInputName">[docs]</a>    <span class="k">def</span> <span class="nf">getInputName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputBlock</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the names of the inputs that are linked to the :code:`inputBlock`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputBlock (BaseBlock): The block that is linked.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">block</span> <span class="o">==</span> <span class="n">inputBlock</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getClock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getClock">[docs]</a>    <span class="k">def</span> <span class="nf">getClock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the simulation clock. Only works if the block is part of a :class:`CBD` model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getClock</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BaseBlock.appendToSignal"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.appendToSignal">[docs]</a>    <span class="k">def</span> <span class="nf">appendToSignal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name_output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Appends the value to the set of obtained signals and links it to the current simulation</span>
+<span class="sd">        time.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (Any):        The value to append.</span>
+<span class="sd">            name_output (str):  The name of the output port. If not set, or :code:`None`,</span>
+<span class="sd">                                the value of :code:`OUT1` will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name_output</span> <span class="o">=</span> <span class="s2">&quot;OUT1&quot;</span> <span class="k">if</span> <span class="n">name_output</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name_output</span>
+        <span class="k">assert</span> <span class="n">name_output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">curIt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">name_output</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">name_output</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Signal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getClock</span><span class="p">()</span><span class="o">.</span><span class="n">getTime</span><span class="p">(</span><span class="n">curIt</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getSignal"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getSignal">[docs]</a>    <span class="k">def</span> <span class="nf">getSignal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtains the set of signals this block has sent over an output port.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name_output (str):  The name of the output port. If not set, or :code:`None`,</span>
+<span class="sd">                                the value of :code:`OUT1` will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name_output</span> <span class="o">=</span> <span class="s2">&quot;OUT1&quot;</span> <span class="k">if</span> <span class="n">name_output</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name_output</span>
+        <span class="k">assert</span> <span class="n">name_output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="s2">&quot;No such output &#39;</span><span class="si">%s</span><span class="s2">&#39; in </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name_output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPath</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">name_output</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getSignals"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getSignals">[docs]</a>    <span class="k">def</span> <span class="nf">getSignals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtains all the signals of the block.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dictionary of :code:`output port name -&gt; list of signals`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span></div>
+
+<div class="viewcode-block" id="BaseBlock.clearSignals"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.clearSignals">[docs]</a>    <span class="k">def</span> <span class="nf">clearSignals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getDependencies"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getDependencies">[docs]</a>    <span class="k">def</span> <span class="nf">getDependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function to help the creation of the dependency graph.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            curIteration (int): The current simulation&#39;s iteration, for which</span>
+<span class="sd">                                the dependency graph must be constructed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TO IMPLEMENT: this is a helper function you can use to create the dependency graph...</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">block</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getBlockConnectedToInput"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getBlockConnectedToInput">[docs]</a>    <span class="k">def</span> <span class="nf">getBlockConnectedToInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_port</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the block that is connected to a specific input.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            input_port (str):   The name of the input port.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">input_port</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getInputSignal"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getInputSignal">[docs]</a>    <span class="k">def</span> <span class="nf">getInputSignal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_port</span><span class="o">=</span><span class="s2">&quot;IN1&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the signal sent out by the input block.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            curIteration (int):     The iteration at which the signal is obtained.</span>
+<span class="sd">                                    When :code:`None` or :code:`-1`, the last value</span>
+<span class="sd">                                    will be used.</span>
+<span class="sd">            input_port (str):       The name of the input port. If omitted, or when</span>
+<span class="sd">                                    :code:`None`, the value of :code:`IN1` will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">incoming_block</span><span class="p">,</span> <span class="n">out_port_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">input_port</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">incoming_block</span><span class="o">.</span><span class="n">getSignal</span><span class="p">(</span><span class="n">out_port_name</span><span class="p">)[</span><span class="n">curIteration</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseBlock.getPath"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.getPath">[docs]</a>    <span class="k">def</span> <span class="nf">getPath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets the path of the current block.</span>
+<span class="sd">        This includes the paths from its parents. When the block has no parents</span>
+<span class="sd">        i.e. when it&#39;s the top-level block, the block&#39;s name is returned.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sep (str):  The separator to use. Defaults to :code:`.`</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The full path as a string.</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            A block called :code:`grandchild`, which is located in the :code:`child` CBD,</span>
+<span class="sd">            that in its turn is located in this CBD has a path of :code:`child.grandchild`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BaseBlock.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes this block&#39;s operation, based on its inputs and store it as an output</span>
+<span class="sd">        signal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            curIteration (int): The iteration at which we must compute this value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;BaseBlock has nothing to compute&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseBlock.linkInput"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.linkInput">[docs]</a>    <span class="k">def</span> <span class="nf">linkInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_block</span><span class="p">,</span> <span class="n">name_input</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name_output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Links the output of the :code:`from_block` to the input of the :code:`to_block`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            in_block (BaseBlock):   The block that must be linked.</span>
+<span class="sd">            name_input (str):       The name of the input port. When :code:`None` or omitted,</span>
+<span class="sd">                                    the next input port is used. E.g. if the last port was</span>
+<span class="sd">                                    :code:`IN1`, the input is assumed to be :code:`IN2`.</span>
+<span class="sd">            name_output (str):      The name of the output port. Defaults to :code:`OUT1`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name_output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name_output</span> <span class="o">=</span> <span class="s2">&quot;OUT1&quot;</span>
+        <span class="k">if</span> <span class="n">name_input</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">name_input</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span><span class="p">,</span> <span class="s2">&quot;Cannot link blocks, no such input &#39;</span><span class="si">%s</span><span class="s2">&#39; in </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name_input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPath</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">name_input</span><span class="p">]</span> <span class="o">=</span> <span class="n">InputLink</span><span class="p">(</span><span class="n">in_block</span><span class="p">,</span> <span class="n">name_output</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">nextIn</span> <span class="o">=</span> <span class="s2">&quot;IN&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">nextIn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nameLinks</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">nextIn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">nextIn</span><span class="p">]</span> <span class="o">=</span> <span class="n">InputLink</span><span class="p">(</span><span class="n">in_block</span><span class="p">,</span> <span class="n">name_output</span><span class="p">)</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">exit</span><span class="p">(</span><span class="s2">&quot;There are no open IN inputs left in block </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockType</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="BaseBlock.info"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.BaseBlock.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string with the block&#39;s details.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            indent (int):   The amount of indentation that is required at the</span>
+<span class="sd">                            start of each line. Defaults to 0.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="n">indent</span>
+        <span class="nb">repr</span> <span class="o">=</span> <span class="n">idt</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockType</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">repr</span> <span class="o">+=</span> <span class="n">idt</span> <span class="o">+</span> <span class="s2">&quot;  No incoming connections to IN ports</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">in_block</span><span class="p">,</span> <span class="n">out_port</span><span class="p">))</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="nb">repr</span> <span class="o">+=</span> <span class="n">idt</span> <span class="o">+</span> <span class="s2">&quot;  On input &quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">in_block</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">in_block</span><span class="o">.</span><span class="n">getBlockType</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="nb">repr</span></div>
+
+    <span class="k">def</span> <span class="nf">_rewind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rewinds the CBD model to the previous iteration.</span>
+
+<span class="sd">        Danger:</span>
+<span class="sd">            Normally, this function should only be used by the internal mechanisms</span>
+<span class="sd">            of the CBD simulator, **not** by a user. Using this function without a</span>
+<span class="sd">            full understanding of the simulator may result in undefined behaviour.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">signal</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSignals</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__signals</span><span class="p">[</span><span class="n">signal</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="InputPortBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.InputPortBlock">[docs]</a><span class="k">class</span> <span class="nc">InputPortBlock</span><span class="p">(</span><span class="n">BaseBlock</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The input port of a CBD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="s2">&quot;OUT1&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+<div class="viewcode-block" id="InputPortBlock.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.InputPortBlock.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appendToSignal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getInputSignal</span><span class="p">(</span><span class="n">curIteration</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span></div>
+
+
+<div class="viewcode-block" id="OutputPortBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.OutputPortBlock">[docs]</a><span class="k">class</span> <span class="nc">OutputPortBlock</span><span class="p">(</span><span class="n">BaseBlock</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The output port of a CBD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;IN1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;OUT1&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+<div class="viewcode-block" id="OutputPortBlock.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.OutputPortBlock.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appendToSignal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInputSignal</span><span class="p">(</span><span class="n">curIteration</span><span class="p">,</span> <span class="s2">&quot;IN1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span></div>
+
+
+<div class="viewcode-block" id="WireBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.WireBlock">[docs]</a><span class="k">class</span> <span class="nc">WireBlock</span><span class="p">(</span><span class="n">BaseBlock</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    When a CBD gets flattened, the port blocks will be replaced by a wire block</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;IN1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;OUT1&quot;</span><span class="p">])</span>
+
+<div class="viewcode-block" id="WireBlock.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.WireBlock.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appendToSignal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInputSignal</span><span class="p">(</span><span class="n">curIteration</span><span class="p">,</span> <span class="s2">&quot;IN1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SequenceBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.SequenceBlock">[docs]</a><span class="k">class</span> <span class="nc">SequenceBlock</span><span class="p">(</span><span class="n">BaseBlock</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple Sequence block: block initializes signal input with given sequence</span>
+<span class="sd">    Use only for the tests please</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="n">sequence</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="s2">&quot;OUT1&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__sequence</span> <span class="o">=</span> <span class="n">sequence</span>
+
+<div class="viewcode-block" id="SequenceBlock.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.SequenceBlock.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__sequence</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">curIteration</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Sequence is not long enough&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">appendToSignal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__sequence</span><span class="p">[</span><span class="n">curIteration</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="CBD"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD">[docs]</a><span class="k">class</span> <span class="nc">CBD</span><span class="p">(</span><span class="n">BaseBlock</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The CBD class, contains an entire Causal Block Diagram</span>
+<span class="sd">    Call the run function to simulate the model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="n">input_ports</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_ports</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">input_ports</span> <span class="o">=</span> <span class="n">input_ports</span> <span class="k">if</span> <span class="n">input_ports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="n">output_ports</span> <span class="o">=</span> <span class="n">output_ports</span> <span class="k">if</span> <span class="n">output_ports</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_name</span><span class="p">,</span> <span class="n">input_ports</span><span class="p">,</span> <span class="n">output_ports</span><span class="p">)</span>
+        <span class="c1"># The blocks in the CBD will be stored both</span>
+        <span class="c1"># -as an ordered list __blocks and</span>
+        <span class="c1"># -as a dictionary __blocksDict with the blocknames as keys</span>
+        <span class="c1"># for fast name-based retrieval and to ensure block names are unique within a single CBD</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__clock</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">input_port</span> <span class="ow">in</span> <span class="n">input_ports</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">InputPortBlock</span><span class="p">(</span><span class="n">input_port</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">output_port</span> <span class="ow">in</span> <span class="n">output_ports</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">OutputPortBlock</span><span class="p">(</span><span class="n">output_port</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+
+        <span class="c1"># TODO: automatically add Clock?</span>
+
+<div class="viewcode-block" id="CBD.addInputPort"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.addInputPort">[docs]</a>    <span class="k">def</span> <span class="nf">addInputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="n">addInputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">InputPortBlock</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="CBD.addOutputPort"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.addOutputPort">[docs]</a>    <span class="k">def</span> <span class="nf">addOutputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">BaseBlock</span><span class="o">.</span><span class="n">addOutputPort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">OutputPortBlock</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="CBD.clone"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.clone">[docs]</a>    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="n">BaseBlock</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># other.setClock(deepcopy(self.getClock()))</span>
+        <span class="n">other</span><span class="o">.</span><span class="n">clearBlocks</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">other</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">name_input</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">getLinksIn</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">other</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">(),</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">(),</span> <span class="n">name_input</span><span class="p">,</span> <span class="n">link</span><span class="o">.</span><span class="n">output_port</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">other</span></div>
+
+<div class="viewcode-block" id="CBD.getTopCBD"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getTopCBD">[docs]</a>    <span class="k">def</span> <span class="nf">getTopCBD</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the highest-level :class:`CBD` instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getTopCBD</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CBD.flatten"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.flatten">[docs]</a>    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">psep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Flatten the CBD parent and call flatten recursively for CBD&#39;s in this CBD</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            parent (CBD):   Reference to the parent. Used for the recursive call.</span>
+<span class="sd">                            Defaults to :code:`None`. Users should ignore this parameter.</span>
+<span class="sd">            ignore (iter):  Block class names to ignore in the flattening. When :code:`None`,</span>
+<span class="sd">                            no blocks are ignored. Defaults to :code:`None`.</span>
+<span class="sd">            psep (str):     The path separator to use. Defaults to :code:`&quot;.&quot;`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ignore</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ignore</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">blocksToRemove</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">blocksToAdd</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">childBlock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">childBlock</span><span class="p">,</span> <span class="n">InputPortBlock</span><span class="p">):</span>
+                <span class="c1"># Replace InputPortBlock with WireBlock</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="n">WireBlock</span><span class="p">(</span><span class="n">childBlock</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span>
+
+                <span class="c1"># Replace links going out of inputportblock</span>
+                <span class="n">blocksToRemove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">childBlock</span><span class="p">)</span>
+                <span class="n">blocksToAdd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+                        <span class="k">for</span> <span class="n">input_name</span><span class="p">,</span> <span class="n">output_port</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">output_port</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">block</span> <span class="o">==</span> <span class="n">childBlock</span><span class="p">]:</span>
+                            <span class="n">b</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">input_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">InputLink</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="s2">&quot;OUT1&quot;</span><span class="p">)</span>
+
+                    <span class="nb">input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">wb</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()]</span>
+                    <span class="n">parent</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">block</span><span class="p">,</span> <span class="n">wb</span><span class="p">,</span> <span class="n">output_port_name</span><span class="o">=</span><span class="nb">input</span><span class="o">.</span><span class="n">output_port</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">childBlock</span><span class="p">,</span> <span class="n">OutputPortBlock</span><span class="p">):</span>
+                <span class="c1"># Replace OutputPortBlock with WireBlock</span>
+                <span class="n">wb</span> <span class="o">=</span> <span class="n">WireBlock</span><span class="p">(</span><span class="n">childBlock</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span>
+                <span class="n">blocksToRemove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">childBlock</span><span class="p">)</span>
+                <span class="n">blocksToAdd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wb</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">childBlock</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">wb</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+                <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># blocks connected to this output</span>
+                    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">parent</span><span class="o">.</span><span class="n">__blocks</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="p">(</span><span class="n">portname</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">_linksIn</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                            <span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">block</span> <span class="o">==</span> <span class="bp">self</span> <span class="ow">and</span> <span class="nb">input</span><span class="o">.</span><span class="n">output_port</span> <span class="o">==</span> <span class="n">wb</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">():</span>
+                                <span class="n">b</span><span class="o">.</span><span class="n">_linksIn</span><span class="p">[</span><span class="n">portname</span><span class="p">]</span> <span class="o">=</span> <span class="n">InputLink</span><span class="p">(</span><span class="n">wb</span><span class="p">,</span> <span class="s2">&quot;OUT1&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">childBlock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">childBlock</span><span class="p">,</span> <span class="n">CBD</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">childBlock</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ignore</span><span class="p">)):</span>
+                <span class="n">childBlock</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">psep</span><span class="p">)</span>
+                <span class="n">blocksToRemove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">childBlock</span><span class="p">)</span>
+
+        <span class="c1"># Delete blocksToRemove</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocksToRemove</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">removeBlock</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blocksToAdd</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Add all components to parent, do not copy blocksToRemove</span>
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blocksToRemove</span><span class="p">]:</span>
+                <span class="n">block</span><span class="o">.</span><span class="n">setBlockName</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span> <span class="o">+</span> <span class="n">psep</span> <span class="o">+</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span>
+                <span class="n">parent</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">block</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.getBlocks"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getBlocks">[docs]</a>    <span class="k">def</span> <span class="nf">getBlocks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the list of blocks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span></div>
+
+<div class="viewcode-block" id="CBD.getBlockByName"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getBlockByName">[docs]</a>    <span class="k">def</span> <span class="nf">getBlockByName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a block by its name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): The block&#39;s name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="CBD.hasBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.hasBlock">[docs]</a>    <span class="k">def</span> <span class="nf">hasBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the CBD has a block with the given name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): The name of the block to check.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span></div>
+
+<div class="viewcode-block" id="CBD.clearBlocks"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.clearBlocks">[docs]</a>    <span class="k">def</span> <span class="nf">clearBlocks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clears the block information. Calling this function will</span>
+<span class="sd">        &quot;empty&quot; the current block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CBD.getClock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getClock">[docs]</a>    <span class="k">def</span> <span class="nf">getClock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the current simulation clock.</span>
+<span class="sd">        This will always be the block of the highest-level :class:`CBD`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__clock</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getClock</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CBD.addFixedRateClock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.addFixedRateClock">[docs]</a>    <span class="k">def</span> <span class="nf">addFixedRateClock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;clock&quot;</span><span class="p">,</span> <span class="n">delta_t</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a clock with a fixed rate.</span>
+
+<span class="sd">        Two blocks are added to the simulation: a :class:`Clock` and a</span>
+<span class="sd">        :class:`ConstantBlock` for the rate. Their names will be :code:`&lt;prefix&gt;-&lt;what&gt;`,</span>
+<span class="sd">        where :code:`&lt;what&gt;` identifies the purpose of the block (which is one of</span>
+<span class="sd">        :code:`clock` or :code:`delta`).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            prefix (str):       The prefix for the names of the blocks.</span>
+<span class="sd">                                Defaults to :code:`&quot;clock&quot;`.</span>
+<span class="sd">            delta_t (float):    The interval when the clock must tick.</span>
+<span class="sd">                                Defaults to 1.</span>
+<span class="sd">            start_time (float): The time at which the simulation starts.</span>
+<span class="sd">                                Defaults to 0.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Whenever this function is not called, upon simulation start a clock</span>
+<span class="sd">            is added with the default values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">Clock</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-clock&quot;</span> <span class="o">%</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">start_time</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="n">ConstantBlock</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-delta&quot;</span> <span class="o">%</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-delta&quot;</span> <span class="o">%</span> <span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-clock&quot;</span> <span class="o">%</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">input_port_name</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.addBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.addBlock">[docs]</a>    <span class="k">def</span> <span class="nf">addBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a block to the CBD model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">BaseBlock</span><span class="p">),</span> <span class="s2">&quot;Can only add BaseBlock (subclass) instances to a CBD&quot;</span>
+        <span class="n">block</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()]</span> <span class="o">=</span> <span class="n">block</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">Clock</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__clock</span> <span class="o">=</span> <span class="n">block</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: did not add this block as it has the same name </span><span class="si">%s</span><span class="s2"> as an already existing block&quot;</span> <span class="o">%</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="CBD.removeBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.removeBlock">[docs]</a>    <span class="k">def</span> <span class="nf">removeBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes a block from the :class:`CBD`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            block (BaseBlock):  The block to remove.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">BaseBlock</span><span class="p">),</span> <span class="s2">&quot;Can only delete BaseBlock (subclass) instances to a CBD&quot;</span>
+
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__blocks</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()])</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Warning: did not remove this block </span><span class="si">%s</span><span class="s2"> as it was not found&quot;</span> <span class="o">%</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="CBD.addConnection"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.addConnection">[docs]</a>    <span class="k">def</span> <span class="nf">addConnection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_block</span><span class="p">,</span> <span class="n">to_block</span><span class="p">,</span> <span class="n">input_port_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_port_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a connection between :code:`from_block` with :code:`input_port_name` to</span>
+<span class="sd">        :code:`to_block` with :code:`outport_port_name`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            from_block (BaseBlock): The block to start the connection from.</span>
+<span class="sd">            to_block (BaseBlock):   The target block of the connection.</span>
+<span class="sd">            input_port_name (str):  The name of the input port. When :code:`None` or unset,</span>
+<span class="sd">                                    the next port is used. E.g. when called after :code:`IN1`</span>
+<span class="sd">                                    is already set, :code:`IN2` will be used.</span>
+<span class="sd">            output_port_name (str): The name of the output port. When not set or :code:`None`,</span>
+<span class="sd">                                    :code:`OUT1` will be used.</span>
+
+<span class="sd">        See Also:</span>
+<span class="sd">            :func:`BaseBlock.linkInput`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">from_block</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">from_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockByName</span><span class="p">(</span><span class="n">from_block</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">to_block</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">to_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockByName</span><span class="p">(</span><span class="n">to_block</span><span class="p">)</span>
+        <span class="n">to_block</span><span class="o">.</span><span class="n">linkInput</span><span class="p">(</span><span class="n">from_block</span><span class="p">,</span> <span class="n">input_port_name</span><span class="p">,</span> <span class="n">output_port_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.findBlock"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.findBlock">[docs]</a>    <span class="k">def</span> <span class="nf">findBlock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtain a block in a submodel of this CBD.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path (str): The path of the block to find. Empty string for the current block,</span>
+<span class="sd">                        :code:`child.grandchild` for the block called code:`grandchild`,</span>
+<span class="sd">                        which is located in the :code:`child` CBD that is located in this CBD.</span>
+<span class="sd">            sep (str):  The path separator to use. Defaults to :code:`.`</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The block that corresponds to the given path.</span>
+
+<span class="sd">            .. note::   The block that will be returned has a different path than the path provided</span>
+<span class="sd">                        in this function call. This is because this function assumes you already have</span>
+<span class="sd">                        a path to the CBD you call it on. For instance, if this CBD contains a child</span>
+<span class="sd">                        called :code:`child`, which has a :code:`grandchild` block in its turn, calling</span>
+<span class="sd">                        findBlock on the :class:`child` to locate the :code:`grandchild` only needs</span>
+<span class="sd">                        :code:`grandchild` to be passed as a path. If the function is called on the</span>
+<span class="sd">                        current CBD block instead, :code:`child.grandchild` is required to obtain the</span>
+<span class="sd">                        same block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">__blocksDict</span><span class="p">:</span>
+                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">getBlockByName</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot find block &#39;</span><span class="si">{}</span><span class="s2">&#39; in &#39;</span><span class="si">{}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">cur</span><span class="o">.</span><span class="n">getPath</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="n">cur</span><span class="p">,</span> <span class="n">path</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;CBD &lt;</span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span>
+
+<div class="viewcode-block" id="CBD.info"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">det</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">)</span> <span class="o">+</span> <span class="n">BaseBlock</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">det</span> <span class="o">+=</span> <span class="n">block</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">det</span></div>
+
+<div class="viewcode-block" id="CBD.dump"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Dumps the model information to the console.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========== Start of Model Dump ===========&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========== End of Model Dump =============</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.dumpSignals"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.dumpSignals">[docs]</a>    <span class="k">def</span> <span class="nf">dumpSignals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Dumps the signal inromation to the console.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========== Start of Signals Dump ===========&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">(),</span> <span class="n">block</span><span class="o">.</span><span class="n">getBlockType</span><span class="p">()))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">getSignal</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========== End of Signals Dump =============</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.getSignal"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getSignal">[docs]</a>    <span class="k">def</span> <span class="nf">getSignal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">name_output</span> <span class="o">=</span> <span class="s2">&quot;OUT1&quot;</span> <span class="k">if</span> <span class="n">name_output</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name_output</span>
+        <span class="n">portBlock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlockByName</span><span class="p">(</span><span class="n">name_output</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">portBlock</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">portBlock</span><span class="o">.</span><span class="n">getSignal</span><span class="p">(</span><span class="s2">&quot;OUT1&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CBD.getSignals"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getSignals">[docs]</a>    <span class="k">def</span> <span class="nf">getSignals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getSignals</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">port</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSignal</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="CBD.clearSignals"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.clearSignals">[docs]</a>    <span class="k">def</span> <span class="nf">clearSignals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">block</span><span class="o">.</span><span class="n">clearSignals</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CBD.compute"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curIteration</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="nf">_rewind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">():</span>
+            <span class="n">block</span><span class="o">.</span><span class="n">_rewind</span><span class="p">()</span>
+
+<div class="viewcode-block" id="CBD.getUniqueBlockName"><a class="viewcode-back" href="../../CBD.Core.html#CBD.Core.CBD.getUniqueBlockName">[docs]</a>    <span class="k">def</span> <span class="nf">getUniqueBlockName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fetches a name that is unique within the given model.</span>
+<span class="sd">        This name is in the form :code:`&lt;prefix&gt;&lt;suffix&gt;`. The suffix is the</span>
+<span class="sd">        string representation of a unique identifier. This identifier is</span>
+<span class="sd">        continuously increased and tested.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            prefix (str):   The prefix of the name to fetch. When a valid</span>
+<span class="sd">                            name by itself, this will be returned, ignoring</span>
+<span class="sd">                            any suffix. Defaults to the empty string.</span>
+<span class="sd">            hash (bool):    When :code:`True`, the current object id will be</span>
+<span class="sd">                            used as a starting point for the identifier.</span>
+<span class="sd">                            Additionally, the :func:`CBD.util.hash64` function</span>
+<span class="sd">                            will be used for the suffix representation. When</span>
+<span class="sd">                            :code:`False`, the identifier will start at 1 and</span>
+<span class="sd">                            no hashing will be done. Defaults to :code:`False`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">getBlockName</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getBlocks</span><span class="p">()])</span>
+        <span class="n">uid</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">hash</span><span class="p">:</span>
+            <span class="n">uid</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="k">while</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hash</span><span class="p">:</span>
+                <span class="n">suffix</span> <span class="o">=</span> <span class="n">hash64</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">suffix</span>
+            <span class="n">uid</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">name</span></div></div>
+
+
+<span class="kn">from</span> <span class="nn">.lib.std</span> <span class="kn">import</span> <span class="n">Clock</span><span class="p">,</span> <span class="n">ConstantBlock</span>
+</pre></div>
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Randy Paredis.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="catalyst-content-right" id="catalyst-content-right">
+          <div class="catalyst-right-menu" id="catalyst-right-menu">
+            <div class="catalyst-side-scroll" id="catalyst-side-scroll-right">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+         <script type="text/javascript" src="../../_static/jquery.js"></script>
+         <script type="text/javascript" src="../../_static/underscore.js"></script>
+         <script type="text/javascript" src="../../_static/doctools.js"></script>
+         <script type="text/javascript" src="../../_static/language_data.js"></script>
+         <script type="text/javascript" src="../../_static/math.js"></script>
+         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://catalyst-team.com/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Ecosystem</a></li>
+            <li><a class="nav-dropdown-item" href="https://alchemy.host">Alchemy</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">Catalyst</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">Reaction</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Projects</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">Codestyle</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">Catalyst.Neuro</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">Classification</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">Detection</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">Segmentation</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">Catalyst.GAN</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://catalyst-team.com/">Support</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+            <li><a href="https://www.patreon.com/catalyst_team" target="_blank">Patreon</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <div class="footer-social-icons">
+            <a href="https://t.me/catalyst_team" target="_blank" class="telegram"></a>
+            <a href="https://twitter.com/catalyst_core" target="_blank" class="twitter"></a>
+            <a href="https://join.slack.com/t/catalyst-team-core/shared_invite/zt-d9miirnn-z86oKDzFMKlMG4fgFdZafw" target="_blank" class="ods"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/catalyst">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      catalystAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.catalyst-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

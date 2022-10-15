@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0065)http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/PN -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<!--<base href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/PN/">--><base href=".">
+
+ 
+ <meta name="author" content="Hans Vangheluwe">
+ <meta name="generator" content="None">
+ <link rel="stylesheet" type="text/css" href="./Petri-Net Assignment_files/standard_msdl_style.css" title="MSDL stylesheet">
+ <link rel="shortcut icon" href="http://msdl.uantwerpen.be/images/favicon.ico">
+ <title>Petri-Net Assignment</title>
+</head>
+<body bgcolor="#ffffff" class="vsc-initialized">
+
+<div class="portlet">    
+ <div class="portletBody">
+
+     <table border="0" cellpadding="4" cellspacing="0" width="100%" summary="table for MSDL standard page banner">
+
+ <tbody><tr>
+<!--  
+  <td valign="top" width="214" align="left">
+   <a href="http://msdl.cs.mcgill.ca/"><img border="0" src="/images/MSDLlogo.2.small.gif" align="left"></a>
+  </td>
+-->
+
+  <td valign="middle" align="right" width="100%" cellpadding="3">
+   <div class="pagetitle">Petri-Net Assignment&nbsp;</div>
+  </td>
+ </tr>
+
+</tbody></table>
+
+
+  
+  
+ </div>
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" summary="home page" width="100%">
+ <tbody><tr>
+  <td valign="top" align="left">
+
+
+  <div class="portlet">
+    <h2>Practical Information</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+
+            <li> <b>Due Date:</b> 24 November before 23:55.</li>
+
+            <li> <b>Team Size:</b> 2 (pair design/programming)!<br>
+            <i>Note that as of the 2017-2018 Academic Year, each International student should team up with "local"
+              (i.e., whose Bachelor degree was obtained at the University of Antwerp).</i></li>
+
+            <li> <b>Submission Information:</b>
+              <em>Only one</em> member of each team submits a full solution. This must be a compressed archive (<tt>ZIP</tt>, <tt>RAR</tt>, <tt>TAR.GZ</tt>...) that includes your report and all models, images, code and other sources that you have used to crate your solution. The report must be called <tt>index.html</tt>. Make sure to mention the names and student IDs of all the team members.
+              The other team member <em>must</em> submit a single <tt>HTML</tt> file containing <em>only</em> the coordinates of both team members. This will allow us to put in grades for both team members in BlackBoard.
+            </li>
+
+            <li> <b>Submission Medium:</b>
+              <a href="http://blackboard.uantwerpen.be/">BlackBoard</a>. Beware that BlackBoard's clock may differ slightly from yours. If BlackBoard is not reachable due to an (unpredicted) maintenance, you submit your solution via e-mail to the TA. Make sure all group members are in CC.
+            </li>
+
+            <li> <b>Contact / TA:</b>
+                <a href="mailto:Randy.Paredis@uantwerpen.be">Randy Paredis</a>.
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+
+    <h2>Goals</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          In this assignment, you will learn how Petri-Nets can be used to do safety analysis. You will learn how they can be built, as well as how state-space exploration can be done by means of a CTL query language. This solution is to be made with <a href="https://www.tapaal.net/" target="_blank">TAPAAL</a>. Make sure to clearly indicate which files implement which models in your report. This assignment expands on the PRT case from previous assignments. <b>Carefully read and understand the full assignment before starting your solution!</b>
+        </p>
+      </div>
+    </div>
+
+    <h2>Problem Statement</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          The figure below gives an example of a small PRT map with 6 stations (circles) and 3 lights (squares with the letter "<tt>L</tt>"). The arrows represent the direction in which the rail should be followed. Note that each station is reachable from every other station (i.e., you can drive in an "8"-shape). An "<tt>X</tt>" identifies that there is currently a trolley in that station. We would like to analyze the safety of this railroad, for which we will use Petri-Nets.
+          </p><center><img src="./Petri-Net Assignment_files/railroad.svg"></center>
+        <p></p>
+        <p>
+          For simplicity reasons, the notion of a "<i>track</i>" is introduced. A track is a simple railway segment over which a single trolly can ride. If two trolleys find themselves on a single track, we will assume they have collided. This allows us to simplify the above figure in terms of tracks: each station and light will be represented by a simple track. In total you should get 9 tracks.
+          </p><ul>
+            <li>
+              A light is a special kind of track. If the light is "red", no trolleys may pass. If the light is "green", all trolleys can pass. The top and bottom lights start at "red" in the model's initial state, whereas the middle light starts at "green". Each "iteration" of the system, a light should change its color.
+            </li>
+            <li>
+              The trajectory has one "<i>merge</i>" and one "<i>split</i>". Keep this in mind when creating your model. The trolleys are free to choose which branch of the split they take (i.e., they can travel in an "8"-shape).
+            </li>
+          </ul>
+        <p></p>
+        <p>
+          We can simulate this system by defining a "<i>clock</i>". Every time this clock "ticks", the following events occur:
+          </p><ol>
+            <li>All trolleys must move to the next track, unless prevented by a red light.</li>
+            <li>The lights change from "red" to "green" or from "green" to "red".</li>
+          </ol>
+        <p></p>
+        <p>
+          To construct a Petri-Net of the given rail network, you will use <a href="https://www.tapaal.net/" target="_blank">TAPAAL</a> and its features. When creating a model, <em>it is not allowed to use time or game semantics</em>. In other words, you are only allowed to use <i>Places</i>, <i>Transitions</i>, <i>(Inhibitor) Arcs</i> and <i>Tokens</i>. Make sure to check that "timed" and "game" are set to "No" in the bottom-right corner of the GUI. When creating a new model, you can select this as well from the pop-up modal.
+          </p><center><img src="./Petri-Net Assignment_files/tapaal-modal.png"></center>
+        <p></p>
+        <p>
+          You can (and should) make use of <i>Global Constants</i> for arc weights. Additionally, you are <em>required</em> to use multiple components to describe your system. Each component should contain a <em>representative</em> subset of the system you are building, but make sure to not overdo this (i.e., do not create a component for every track). This allows you to maintain an overview, whilst also creating much cleaner nets. Use <i>Shared Places</i> to define interactions between multiple components.<br>
+          <i>Hint: If you do not see the "Components", "Shared Places and Transitions" and "Global Constants" sections on the lefthand-side of your screen, select "View" &gt; "Show advanced workspace". Alternatively, you can enable these sections by checking the corresponding boxes in the "View" menu.</i>
+          </p><center><img src="./Petri-Net Assignment_files/tapaal-workspace.png"></center>
+        <p></p>
+
+      </div>
+    </div>
+
+    <h2>Tasks</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          You will need to perform the following tasks step by step. Store (and submit) a copy of your model after each finished (sub-)task.
+          </p><ol>
+            <li>
+              Create and describe a Petri-Net for the railroad system. Clearly identify all the aspects of the system and all used components.
+              <ul>
+                <li>(10%) Describe and validly construct a single rail track/segment. What happens when this is a light?</li>
+                <li>(10%) Construct the full railroad.</li>
+                <li>
+                  (15%) Introduce the clock into your model. Make sure the required events (see above) only happen <em>exactly once</em> for each "tick". Clearly describe what is used to accomodate for the introduction of the clock.
+                </li>
+              </ul>
+            </li>
+            <li>
+              (20%) Provide a trace for the following scenarios. You are free to choose another initial position for the trolley(s).
+              <ul>
+                <li>A trolley traveling for at least 2 tracks before passing through a light that is red when the trolley arrives there.</li>
+                <li>A trolley that travels in a single "8"-shape over the network, without ever seeing a red light.</li>
+              </ul>
+            </li>
+            <li>
+              Use <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/PN/RC.py">this Python script</a> to do some preliminary analysis for the system. Take a look at the documentation at the top of the file for more info on how to execute the script. Clearly indicate which commands were used to generate your results.
+              <ul>
+                <li>
+                  (5%) Reachability / Coverability:
+                  <ul>
+                    <li>Argue why your solution would (not) produce an infinite reachability graph.</li>
+                    <li>Generate the reachability graph and discuss any patterns you identify. If your reachability graph is infinite, generate the graph for a representative subset of your model instead.</li>
+                    <li>Can you add/remove a place/transition such that the reachability graph becomes finite if it was infinite (or vice-versa)? Your new model does not have to conform to the requirements.</li>
+                    <li>Generate the coverability graph and discuss any patterns you identify.</li>
+                  </ul>
+                </li>
+                <li>
+                  (5%) Invariant Analysis:
+                  <ul>
+                    <li>Generate the P-invariants for the model and explain what they mean in terms of the railroad.</li>
+                    <li>Which invariants did you expect? Which ones are surprising? Why?</li>
+                    <li>Can you add a single place or transition to the model that changes these invariants (for the better or the worse)? Your new model does not have to conform to the requirements.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Use queries in TAPAAL to analyze the following aspects of the PRT:
+              <ul>
+                <li>
+                  (5%) Boundedness:
+                  <ul>
+                    <li>
+                      Do not use the "<i>Check Boundedness</i>" to analyze the model's boundedness. There is currently a bug in TAPAAL that breaks this feature.
+                      <!--"<i>Number of extra tokens</i>" identifies how many additional tokens may be used in the analysis. For instance, if the net contains 7 tokens and this value is set to 3, the 10-boundedness is analyzed. Is the result what you expected? Why (not)?-->
+                    </li>
+                    <li>
+                      Use one or multiple queries to check the boundedness of your net. You may use logic, reasoning and the already obtained P-invariants to simplify/minimize your queries. Is the result what you expected? Why (not)?
+                    </li>
+                  </ul>
+                </li>
+                <li>(5%) Deadlock:
+                  <ul>
+                    <li>Note that (due to a bug/feature in TAPAAL) the "<tt>deadlock</tt>" predicate is meant to check deadlocks in timed nets, which should not be used in this assignment. When enabling "<i>Some Trace</i>" in the "<i>Trace Options</i>", a simulation trace is opened/shown after verification if it found a sequence of fireings that caused the query to happen. If no such trace was opened, the query failed, even if the popup menu says it didn't.</li>
+                    <li>Use a query to find whether or not there is a deadlock in your net. What fireings cause this to happen? What does this mean for the railroad?</li>
+                    <li>If there is a deadlock, describe how you can modify your net to make it deadlock-free. Can you identify this deadlock in the Reachablity/Coverability graph?</li>
+                    <li>If there isn't a deadlock, describe why there is no deadlock. What would a deadlock look like in the Reachability/Coverability graph?</li>
+                  </ul>
+                </li>
+                <li>
+                  (5%) Liveness:
+                  <ul>
+                    <li>Pick an interesting transitions in your net and determine the their liveness using queries.</li>
+                    <li>Can you add a single place/transition to alter this result?</li>
+                  </ul>
+                </li>
+                <li>
+                  (5%) Fairness:
+                  <ul>
+                    <li>Prove that you've implemented "true" fairness.</li>
+                    <li>This means that for each clock event can only happen once for every clock tick. For instance, it is not possible for a trolley to move two tracks in a single clock tick.</li>
+                    <li>Your proof may consist of examples, queries, logical statements... As long as you can validly and objectively argue that there is "true" fairness, this will be accepted.</li>
+                  </ul>
+                </li>
+                <li>
+                  (5%) Safety:
+                  <ul>
+                    <li>Can two trolleys crash? Why (not)?</li>
+                    <li>Provide a trace in which the trolley do crash. If they can't, prove (using queries, logic reasoning, already obtained results...) that this is impossible in your net.</li>
+                    <li>Can you find an acceptable initial marking such that there is a trolley collision?</li>
+                    <li>Can you find a way to add a single transition/place such that there is a possibility for crashes?</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li> (10%) Write a report that explains your solution for this assigment. Include your models and discuss them. Also clearly indicate which models can be found in which files. Make sure to mention all your hypotheses, assumptions and conclusions. See also the "<i>submission information</i>" at the top of this page. Make sure to have a new model (or set thereof) for every sub-solution of this assignment.</li>
+          </ol>
+        <p></p>
+        <p>
+          Take pride in your work. Make sure your report and all models and images are clearly readable. In TAPAAL, you can make use of annotations to identify sections of your models. You will not lose points for doing too much, but you will lose points if you do too little.
+        </p>
+      </div>
+    </div>
+
+    <h2>Practical Issues</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+            <li>This assignment is to be solved with <a href="https://www.tapaal.net/" target="_blank">TAPAAL</a>.</li>
+            <li>Reachability, coverability and P-invariant analysis are not part of TAPAAL, but should be solved by using <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/PN/RC.py">this Python 3.6+ script</a>. The documentation at the top of the file provides the required information on how to use it. Note that TAPAAL sometimes introduces inconsistencies in large models. They can cause the warning "<tt>No such place %s reachable from %s. Please recreate both to make your model valid.</tt>" to appear. To solve this issue, delete and recreate both listed transitions. Use the <tt>-g</tt> or <tt>--graphviz</tt> flag to create a GraphViz file for the internal net to verify inconsistency issues. If you found a bug or experience any issues with the script, please contact the TA.</li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  </td> 
+ </tr>
+</tbody></table>
+
+<img src="./Petri-Net Assignment_files/red.jpg" border="0" width="100%" height="1"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr width="100%">
+  
+ </tr>
+ <tr>
+  <td align="left">Maintained by <a href="http://msdl.cs.mcgill.ca/people/hv">Hans Vangheluwe</a><a>.</a></td>
+  <td align="right">Last Modified: 2021/11/08 14:21:44.</td>
+ </tr>
+</tbody></table>
+
+
+
+</body></html>

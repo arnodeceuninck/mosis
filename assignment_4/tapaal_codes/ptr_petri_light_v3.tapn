@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="top_red_light"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="trolley_semaphore"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="light_semaphore"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="all_trolley_check"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="all_trolley_moved"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="all_light_check"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="all_light_changed"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="bottom_red_light"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="middle_red_light"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station1"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station6"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station7"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station8"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station9"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station4"/>
+  <shared-place initialMarking="1" invariant="&lt; inf" name="station3"/>
+  <shared-place initialMarking="1" invariant="&lt; inf" name="station2"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="station5"/>
+  <shared-place initialMarking="2" invariant="&lt; inf" name="clock_trollies"/>
+  <constant name="trolley_count" value="2"/>
+  <constant name="light_count" value="3"/>
+  <net active="true" id="TAPN1" type="P/T net">
+    <place displayName="true" id="station4" initialMarking="0" invariant="&lt; inf" name="station4" nameOffsetX="0" nameOffsetY="0" positionX="377" positionY="554"/>
+    <place displayName="true" id="station5" initialMarking="0" invariant="&lt; inf" name="station5" nameOffsetX="-11" nameOffsetY="0" positionX="621" positionY="552"/>
+    <place displayName="true" id="station6" initialMarking="0" invariant="&lt; inf" name="station6" nameOffsetX="0" nameOffsetY="0" positionX="854" positionY="546"/>
+    <place displayName="true" id="station9" initialMarking="0" invariant="&lt; inf" name="station9" nameOffsetX="0" nameOffsetY="0" positionX="377" positionY="708"/>
+    <place displayName="true" id="station8" initialMarking="0" invariant="&lt; inf" name="station8" nameOffsetX="0" nameOffsetY="0" positionX="609" positionY="712"/>
+    <place displayName="true" id="station7" initialMarking="0" invariant="&lt; inf" name="station7" nameOffsetX="0" nameOffsetY="0" positionX="840" positionY="716"/>
+    <place displayName="true" id="station1" initialMarking="0" invariant="&lt; inf" name="station1" nameOffsetX="0" nameOffsetY="0" positionX="844" positionY="388"/>
+    <place displayName="true" id="station3" initialMarking="1" invariant="&lt; inf" name="station3" nameOffsetX="0" nameOffsetY="0" positionX="382" positionY="394"/>
+    <place displayName="true" id="station2" initialMarking="1" invariant="&lt; inf" name="station2" nameOffsetX="0" nameOffsetY="0" positionX="618" positionY="386"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="774" positionY="40"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="403" positionY="43"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="589" positionY="50"/>
+    <place displayName="true" id="top_red_light" initialMarking="0" invariant="&lt; inf" name="top_red_light" nameOffsetX="0" nameOffsetY="0" positionX="618" positionY="333"/>
+    <place displayName="true" id="middle_red_light" initialMarking="0" invariant="&lt; inf" name="middle_red_light" nameOffsetX="0" nameOffsetY="0" positionX="617" positionY="499"/>
+    <place displayName="true" id="bottom_red_light" initialMarking="0" invariant="&lt; inf" name="bottom_red_light" nameOffsetX="0" nameOffsetY="0" positionX="604" positionY="664"/>
+    <place displayName="true" id="all_light_check" initialMarking="0" invariant="&lt; inf" name="all_light_check" nameOffsetX="0" nameOffsetY="0" positionX="405" positionY="105"/>
+    <place displayName="true" id="all_light_changed" initialMarking="0" invariant="&lt; inf" name="all_light_changed" nameOffsetX="0" nameOffsetY="0" positionX="585" positionY="105"/>
+    <place displayName="true" id="light_semaphore" initialMarking="0" invariant="&lt; inf" name="light_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="780" positionY="105"/>
+    <place displayName="true" id="clock_trollies" initialMarking="2" invariant="&lt; inf" name="clock_trollies" nameOffsetX="0" nameOffsetY="0" positionX="975" positionY="120"/>
+  </net>
+  <net active="true" id="top_light" type="P/T net">
+    <place displayName="true" id="top_green" initialMarking="1" invariant="&lt; inf" name="top_green" nameOffsetX="0" nameOffsetY="0" positionX="585" positionY="300"/>
+    <place displayName="true" id="top_red_light" initialMarking="0" invariant="&lt; inf" name="top_red_light" nameOffsetX="-8" nameOffsetY="36" positionX="555" positionY="540"/>
+    <place displayName="true" id="light_semaphore" initialMarking="0" invariant="&lt; inf" name="light_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="404" positionY="136"/>
+    <place displayName="true" id="P0" initialMarking="0" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="360" positionY="240"/>
+    <place displayName="true" id="green_free" initialMarking="1" invariant="&lt; inf" name="green_free" nameOffsetX="73" nameOffsetY="45" positionX="345" positionY="345"/>
+    <place displayName="true" id="all_light_changed" initialMarking="0" invariant="&lt; inf" name="all_light_changed" nameOffsetX="0" nameOffsetY="0" positionX="690" positionY="135"/>
+    <place displayName="true" id="all_light_check" initialMarking="0" invariant="&lt; inf" name="all_light_check" nameOffsetX="0" nameOffsetY="0" positionX="555" positionY="135"/>
+    <place displayName="true" id="P4" initialMarking="0" invariant="&lt; inf" name="P4" nameOffsetX="0" nameOffsetY="0" positionX="765" positionY="240"/>
+    <place displayName="true" id="red_free" initialMarking="1" invariant="&lt; inf" name="red_free" nameOffsetX="39" nameOffsetY="-8" positionX="765" positionY="360"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="675" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="465" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="855" positionY="300" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="top_green" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="684" yCoord="320"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="top_red_light" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="558" yCoord="545"/>
+      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="321"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="431" yCoord="158"/>
+      <arcpath arcPointType="false" id="1" xCoord="685" yCoord="310"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="408" yCoord="161"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="307"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="P0" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="260" yCoord="312"/>
+      <arcpath arcPointType="false" id="1" xCoord="361" yCoord="261"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="387" yCoord="262"/>
+      <arcpath arcPointType="false" id="1" xCoord="474" yCoord="315"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="green_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="474" yCoord="320"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="355"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="green_free" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="346" yCoord="353"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="314"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="top_green" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="585" yCoord="315"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="562" yCoord="162"/>
+      <arcpath arcPointType="false" id="1" xCoord="480" yCoord="300"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="692" yCoord="158"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="695" yCoord="310"/>
+      <arcpath arcPointType="false" id="1" xCoord="767" yCoord="263"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P4" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="792" yCoord="263"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="316"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="red_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="792" yCoord="367"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="red_free" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="767" yCoord="366"/>
+      <arcpath arcPointType="false" id="1" xCoord="694" yCoord="315"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="top_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="581" yCoord="545"/>
+    </arc>
+    <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="865" yCoord="309"/>
+      <arcpath arcPointType="false" id="1" xCoord="715" yCoord="160"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="582" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="323"/>
+    </arc>
+  </net>
+  <net active="true" id="bottom_light" type="P/T net">
+    <place displayName="true" id="bottom_green" initialMarking="1" invariant="&lt; inf" name="bottom_green" nameOffsetX="0" nameOffsetY="0" positionX="585" positionY="300"/>
+    <place displayName="true" id="bottom_red_light" initialMarking="0" invariant="&lt; inf" name="bottom_red_light" nameOffsetX="-8" nameOffsetY="36" positionX="555" positionY="540"/>
+    <place displayName="true" id="light_semaphore" initialMarking="0" invariant="&lt; inf" name="light_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="404" positionY="136"/>
+    <place displayName="true" id="P0" initialMarking="0" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="360" positionY="240"/>
+    <place displayName="true" id="green_free" initialMarking="1" invariant="&lt; inf" name="green_free" nameOffsetX="73" nameOffsetY="45" positionX="345" positionY="345"/>
+    <place displayName="true" id="all_light_changed" initialMarking="0" invariant="&lt; inf" name="all_light_changed" nameOffsetX="0" nameOffsetY="0" positionX="690" positionY="135"/>
+    <place displayName="true" id="all_light_check" initialMarking="0" invariant="&lt; inf" name="all_light_check" nameOffsetX="0" nameOffsetY="0" positionX="555" positionY="135"/>
+    <place displayName="true" id="P4" initialMarking="0" invariant="&lt; inf" name="P4" nameOffsetX="0" nameOffsetY="0" positionX="765" positionY="240"/>
+    <place displayName="true" id="red_free" initialMarking="1" invariant="&lt; inf" name="red_free" nameOffsetX="39" nameOffsetY="-8" positionX="765" positionY="360"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="675" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="465" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="855" positionY="300" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="bottom_green" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="684" yCoord="320"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="bottom_red_light" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="558" yCoord="545"/>
+      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="321"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="431" yCoord="158"/>
+      <arcpath arcPointType="false" id="1" xCoord="685" yCoord="310"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="408" yCoord="161"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="307"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="P0" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="260" yCoord="312"/>
+      <arcpath arcPointType="false" id="1" xCoord="361" yCoord="261"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="387" yCoord="262"/>
+      <arcpath arcPointType="false" id="1" xCoord="474" yCoord="315"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="green_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="474" yCoord="320"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="355"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="green_free" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="346" yCoord="353"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="314"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="bottom_green" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="585" yCoord="315"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="562" yCoord="162"/>
+      <arcpath arcPointType="false" id="1" xCoord="480" yCoord="300"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="692" yCoord="158"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="695" yCoord="310"/>
+      <arcpath arcPointType="false" id="1" xCoord="767" yCoord="263"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P4" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="792" yCoord="263"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="316"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="red_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="792" yCoord="367"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="red_free" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="767" yCoord="366"/>
+      <arcpath arcPointType="false" id="1" xCoord="694" yCoord="315"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="bottom_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="581" yCoord="545"/>
+    </arc>
+    <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="865" yCoord="309"/>
+      <arcpath arcPointType="false" id="1" xCoord="715" yCoord="160"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="582" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="323"/>
+    </arc>
+  </net>
+  <net active="true" id="middle_right" type="P/T net">
+    <place displayName="true" id="top_green" initialMarking="1" invariant="&lt; inf" name="top_green" nameOffsetX="0" nameOffsetY="0" positionX="585" positionY="300"/>
+    <place displayName="true" id="middle_red_light" initialMarking="0" invariant="&lt; inf" name="middle_red_light" nameOffsetX="-8" nameOffsetY="36" positionX="555" positionY="540"/>
+    <place displayName="true" id="light_semaphore" initialMarking="0" invariant="&lt; inf" name="light_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="404" positionY="136"/>
+    <place displayName="true" id="P0" initialMarking="0" invariant="&lt; inf" name="P0" nameOffsetX="0" nameOffsetY="0" positionX="360" positionY="240"/>
+    <place displayName="true" id="green_free" initialMarking="1" invariant="&lt; inf" name="green_free" nameOffsetX="73" nameOffsetY="45" positionX="345" positionY="345"/>
+    <place displayName="true" id="all_light_changed" initialMarking="0" invariant="&lt; inf" name="all_light_changed" nameOffsetX="0" nameOffsetY="0" positionX="690" positionY="135"/>
+    <place displayName="true" id="all_light_check" initialMarking="0" invariant="&lt; inf" name="all_light_check" nameOffsetX="0" nameOffsetY="0" positionX="555" positionY="135"/>
+    <place displayName="true" id="P4" initialMarking="0" invariant="&lt; inf" name="P4" nameOffsetX="0" nameOffsetY="0" positionX="765" positionY="240"/>
+    <place displayName="true" id="red_free" initialMarking="1" invariant="&lt; inf" name="red_free" nameOffsetX="39" nameOffsetY="-8" positionX="765" positionY="360"/>
+    <transition angle="0" displayName="true" id="T0" infiniteServer="false" name="T0" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="675" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T2" infiniteServer="false" name="T2" nameOffsetX="0" nameOffsetY="0" player="0" positionX="465" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T3" infiniteServer="false" name="T3" nameOffsetX="0" nameOffsetY="0" player="0" positionX="855" positionY="300" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="top_green" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="614" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="684" yCoord="320"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="middle_red_light" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="558" yCoord="545"/>
+      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="321"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="431" yCoord="158"/>
+      <arcpath arcPointType="false" id="1" xCoord="685" yCoord="310"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="408" yCoord="161"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="307"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T0" target="P0" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="260" yCoord="312"/>
+      <arcpath arcPointType="false" id="1" xCoord="361" yCoord="261"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P0" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="387" yCoord="262"/>
+      <arcpath arcPointType="false" id="1" xCoord="474" yCoord="315"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="green_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="474" yCoord="320"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="355"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="green_free" target="T0" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="346" yCoord="353"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="314"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="top_green" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="585" yCoord="315"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T2" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="562" yCoord="162"/>
+      <arcpath arcPointType="false" id="1" xCoord="480" yCoord="300"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T2" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="484" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="692" yCoord="158"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="P4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="695" yCoord="310"/>
+      <arcpath arcPointType="false" id="1" xCoord="767" yCoord="263"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P4" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="792" yCoord="263"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="316"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="red_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="792" yCoord="367"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="red_free" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="767" yCoord="366"/>
+      <arcpath arcPointType="false" id="1" xCoord="694" yCoord="315"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="middle_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="864" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="581" yCoord="545"/>
+    </arc>
+    <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T3" target="all_light_changed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="865" yCoord="309"/>
+      <arcpath arcPointType="false" id="1" xCoord="715" yCoord="160"/>
+    </arc>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T3" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="582" yCoord="157"/>
+      <arcpath arcPointType="false" id="1" xCoord="864" yCoord="323"/>
+    </arc>
+  </net>
+  <net active="true" id="clock" type="P/T net">
+    <place displayName="false" id="P14" initialMarking="1" invariant="&lt; inf" name="P14" nameOffsetX="0" nameOffsetY="0" positionX="840" positionY="317"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="53" nameOffsetY="51" positionX="840" positionY="497"/>
+    <place displayName="true" id="clock_trollies" initialMarking="2" invariant="&lt; inf" name="clock_trollies" nameOffsetX="-14" nameOffsetY="-5" positionX="960" positionY="257"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="129" nameOffsetY="26" positionX="960" positionY="527"/>
+    <place displayName="true" id="check_lights" initialMarking="0" invariant="&lt; inf" name="check_lights" nameOffsetX="0" nameOffsetY="0" positionX="405" positionY="227"/>
+    <place displayName="true" id="light_semaphore" initialMarking="0" invariant="&lt; inf" name="light_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="405" positionY="527"/>
+    <place displayName="false" id="P24" initialMarking="0" invariant="&lt; inf" name="P24" nameOffsetX="0" nameOffsetY="0" positionX="540" positionY="347"/>
+    <place displayName="true" id="all_light_check" initialMarking="0" invariant="&lt; inf" name="all_light_check" nameOffsetX="0" nameOffsetY="0" positionX="540" positionY="512"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="60" nameOffsetY="42" positionX="765" positionY="345"/>
+    <place displayName="true" id="all_light_changed" initialMarking="0" invariant="&lt; inf" name="all_light_changed" nameOffsetX="0" nameOffsetY="0" positionX="570" positionY="210"/>
+    <transition angle="0" displayName="true" id="clock_change" infiniteServer="false" name="clock_change" nameOffsetX="8" nameOffsetY="40" player="0" positionX="690" positionY="347" priority="0" urgent="false"/>
+    <transition angle="0" displayName="false" id="T21" infiniteServer="false" name="T21" nameOffsetX="0" nameOffsetY="0" player="0" positionX="960" positionY="377" priority="0" urgent="false"/>
+    <transition angle="0" displayName="false" id="T24" infiniteServer="false" name="T24" nameOffsetX="0" nameOffsetY="0" player="0" positionX="540" positionY="407" priority="0" urgent="false"/>
+    <transition angle="0" displayName="false" id="T25" infiniteServer="false" name="T25" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="392" priority="0" urgent="false"/>
+    <transition angle="0" displayName="false" id="T26" infiniteServer="false" name="T26" nameOffsetX="0" nameOffsetY="0" player="0" positionX="690" positionY="227" priority="0" urgent="false"/>
+    <transition angle="0" displayName="false" id="T20" infiniteServer="false" name="T20" nameOffsetX="0" nameOffsetY="0" player="0" positionX="840" positionY="377" priority="0" urgent="false"/>
+    <arc id="A32" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="clock_trollies" target="T21" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="975" yCoord="287"/>
+      <arcpath arcPointType="false" id="1" xCoord="975" yCoord="377"/>
+    </arc>
+    <arc id="A33" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T21" target="trolley_semaphore" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="975" yCoord="407"/>
+      <arcpath arcPointType="false" id="1" xCoord="975" yCoord="527"/>
+    </arc>
+    <arc id="A40" inscription="1" nameOffsetX="31" nameOffsetY="-25" source="clock_change" target="check_lights" type="normal" weight="light_count">
+      <arcpath arcPointType="false" id="0" xCoord="699" yCoord="362"/>
+      <arcpath arcPointType="false" id="1" xCoord="433" yCoord="247"/>
+    </arc>
+    <arc id="A34" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P24" target="T24" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="555" yCoord="377"/>
+      <arcpath arcPointType="false" id="1" xCoord="555" yCoord="407"/>
+    </arc>
+    <arc id="A35" inscription="1" nameOffsetX="39" nameOffsetY="-3" source="T24" target="all_light_check" type="normal" weight="light_count">
+      <arcpath arcPointType="false" id="0" xCoord="555" yCoord="437"/>
+      <arcpath arcPointType="false" id="1" xCoord="555" yCoord="512"/>
+    </arc>
+    <arc id="A36" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="check_lights" target="T25" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="420" yCoord="257"/>
+      <arcpath arcPointType="false" id="1" xCoord="420" yCoord="392"/>
+    </arc>
+    <arc id="A39" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T25" target="light_semaphore" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="420" yCoord="422"/>
+      <arcpath arcPointType="false" id="1" xCoord="420" yCoord="527"/>
+    </arc>
+    <arc id="I37" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="check_lights" target="T24" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="428" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="550" yCoord="417"/>
+    </arc>
+    <arc id="A43" inscription="1" nameOffsetX="37" nameOffsetY="-12" source="T26" target="clock_trollies" type="normal" weight="trolley_count">
+      <arcpath arcPointType="false" id="0" xCoord="709" yCoord="242"/>
+      <arcpath arcPointType="false" id="1" xCoord="960" yCoord="270"/>
+    </arc>
+    <arc id="A44" inscription="1" nameOffsetX="0" nameOffsetY="0" source="clock_change" target="P24" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="699" yCoord="362"/>
+      <arcpath arcPointType="false" id="1" xCoord="570" yCoord="362"/>
+    </arc>
+    <arc id="A45" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T26" target="P14" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="709" yCoord="242"/>
+      <arcpath arcPointType="false" id="1" xCoord="842" yCoord="324"/>
+    </arc>
+    <arc id="I17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="light_semaphore" target="T24" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="431" yCoord="532"/>
+      <arcpath arcPointType="false" id="1" xCoord="549" yCoord="427"/>
+    </arc>
+    <arc id="I16" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="T20" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="530"/>
+      <arcpath arcPointType="false" id="1" xCoord="859" yCoord="397"/>
+    </arc>
+    <arc id="A41" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P14" target="T20" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="855" yCoord="347"/>
+      <arcpath arcPointType="false" id="1" xCoord="855" yCoord="377"/>
+    </arc>
+    <arc id="I34" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="clock_trollies" target="T20" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="964" yCoord="282"/>
+      <arcpath arcPointType="false" id="1" xCoord="860" yCoord="387"/>
+    </arc>
+    <arc id="A42" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T20" target="all_trolley_check" type="normal" weight="trolley_count">
+      <arcpath arcPointType="false" id="0" xCoord="855" yCoord="407"/>
+      <arcpath arcPointType="false" id="1" xCoord="855" yCoord="497"/>
+    </arc>
+    <arc id="A18" inscription="[0,inf)" nameOffsetX="41" nameOffsetY="-19" source="all_trolley_moved" target="clock_change" type="timed" weight="trolley_count">
+      <arcpath arcPointType="false" id="0" xCoord="765" yCoord="360"/>
+      <arcpath arcPointType="false" id="1" xCoord="709" yCoord="362"/>
+    </arc>
+    <arc id="I18" inscription="[0,inf)" nameOffsetX="51" nameOffsetY="24" source="all_trolley_check" target="clock_change" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="855" yCoord="526"/>
+      <arcpath arcPointType="false" id="1" xCoord="856" yCoord="537"/>
+      <arcpath arcPointType="false" id="2" xCoord="716" yCoord="536"/>
+      <arcpath arcPointType="false" id="3" xCoord="705" yCoord="377"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="37" nameOffsetY="-18" source="all_light_changed" target="T26" type="timed" weight="light_count">
+      <arcpath arcPointType="false" id="0" xCoord="599" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="700" yCoord="237"/>
+    </arc>
+    <arc id="I19" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_light_check" target="T26" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="569" yCoord="529"/>
+      <arcpath arcPointType="false" id="1" xCoord="665" yCoord="542"/>
+      <arcpath arcPointType="false" id="2" xCoord="666" yCoord="265"/>
+      <arcpath arcPointType="false" id="3" xCoord="699" yCoord="247"/>
+    </arc>
+  </net>
+  <net active="true" id="track1to2" type="P/T net">
+    <place displayName="true" id="station1" initialMarking="0" invariant="&lt; inf" name="station1" nameOffsetX="0" nameOffsetY="0" positionX="1032" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track1_taken" initialMarking="0" invariant="&lt; inf" name="track1_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track1_free" initialMarking="1" invariant="&lt; inf" name="track1_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="605" positionY="335"/>
+    <place displayName="true" id="station2" initialMarking="1" invariant="&lt; inf" name="station2" nameOffsetX="0" nameOffsetY="0" positionX="600" positionY="405"/>
+    <transition angle="0" displayName="true" id="track1_enter" infiniteServer="false" name="track1_enter" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="track1_exit" infiniteServer="false" name="track1_exit" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station1" target="track1_enter" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1032" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="track1_enter" target="track1_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track1_taken" target="track1_exit" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="track1_exit" target="track1_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track1_free" target="track1_enter" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="track1_enter" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="track1_exit" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="track1_exit" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="634" yCoord="354"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="track1_exit" target="station2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="629" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track6to1" type="P/T net">
+    <place displayName="true" id="station6" initialMarking="0" invariant="&lt; inf" name="station6" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station1" initialMarking="0" invariant="&lt; inf" name="station1" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station6" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track6to7" type="P/T net">
+    <place displayName="true" id="station6" initialMarking="0" invariant="&lt; inf" name="station6" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station7" initialMarking="0" invariant="&lt; inf" name="station7" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station6" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station7" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track7to8" type="P/T net">
+    <place displayName="true" id="station7" initialMarking="0" invariant="&lt; inf" name="station7" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station8" initialMarking="0" invariant="&lt; inf" name="station8" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station7" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station8" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track9to4" type="P/T net">
+    <place displayName="true" id="station9" initialMarking="0" invariant="&lt; inf" name="station9" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station4" initialMarking="0" invariant="&lt; inf" name="station4" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station9" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track3to4" type="P/T net">
+    <place displayName="true" id="station3" initialMarking="1" invariant="&lt; inf" name="station3" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station4" initialMarking="0" invariant="&lt; inf" name="station4" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station3" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station4" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track4to5" type="P/T net">
+    <place displayName="true" id="station4" initialMarking="0" invariant="&lt; inf" name="station4" nameOffsetX="0" nameOffsetY="0" positionX="1047" positionY="382"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="951" positionY="250"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="620" positionY="335"/>
+    <place displayName="true" id="station5" initialMarking="0" invariant="&lt; inf" name="station5" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="405"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station4" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1047" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="391"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="966" yCoord="279"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="376"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="649" yCoord="355"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station5" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="416"/>
+    </arc>
+  </net>
+  <net active="true" id="track8to9light" type="P/T net">
+    <place displayName="true" id="station8" initialMarking="0" invariant="&lt; inf" name="station8" nameOffsetX="0" nameOffsetY="0" positionX="1122" positionY="367"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="1086" positionY="445"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="605" positionY="410"/>
+    <place displayName="true" id="station9" initialMarking="0" invariant="&lt; inf" name="station9" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="345"/>
+    <place displayName="true" id="bottom_red_light" initialMarking="0" invariant="&lt; inf" name="bottom_red_light" nameOffsetX="0" nameOffsetY="0" positionX="1005" positionY="585"/>
+    <place displayName="true" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="0" nameOffsetY="0" positionX="1230" positionY="510"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="red_pseudo_movement" infiniteServer="false" name="red_pseudo_movement" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1365" positionY="540" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station8" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1122" yCoord="382"/>
+      <arcpath arcPointType="false" id="1" xCoord="975" yCoord="386"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1087" yCoord="453"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="396"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="634" yCoord="420"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station9" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="363"/>
+    </arc>
+    <arc id="I9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="bottom_red_light" target="enter_track" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1016" yCoord="585"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="406"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1115" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="1180" yCoord="490"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station8" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1143" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="480"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="bottom_red_light" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1032" yCoord="592"/>
+      <arcpath arcPointType="false" id="1" xCoord="1179" yCoord="500"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="red_pseudo_movement" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1189" yCoord="495"/>
+      <arcpath arcPointType="false" id="1" xCoord="1231" yCoord="517"/>
+    </arc>
+    <arc id="A14" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1259" yCoord="528"/>
+      <arcpath arcPointType="false" id="1" xCoord="1375" yCoord="550"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="764" yCoord="267"/>
+      <arcpath arcPointType="false" id="1" xCoord="1182" yCoord="191"/>
+      <arcpath arcPointType="false" id="2" xCoord="1380" yCoord="540"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="station8" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1375" yCoord="550"/>
+      <arcpath arcPointType="false" id="1" xCoord="1149" yCoord="390"/>
+    </arc>
+    <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1380" yCoord="570"/>
+      <arcpath arcPointType="false" id="1" xCoord="1380" yCoord="712"/>
+      <arcpath arcPointType="false" id="2" xCoord="637" yCoord="709"/>
+      <arcpath arcPointType="false" id="3" xCoord="620" yCoord="439"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="bottom_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1374" yCoord="560"/>
+      <arcpath arcPointType="false" id="1" xCoord="1034" yCoord="598"/>
+    </arc>
+  </net>
+  <net active="true" id="track5to6light" type="P/T net">
+    <place displayName="true" id="station5" initialMarking="0" invariant="&lt; inf" name="station5" nameOffsetX="0" nameOffsetY="0" positionX="1122" positionY="367"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="1071" positionY="460"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="605" positionY="410"/>
+    <place displayName="true" id="station6" initialMarking="0" invariant="&lt; inf" name="station6" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="345"/>
+    <place displayName="true" id="middle_red_light" initialMarking="0" invariant="&lt; inf" name="middle_red_light" nameOffsetX="0" nameOffsetY="0" positionX="960" positionY="600"/>
+    <place displayName="true" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="0" nameOffsetY="0" positionX="1230" positionY="555"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="red_pseudo_movement" infiniteServer="false" name="red_pseudo_movement" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1155" positionY="525" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1350" positionY="600" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station5" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1122" yCoord="382"/>
+      <arcpath arcPointType="false" id="1" xCoord="975" yCoord="386"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1073" yCoord="466"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="396"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="634" yCoord="420"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station6" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="363"/>
+    </arc>
+    <arc id="I9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="middle_red_light" target="enter_track" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="974" yCoord="600"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="406"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1097" yCoord="484"/>
+      <arcpath arcPointType="false" id="1" xCoord="1165" yCoord="535"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station5" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1140" yCoord="396"/>
+      <arcpath arcPointType="false" id="1" xCoord="1170" yCoord="525"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="middle_red_light" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="989" yCoord="609"/>
+      <arcpath arcPointType="false" id="1" xCoord="1164" yCoord="545"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="red_pseudo_movement" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1174" yCoord="540"/>
+      <arcpath arcPointType="false" id="1" xCoord="1231" yCoord="564"/>
+    </arc>
+    <arc id="A14" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1258" yCoord="575"/>
+      <arcpath arcPointType="false" id="1" xCoord="1360" yCoord="610"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="764" yCoord="267"/>
+      <arcpath arcPointType="false" id="1" xCoord="1182" yCoord="191"/>
+      <arcpath arcPointType="false" id="2" xCoord="1365" yCoord="600"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="station5" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1360" yCoord="610"/>
+      <arcpath arcPointType="false" id="1" xCoord="1147" yCoord="392"/>
+    </arc>
+    <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1365" yCoord="630"/>
+      <arcpath arcPointType="false" id="1" xCoord="1380" yCoord="712"/>
+      <arcpath arcPointType="false" id="2" xCoord="637" yCoord="709"/>
+      <arcpath arcPointType="false" id="3" xCoord="620" yCoord="439"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="middle_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1359" yCoord="620"/>
+      <arcpath arcPointType="false" id="1" xCoord="989" yCoord="615"/>
+    </arc>
+  </net>
+  <net active="true" id="track2to3light" type="P/T net">
+    <place displayName="true" id="station2" initialMarking="1" invariant="&lt; inf" name="station2" nameOffsetX="0" nameOffsetY="0" positionX="1122" positionY="367"/>
+    <place displayName="true" id="trolley_semaphore" initialMarking="0" invariant="&lt; inf" name="trolley_semaphore" nameOffsetX="0" nameOffsetY="0" positionX="1071" positionY="460"/>
+    <place displayName="true" id="track_taken" initialMarking="0" invariant="&lt; inf" name="track_taken" nameOffsetX="40" nameOffsetY="-19" positionX="840" positionY="330"/>
+    <place displayName="true" id="track_free" initialMarking="1" invariant="&lt; inf" name="track_free" nameOffsetX="44" nameOffsetY="52" positionX="840" positionY="420"/>
+    <place displayName="true" id="all_trolley_check" initialMarking="0" invariant="&lt; inf" name="all_trolley_check" nameOffsetX="0" nameOffsetY="0" positionX="735" positionY="255"/>
+    <place displayName="true" id="all_trolley_moved" initialMarking="0" invariant="&lt; inf" name="all_trolley_moved" nameOffsetX="0" nameOffsetY="0" positionX="605" positionY="410"/>
+    <place displayName="true" id="station3" initialMarking="1" invariant="&lt; inf" name="station3" nameOffsetX="0" nameOffsetY="0" positionX="615" positionY="345"/>
+    <place displayName="true" id="top_red_light" initialMarking="0" invariant="&lt; inf" name="top_red_light" nameOffsetX="0" nameOffsetY="0" positionX="960" positionY="600"/>
+    <place displayName="true" id="P1" initialMarking="0" invariant="&lt; inf" name="P1" nameOffsetX="0" nameOffsetY="0" positionX="1260" positionY="570"/>
+    <transition angle="0" displayName="true" id="enter_track" infiniteServer="false" name="enter_track" nameOffsetX="44" nameOffsetY="56" player="0" positionX="955" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="exit_track" infiniteServer="false" name="exit_track" nameOffsetX="49" nameOffsetY="60" player="0" positionX="735" positionY="375" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="red_pseudo_movement" infiniteServer="false" name="red_pseudo_movement" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1170" positionY="540" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T1" infiniteServer="false" name="T1" nameOffsetX="0" nameOffsetY="0" player="0" positionX="1350" positionY="600" priority="0" urgent="false"/>
+    <arc id="A20" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station2" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1122" yCoord="382"/>
+      <arcpath arcPointType="false" id="1" xCoord="975" yCoord="386"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="enter_track" target="track_taken" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="965" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="869" yCoord="350"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_taken" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="841" yCoord="351"/>
+      <arcpath arcPointType="false" id="1" xCoord="754" yCoord="390"/>
+    </arc>
+    <arc id="A34" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="track_free" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="754" yCoord="395"/>
+      <arcpath arcPointType="false" id="1" xCoord="841" yCoord="429"/>
+    </arc>
+    <arc id="A35" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="track_free" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="429"/>
+      <arcpath arcPointType="false" id="1" xCoord="964" yCoord="391"/>
+    </arc>
+    <arc id="A83" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="enter_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1073" yCoord="466"/>
+      <arcpath arcPointType="false" id="1" xCoord="974" yCoord="396"/>
+    </arc>
+    <arc id="A86" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="exit_track" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="750" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="750" yCoord="375"/>
+    </arc>
+    <arc id="A87" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="634" yCoord="420"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="exit_track" target="station3" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="744" yCoord="390"/>
+      <arcpath arcPointType="false" id="1" xCoord="644" yCoord="363"/>
+    </arc>
+    <arc id="I9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="top_red_light" target="enter_track" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="974" yCoord="600"/>
+      <arcpath arcPointType="false" id="1" xCoord="970" yCoord="406"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="trolley_semaphore" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1097" yCoord="484"/>
+      <arcpath arcPointType="false" id="1" xCoord="1180" yCoord="550"/>
+    </arc>
+    <arc id="A11" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="station2" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1141" yCoord="396"/>
+      <arcpath arcPointType="false" id="1" xCoord="1185" yCoord="540"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="top_red_light" target="red_pseudo_movement" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="989" yCoord="611"/>
+      <arcpath arcPointType="false" id="1" xCoord="1179" yCoord="560"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="red_pseudo_movement" target="P1" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1189" yCoord="555"/>
+      <arcpath arcPointType="false" id="1" xCoord="1260" yCoord="580"/>
+    </arc>
+    <arc id="A14" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="P1" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1289" yCoord="590"/>
+      <arcpath arcPointType="false" id="1" xCoord="1360" yCoord="610"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="all_trolley_check" target="T1" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="764" yCoord="267"/>
+      <arcpath arcPointType="false" id="1" xCoord="1182" yCoord="191"/>
+      <arcpath arcPointType="false" id="2" xCoord="1365" yCoord="600"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="station2" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1360" yCoord="610"/>
+      <arcpath arcPointType="false" id="1" xCoord="1147" yCoord="392"/>
+    </arc>
+    <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="all_trolley_moved" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1365" yCoord="630"/>
+      <arcpath arcPointType="false" id="1" xCoord="1380" yCoord="712"/>
+      <arcpath arcPointType="false" id="2" xCoord="637" yCoord="709"/>
+      <arcpath arcPointType="false" id="3" xCoord="620" yCoord="439"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T1" target="top_red_light" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1359" yCoord="620"/>
+      <arcpath arcPointType="false" id="1" xCoord="989" yCoord="615"/>
+    </arc>
+  </net>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="0" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="BoundedNess" overApproximation="false" pTrie="false" reduction="true" reductionOption="VerifyPN" searchOption="HEURISTIC" symmetry="false" timeDarts="false" traceOption="NONE" type="CTL" useQueryReduction="true" useSiphonTrapAnalysis="true" useStubbornReduction="true" useTarOption="false" useTarjan="true">
+    <formula>
+            
+      <all-paths>
+                
+        <globally>
+                    
+          <conjunction>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station1</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station2</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station3</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station4</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station5</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station6</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station7</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station8</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                        
+            <integer-lt>
+                            
+              <tokens-count>
+                                
+                <place>station9</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>2</integer-constant>
+                          
+            </integer-lt>
+                      
+          </conjunction>
+                  
+        </globally>
+              
+      </all-paths>
+          
+    </formula>
+  </query>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="0" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="liveness2" overApproximation="false" pTrie="false" reduction="true" reductionOption="VerifyPN" searchOption="HEURISTIC" symmetry="false" timeDarts="false" traceOption="NONE" type="CTL" useQueryReduction="true" useSiphonTrapAnalysis="false" useStubbornReduction="true" useTarOption="false" useTarjan="true">
+    <formula>
+            
+      <exists-path>
+                
+        <until>
+                    
+          <before>
+                        
+            <is-fireable>
+                            
+              <transition>clock.T21</transition>
+                          
+            </is-fireable>
+                      
+          </before>
+                    
+          <reach>
+                        
+            <integer-gt>
+                            
+              <tokens-count>
+                                
+                <place>clock_trollies</place>
+                              
+              </tokens-count>
+                            
+              <integer-constant>0</integer-constant>
+                          
+            </integer-gt>
+                      
+          </reach>
+                  
+        </until>
+              
+      </exists-path>
+          
+    </formula>
+  </query>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="false"/>
+</pnml>

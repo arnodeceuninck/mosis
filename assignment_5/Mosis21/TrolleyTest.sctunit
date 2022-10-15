@@ -1,0 +1,354 @@
+testclass TrolleyTest for statechart Trolley {
+		
+	@Test
+	operation testDepartureCondition() {
+		// From the requirements:
+		// The train will depart from a station (closing its doors) when both conditions are satisfied:
+		//   1. the doors have been open for at least 2s
+		//   2. a stop has been requested
+		
+		// We'll test 2 scenarios:
+		
+		// 2s pass and then a stop is requested
+		enter // the train is initially stopped at station 0
+		proceed 2s
+		assert !startDoorsSignal
+		raise requestStop: 1
+		closeDoorsSequence()
+		exit
+
+		// Also possible: a stop is requested and then 2s pass
+		enter // the train is initially stopped at station 0
+		raise requestStop: 1
+		assert !startDoorsSignal
+		proceed 2s
+		closeDoorsSequence()
+		exit
+	}
+	
+	@Test
+	operation testBoardPassenger() {
+		enter
+		proceed 2s
+		
+		raise board
+		
+		assert numPassengers == 1
+		assert remainingCapacity == 5
+		exit
+	}
+	
+	@Test
+	operation testBoardWaitingPassengers() {
+		enter
+		proceed 2s
+		
+		raise board
+		proceed 1s
+		raise board
+		
+		assert numPassengers == 2
+		assert remainingCapacity == 4
+		exit
+	}
+	
+	@Test
+	operation testBoardNonWaitingPassengers() {
+		enter
+		proceed 2s
+		
+		raise board
+		raise board // Can't enter because door obstructed
+		
+		assert numPassengers == 1
+		assert remainingCapacity == 5
+		exit
+	}
+	
+	@Test
+	operation testBoardAndUnboardPassengers() {
+		enter
+		proceed 2s
+		
+		var i : integer = 0
+		while (i < 4) {
+			raise board
+			proceed 1s
+			i = i +1
+			
+			assert numPassengers == i
+			assert remainingCapacity == 6-i
+		}
+		
+		while (i != 0) {
+			raise unboard
+			proceed 1s
+			i = i -1
+			
+			assert numPassengers == i
+			assert remainingCapacity == 6-i
+		}
+		exit
+	}
+	
+	@Test
+	operation testPassengerOverflow() {
+		enter
+		var i : integer = 0
+		while (i < 6) {
+			raise board
+			proceed 1s
+			i = i +1
+			
+			assert numPassengers == i
+			assert remainingCapacity == 6-i
+		}
+		
+		assert numPassengers == 6
+		raise board
+		assert numPassengers == 6
+		exit
+	}
+	
+	@Test
+	operation testPassengerUnderflow() {
+		enter
+		assert numPassengers == 0
+		raise unboard
+		assert numPassengers == 0
+		exit
+	}
+	
+	@Test
+	operation testRushedPassenger() {
+		enter
+		proceed 2s
+		raise requestStop: 2
+		assert startDoorsSignal
+		
+		// A new passenger jumps in a half seconds after the doors signal started
+		proceed 500ms 
+		assert numPassengers == 0
+		raise board
+		assert numPassengers == 1
+		
+		proceed 1s // time the door is obstructed
+		proceed 1s // time to wait before closing door
+		
+		assert closeDoors
+		exit
+	}
+	
+	@Test
+	operation testRequestStation() {
+		enter
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+		raise requestStop: 1
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) != 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+		proceed 2s // waiting with doors open
+		proceed 1s // waiting for no door obstruction to close the door
+		proceed 1s // waiting 1 second before starting departure
+		
+		assert (stopsAt & (1 << 0)) == 0
+		assert (stopsAt & (1 << 1)) != 0
+		
+		assert setTargetSpeed
+		
+		raise atTargetSpeed
+		
+		raise approachingStation: 1
+		
+		assert setTargetSpeed
+		
+		raise atTargetSpeed
+		
+		assert (stopsAt & (1 << 0)) == 0
+		assert (stopsAt & (1 << 1)) != 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+		proceed 1s
+		
+		assert openDoors
+		exit
+	}
+	
+	@Test
+	operation testMultipleRequests() {
+		enter 
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+		
+		raise requestStop: 1
+		raise requestStop: 3
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) != 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) != 0
+		exit
+		
+	}
+	
+	@Test
+	operation testBoarding() {
+		enter
+		raise requestStop: 2
+		proceed 1100ms
+		assert numPassengers == 0
+		raise board
+		assert numPassengers == 1
+		proceed 700ms
+		raise board // should be ignored
+		assert numPassengers == 1
+		proceed 200ms // Doors are 2 seconds open
+		assert startDoorsSignal
+		proceed 200ms // Door isn't obstructed anymore
+		proceed 400ms
+		raise board
+		proceed 1s
+		assert numPassengers == 2
+		proceed 1s
+		assert stopDoorsSignal
+		assert closeDoors
+		
+	}
+	
+	operation closeDoorsSequence() {
+		// The simplest possible "closing doors" sequence:
+		assert startDoorsSignal
+		proceed 1s // TODO: The assignment had here 2s, but the doors should already close after not being obstructed for 1 second, so it should close after 1s
+		assert closeDoors
+	}
+	
+	@Test
+	operation testEmergencyOpenDoorsWithoutDelayAtStation() {
+		enter
+		raise startEmergency
+		assert numPassengers == 0
+		raise board
+		assert numPassengers == 1	
+		exit
+		
+	}
+	
+	@Test
+	operation testEmergencyStopStandStill() {
+		enter
+		raise requestStop: 2
+		proceed 8s
+		raise startEmergency
+		proceed 10s
+		raise atTargetSpeed
+		assert openDoors
+		
+
+		exit
+		
+	}
+	
+	@Test
+	operation testStartEmergencyArrival() {
+		enter
+		assert (stopsAt & (1 << 0)) == 1
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		proceed 8s
+		raise startEmergency
+		proceed 10ms
+ 		assert openDoors
+		
+	}
+	
+	@Test
+	operation testStopEmergencyArrival() {
+		enter
+		assert (stopsAt & (1 << 0)) == 1
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		proceed 8s
+		raise startEmergency
+		proceed 10ms
+ 		raise stopEmergency
+ 		assert (stopsAt & (1 << 0)) == 1
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+	}
+	
+	@Test
+	operation testEarlyStopEmergencyDeparture() {
+		enter
+		raise requestStop: 2
+		proceed 8s
+		raise startEmergency
+		raise stopEmergency
+		assert !closeDoors
+
+		exit
+		
+	}
+	
+	@Test
+	operation testStopEmergencyDeparture() {
+		enter
+		raise requestStop: 2
+		proceed 8s
+		raise startEmergency
+		proceed 10s
+		raise atTargetSpeed
+		raise stopEmergency
+		assert startDoorsSignal
+
+
+		exit
+		
+	}
+	
+	@Test
+	operation testSchedulingDuringEmergency() {
+		enter
+		proceed 8s
+		raise startEmergency
+		proceed 10ms
+		raise stopEmergency
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) == 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) == 0
+		
+		
+		raise requestStop: 1
+		raise requestStop: 3
+		
+		assert (stopsAt & (1 << 0)) != 0
+		assert (stopsAt & (1 << 1)) != 0
+		assert (stopsAt & (1 << 2)) == 0
+		assert (stopsAt & (1 << 3)) != 0
+
+		exit
+		
+	}
+	
+		
+	
+	// Your job is to extend this (black-box) test with more scenarios :)
+}

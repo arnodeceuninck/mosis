@@ -1,0 +1,825 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CBD.preprocessing.butcher module &mdash; CBD Simulator  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CBD.preprocessing.rungekutta module" href="CBD.preprocessing.rungekutta.html" />
+    <link rel="prev" title="CBD.preprocessing package" href="CBD.preprocessing.html" /> 
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167094275-1"></script>
+  <script src="_static/js/googleanalytics.min.js"></script>
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+
+      <div class="main-menu">
+        <ul>
+
+          <li>
+            <div class="ecosystem-dropdown">
+              <a id="dropdownMenuButtonEcosystem" data-toggle="ecosystem-dropdown">
+                Ecosystem
+              </a>
+              <div class="ecosystem-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://alchemy.host">
+                  <span class=dropdown-title>Alchemy</span>
+                  <p>Experiments logging & visualization</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">
+                  <span class=dropdown-title>Catalyst</span>
+                  <p>Accelerated deep learning R&D</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">
+                  <span class=dropdown-title>Reaction</span>
+                  <p>Convenient deep learning models serving</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="projects-dropdown">
+              <a id="dropdownMenuButtonProjects" data-toggle="projects-dropdown">
+                Projects
+              </a>
+              <div class="projects-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">
+                  <span class=dropdown-title>Codestyle</span>
+                  <p>Joint R&D codestyle</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">
+                  <span class=dropdown-title>Catalyst.Neuro</span>
+                  <p>Catalyst.Team and TReNDS collaborative project</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">
+                  <span class=dropdown-title>Classification</span>
+                  <p>Image classification pipeline with transfer learning</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">
+                  <span class=dropdown-title>Detection</span>
+                  <p>Object detection pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">
+                  <span class=dropdown-title>Segmentation</span>
+                  <p>Image semantic segmentation pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">
+                  <span class=dropdown-title>Catalyst.GAN</span>
+                  <p>GAN pipelines</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/dl-course">Deep learning course</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="catalyst-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="catalyst-left-menu" id="catalyst-left-menu">
+      <div class="catalyst-side-scroll">
+        <div class="catalyst-menu catalyst-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="catalyst-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">How to install the CBD framework?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">How to run a CBD simulation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues.html">Common Issues and Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simple Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/SinGen.html">Sine Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/EvenNumberGen.html">Hierarchical Even Number Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/Fibonacci.html">Fibonacci Sequence Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/LCG.html">Linear Congruential Generator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/RealTime.html">Realtime Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/LivePlot.html">Live Plotting of Data During the Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/Dashboard.html">TkInter Dashboard with Editable Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/ContinuousTime.html">Continuous Time Simulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="CBD.html">CBD package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="catalyst-container">
+      <div class="catalyst-page-level-bar" id="catalyst-page-level-bar">
+        <div class="catalyst-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="catalyst-breadcrumbs">
+    
+      <li>
+        <a href="index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="CBD.html">CBD package</a> &gt;</li>
+        
+          <li><a href="CBD.preprocessing.html">CBD.preprocessing package</a> &gt;</li>
+        
+      <li>CBD.preprocessing.butcher module</li>
+    
+    
+      <li class="catalyst-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="catalyst-shortcuts-wrapper" id="catalyst-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="catalyst-content-wrap" class="catalyst-content-wrap">
+        <div class="catalyst-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="catalyst-article" class="catalyst-article">
+              
+  <div class="section" id="module-CBD.preprocessing.butcher">
+<span id="cbd-preprocessing-butcher-module"></span><h1>CBD.preprocessing.butcher module<a class="headerlink" href="#module-CBD.preprocessing.butcher" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a class to construct butcher tableaus and a set of predefined tables.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">CBD.preprocessing.butcher.</span></span><span class="sig-name descname"><span class="pre">ButcherTableau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mnemonic device to store the Runge-Kutta matrix, weights and nodes in
+the computation of generic RK methods. The extended tableau also allows
+for the error computation for adaptive step sizes. The general form of
+a Butcher Tableau is shown below, where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s\)</span> identifies the number of stages;</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{ij}, 1 \leq j &lt; i \leq s\)</span> represents a coefficient in the
+Runge-Kutta matrix;</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_i\)</span> and <span class="math notranslate nohighlight">\(b^*_i\)</span> correspond to the weights of a higher
+and a lower order method, respectively; and</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_i\)</span> specifies the nodes.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|ccccc}
+        0\\
+        c_2 &amp; a_{2,1}\\
+        c_3 &amp; a_{3,1} &amp; a_{3,2} \\
+        \vdots &amp; \vdots &amp; &amp; \ddots\\
+        c_s &amp; a_{s,1} &amp; a_{s,2} &amp; \cdots &amp; a_{s,s-1}\\
+        \hline
+        &amp; b_1 &amp; b_2 &amp; \cdots &amp; b_{s-1} &amp; b_s\\
+        &amp; b^*_1 &amp; b^*_2 &amp; \cdots &amp; b^*_{s-1} &amp; b^*_s\\
+\end{array}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rows</strong> (<em>iter</em>) – Sequence of tuples <span class="math notranslate nohighlight">\((c_i, [a_{i, j}\vert 1 \leq j &lt; i])\)</span>.
+When <code class="code docutils literal notranslate"><span class="pre">None</span></code>, nothing will be added.</p></li>
+<li><p><strong>weights</strong> (<em>iter</em>) – Sequence of sequences of weights <span class="math notranslate nohighlight">\([b_{i}\vert i \leq s]\)</span>.
+When <code class="code docutils literal notranslate"><span class="pre">None</span></code>, no weights will be added.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Upon instantiation, the first (empty) row will be added automatically with a
+node of 0.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.addRow">
+<span class="sig-name descname"><span class="pre">addRow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elems</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.addRow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.addRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a <span class="math notranslate nohighlight">\(c_i\)</span> and <span class="math notranslate nohighlight">\(a_{i, j}\)</span> to the tableau.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>numeric</em>) – The <span class="math notranslate nohighlight">\(c_i\)</span>-value.</p></li>
+<li><p><strong>elems</strong> (<em>iter</em>) – <span class="math notranslate nohighlight">\(a_{i, j}\)</span>, <span class="math notranslate nohighlight">\(\forall j &lt; i\)</span>; i.e. the
+sequence of matrix elements that correspond to the node.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.addWeights">
+<span class="sig-name descname"><span class="pre">addWeights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.addWeights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.addWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a row of weights to the bottom of the matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*weights</strong> – A sequence of the weights. I.e. <span class="math notranslate nohighlight">\(b_{i}\)</span>, where <span class="math notranslate nohighlight">\(1 \leq i \leq s\)</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.getNodes">
+<span class="sig-name descname"><span class="pre">getNodes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.getNodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.getNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains the nodes, i.e. the <span class="math notranslate nohighlight">\(c_i\)</span>-values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.getWeights">
+<span class="sig-name descname"><span class="pre">getWeights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.getWeights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.getWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains the weight lists, i.e. the <span class="math notranslate nohighlight">\(b_i\)</span> and <span class="math notranslate nohighlight">\(b^*_i\)</span>-values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.getA">
+<span class="sig-name descname"><span class="pre">getA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.getA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.getA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains an element from the Runge-Kutta matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – The row (1-indexed).</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – The column (1-indexed).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.getOrder">
+<span class="sig-name descname"><span class="pre">getOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.getOrder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.getOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the order of the Tableau.
+The order is the amount of non-zero weights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wix</strong> (<em>id</em>) – The weight index. Defaults to -1 (i.e.
+the last weight row of the tableau).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.Euler">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">Euler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.Euler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.Euler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for Euler’s method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        \hline
+        &amp; 1
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.Heun">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">Heun</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.Heun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.Heun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for Heun’s method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1 &amp; 1\\
+        \hline
+        &amp; 1/2 &amp; 1/2
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.HeunEuler">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">HeunEuler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.HeunEuler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.HeunEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for Heun’s method,
+combined with the Euler method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1 &amp; 1\\
+        \hline
+        &amp; 1/2 &amp; 1/2\\
+        &amp; 1 &amp; 0
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.Ralston">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">Ralston</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.Ralston"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.Ralston" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for Ralston’s method for 2nd order
+accuracy. The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        2/3 &amp; 2/3\\
+        \hline
+        &amp; 1/4 &amp; 3/4
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RalstonEuler">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RalstonEuler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.RalstonEuler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RalstonEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for Ralston’s method,
+combined with the Euler method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        2/3 &amp; 2/3\\
+        \hline
+        &amp; 1/4 &amp; 3/4\\
+        &amp; 1 &amp; 0
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.Midpoint">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">Midpoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.Midpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.Midpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for the midpoint method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1/2 &amp; 1/2\\
+        \hline
+        &amp;   0 &amp;   1
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.MidpointEuler">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">MidpointEuler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.MidpointEuler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.MidpointEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for the midpoint method,
+combined with the Euler method.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1/2 &amp; 1/2\\
+        \hline
+        &amp; 0 &amp; 1\\
+        &amp; 1 &amp; 0
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RK4">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RK4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.RK4"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RK4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for the default RK
+algorithm.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1/2 &amp; 1/2\\
+        1/2 &amp;   0 &amp; 1/2\\
+        1   &amp;   0 &amp;   0 &amp;   1\\
+        \hline
+            &amp; 1/6 &amp; 1/3 &amp; 1/3 &amp; 1/6
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RK4Alt">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RK4Alt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.RK4Alt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RK4Alt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the Butcher Tableau for an alternative RK
+algorithm. It is also called the 3/8-rule.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+        0\\
+        1/3 &amp;  1/3\\
+        2/3 &amp; -1/3 &amp;   1\\
+        1   &amp;    1 &amp;  -1 &amp;   1\\
+        \hline
+            &amp; 1/8 &amp; 3/8 &amp; 3/8 &amp; 1/8
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RKF45">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RKF45</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.RKF45"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RKF45" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for the
+Runge-Kutta-Fehlberg algorithm of 4th and 5th order.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+            0\\
+          1/4 &amp;       1/4\\
+          3/8 &amp;      3/32 &amp;       9/32\\
+        12/13 &amp; 1932/2197 &amp; -7200/2197 &amp;  7296/2197\\
+            1 &amp;   439/216 &amp;         -8 &amp;   3680/513 &amp;   -845/4104\\
+          1/2 &amp;     -8/27 &amp;          2 &amp; -3544/2565 &amp;   1859/4104 &amp; -11/40\\
+        \hline
+              &amp;    16/135 &amp;          0 &amp; 6656/12825 &amp; 28561/56430 &amp;  -9/50 &amp; 2/55\\
+              &amp;    25/216 &amp;          0 &amp;  1408/2565 &amp;   2197/4104 &amp;   -1/5 &amp;    0
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.DOPRI">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">DOPRI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.DOPRI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.DOPRI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for the
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0771050X80900133?via%3Dihub">Dormand-Prince method</a>.
+This is the default method in the <code class="code docutils literal notranslate"><span class="pre">ode45</span></code> solver for MATLAB and GNU Octave, among others.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+           0\\
+         1/5 &amp;         1/5\\
+        3/10 &amp;        3/40 &amp;        9/40\\
+         4/5 &amp;       44/45 &amp;      -56/15 &amp;       32/9\\
+         8/9 &amp;  19372/6561 &amp; -25360/2187 &amp; 64448/6561 &amp; -212/729\\
+           1 &amp;   9017/3168 &amp;     -355/33 &amp; 46732/5247 &amp;   49/176 &amp;   -5103/18656\\
+           1 &amp;      35/384 &amp;           0 &amp;   500/1113 &amp;  125/192 &amp;    -2187/6784 &amp;    11/84\\
+        \hline
+              &amp;     35/384 &amp;           0 &amp;   500/1113 &amp;  125/192 &amp;    -2187/6784 &amp;    11/84 &amp;    0\\
+              &amp; 5179/57600 &amp;           0 &amp; 7571/16695 &amp;  393/640 &amp; -92097/339200 &amp; 187/2100 &amp; 1/40
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RKDP">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RKDP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RKDP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <a class="reference internal" href="#CBD.preprocessing.butcher.ButcherTableau.DOPRI" title="CBD.preprocessing.butcher.ButcherTableau.DOPRI"><code class="xref py py-func docutils literal notranslate"><span class="pre">DOPRI()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.DormandPrince">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">DormandPrince</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.DormandPrince" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <a class="reference internal" href="#CBD.preprocessing.butcher.ButcherTableau.DOPRI" title="CBD.preprocessing.butcher.ButcherTableau.DOPRI"><code class="xref py py-func docutils literal notranslate"><span class="pre">DOPRI()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.RKCK">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">RKCK</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.RKCK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.RKCK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for the
+<a class="reference external" href="https://dl.acm.org/doi/10.1145/79505.79507">Cash-Karp method</a> for 4th and 5th order
+accurate solutions.
+The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+           0\\
+         1/5 &amp;         1/5\\
+        3/10 &amp;        3/40 &amp;    9/40\\
+         3/5 &amp;        3/10 &amp;   -9/10 &amp;         6/5\\
+           1 &amp;      -11/54 &amp;     5/2 &amp;      -70/27 &amp;        35/27\\
+         7/8 &amp;  1631/55296 &amp; 175/512 &amp;   575/13824 &amp; 44275/110592 &amp;  253/4096\\
+        \hline
+              &amp;     37/378 &amp;       0 &amp;     250/621 &amp;      125/594 &amp;         0 &amp; 512/1771\\
+              &amp; 2825/27648 &amp;       0 &amp; 18575/48384 &amp;  13525/55296 &amp; 277/14336 &amp;      1/4
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.CashKarp">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">CashKarp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.CashKarp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <a class="reference internal" href="#CBD.preprocessing.butcher.ButcherTableau.RKCK" title="CBD.preprocessing.butcher.ButcherTableau.RKCK"><code class="xref py py-func docutils literal notranslate"><span class="pre">RKCK()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CBD.preprocessing.butcher.ButcherTableau.BogackiShampine">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">BogackiShampine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CBD/preprocessing/butcher.html#ButcherTableau.BogackiShampine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CBD.preprocessing.butcher.ButcherTableau.BogackiShampine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and returns the extended Butcher Tableau for the
+<a class="reference external" href="https://doi.org/10.1016%2F0893-9659%2889%2990079-7">Bogacki-Shampine method</a> for 3th order
+accurate solutions.</p>
+<p>It is implemented in the <code class="code docutils literal notranslate"><span class="pre">ode23</span></code> function in MATLAB.</p>
+<p>The Tableau is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}
+        {c|cc}
+          0\\
+        1/2 &amp;  1/2\\
+        3/4 &amp;    0 &amp; 3/4\\
+          1 &amp;  2/9 &amp; 1/3 &amp; 4/9\\
+        \hline
+            &amp;  2/9 &amp; 1/3 &amp; 4/9 &amp;   0\\
+                &amp; 7/24 &amp; 1/4 &amp; 1/3 &amp; 1/8
+\end{array}\end{split}\]</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CBD.preprocessing.rungekutta.html" class="btn btn-neutral float-right" title="CBD.preprocessing.rungekutta module" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="CBD.preprocessing.html" class="btn btn-neutral" title="CBD.preprocessing package" accesskey="p" rel="prev"><img src="_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Randy Paredis.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="catalyst-content-right" id="catalyst-content-right">
+          <div class="catalyst-right-menu" id="catalyst-right-menu">
+            <div class="catalyst-side-scroll" id="catalyst-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">CBD.preprocessing.butcher module</a></li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+         <script src="_static/jquery.js"></script>
+         <script src="_static/underscore.js"></script>
+         <script src="_static/doctools.js"></script>
+         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+         <script src="_static/math.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://catalyst-team.com/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Ecosystem</a></li>
+            <li><a class="nav-dropdown-item" href="https://alchemy.host">Alchemy</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">Catalyst</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">Reaction</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Projects</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">Codestyle</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">Catalyst.Neuro</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">Classification</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">Detection</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">Segmentation</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">Catalyst.GAN</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://catalyst-team.com/">Support</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+            <li><a href="https://www.patreon.com/catalyst_team" target="_blank">Patreon</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <div class="footer-social-icons">
+            <a href="https://t.me/catalyst_team" target="_blank" class="telegram"></a>
+            <a href="https://twitter.com/catalyst_core" target="_blank" class="twitter"></a>
+            <a href="https://join.slack.com/t/catalyst-team-core/shared_invite/zt-d9miirnn-z86oKDzFMKlMG4fgFdZafw" target="_blank" class="ods"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/catalyst">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      catalystAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.catalyst-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

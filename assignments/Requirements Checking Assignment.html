@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0083)http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<!--<base href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/">--><base href=".">
+
+ 
+ <meta name="author" content="Hans Vangheluwe">
+ <meta name="generator" content="None">
+ <link rel="stylesheet" type="text/css" href="./Requirements Checking Assignment_files/standard_msdl_style.css" title="MSDL stylesheet">
+ <link rel="shortcut icon" href="http://msdl.uantwerpen.be/images/favicon.ico">
+ <title>Requirements Checking Assignment</title>
+</head>
+<body bgcolor="#ffffff" class="vsc-initialized">
+
+<div class="portlet">    
+ <div class="portletBody">
+
+     <table border="0" cellpadding="4" cellspacing="0" width="100%" summary="table for MSDL standard page banner">
+
+ <tbody><tr>
+<!--  
+  <td valign="top" width="214" align="left">
+   <a href="http://msdl.cs.mcgill.ca/"><img border="0" src="/images/MSDLlogo.2.small.gif" align="left"></a>
+  </td>
+-->
+
+  <td valign="middle" align="right" width="100%" cellpadding="3">
+   <div class="pagetitle">Requirements Checking Assignment&nbsp;</div>
+  </td>
+ </tr>
+
+</tbody></table>
+
+
+  
+  
+ </div>
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" summary="home page" width="100%">
+ <tbody><tr>
+  <td valign="top" align="left">
+
+
+  <div class="portlet">
+
+    <h2>Practical Information</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+
+						<li> <b>Due Date:</b> Friday 21 October 2022, before 23:59.</li>
+
+            <li> <b>Team Size:</b> 2 (pair design/programming)!<br>
+            <i>Note that as of the 2017-2018 Academic Year, each International student should team up with "local"
+              (i.e., whose Bachelor degree was obtained at the University of Antwerp).</i></li>
+
+            <li> <b>Submission Information:</b>
+              <em>Only one</em> member of each team submits a full solution. This must be a compressed archive (<tt>ZIP</tt>, <tt>RAR</tt>, <tt>TAR.GZ</tt>...) that includes your report and all models, images, code and other sources that you have used to crate your solution. <b>Do not submit any executables.</b>
+							<em>The report may be either HTML or PDF and must be accompagnied by all images. When an image is unreadable in your report <b>and</b> missing from your submission archive, you will not receive any points for that task.</em>
+							Make sure to mention the names and student IDs of both team members.
+              The other team member <em>must</em> submit a single <tt>HTML</tt> file containing <em>only</em> the coordinates of both team members. You may use <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/index.html">this template</a>. This will allow us to put in grades for both team members in BlackBoard.
+            </li>
+
+            <li> <b>Submission Medium:</b>
+              <a href="http://lms.uantwerpen.be/">BlackBoard Ultra</a>. Beware that BlackBoard's clock may differ slightly from yours. If BlackBoard is not reachable due to an (unpredicted) maintenance, you submit your solution via e-mail to the TA. Make sure all group members are in CC!
+            </li>
+
+            <li> <b>Contact / TA:</b>
+                <a href="mailto:Randy.Paredis@uantwerpen.be">Randy Paredis</a>.
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+
+    <h2>Goals</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          In this assignment, you will use the <i>Use Cases</i>, <i>UML Sequence Diagrams</i>, <i>Regular Expressions</i>, and <i>State Automata</i> modelling languages to design and verify an the communication in a port. You will also make the link to an output trace an actual implementation in Python to perform the checking. 
+          At the end, you will be able to automatically determine, based on the obtained trace file, whether all requirements are satisfied or not. <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/#fig-1">Figure 1</a> shows an overview of the parts in this assignment.
+        </p>
+				<center id="fig-1">
+					<img src="./Requirements Checking Assignment_files/overview.png" width="640"><br><br>
+					<span><b>Figure 1:</b> Main overview of the assignment.</span>
+				</center>
+      </div>
+    </div>
+
+
+    <h2>Problem Statement</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+				<p>
+					A ship's captain is not allowed to manouver the ship anywhere inside a port. This is because they do not know where the docks have been dredged and how to best manouver towards their destination quay. Instead, a (port) pilot (<i>nl: loods</i>) will steer the ship throughout the confines of the port. Typically, there are different kinds of pilots. For this assignment, we concern ourselves with an outside pilot (concerns themselves with helping the ships enter/exit the port; <i>nl: buitenloods</i>), an inside pilot (concerns themselves with navigating the docks; <i>nl: binnenloods</i>) and a lock pilot (concerns themselves with the navigation inside the locks; <i>nl: sluisloods</i>). <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/#fig-2">Figure 2</a> gives a generic overview of the port we will be looking at.
+				</p>
+				<center id="fig-2">
+					<img src="./Requirements Checking Assignment_files/port.svg" width="700"><br><br>
+					<span><b>Figure 2:</b> The port to engineer for the assignment.</span>
+				</center>
+				<p>
+					A ship is typically not allowed to enter a port immediately. Large vessels are required to wait outside of the port. In the figure, <b>A</b> denotes this waiting area and <b>B</b> the destination quay of the ship. The <b>Harbour</b> will act as a central control unit. In short, the behaviour of this port can be described as:
+					</p><ul>
+						<li>A ship arrives at <b>A</b> and communicates this to the <b>Harbour</b>.</li>
+						<li>The <b>Harbour</b> tries to dispatch an outside pilot from <b>PBO</b> (Pilot Building Outside). If no outside pilots are available, the ship will keep waiting.</li>
+						<li>The outside pilot will navigate the ship until node <b>PO</b>.</li>
+						<li>When the <b>Harbour</b> learns that the ship has reached <b>PO</b>, it will try to dispatch a lock pilot from <b>PBL</b> (Pilot Building Locks). If no lock pilot is available, the outside pilot will keep waiting on board of the ship. If a lock pilot is dispatched, the outside pilot returns to their station (<b>PBO</b>).</li>
+						<li>When the <b>Harbour</b> learns that a ship has arrived at <b>G0</b> (Gate 0), it will request the <b>Lock Controller</b> to try and open this gate. The same logic applies to <b>G1</b> (Gate 1) and <b>G2</b> (Gate 2).</li>
+						<li>When the <b>Harbour</b> learns that a ship is inside the first lock (<b>L0</b>), it will request the <b>Lock Controller</b> to close <b>G0</b>. The same logic applies to <b>L1</b> (Lock 1) and <b>G1</b>.</li>
+						<li>When the ship communicates it has reached node <b>PI</b>, an inside pilot will be requested from <b>PBI</b> (Pilot Building Inside). Furthermore, the <b>Harbour</b> requests to close <b>G2</b>. If no inside pilots are available, the ship keeps waiting, with the lock pilot on board. If an inside pilot is dispatched, the lock pilot returns to their station (<b>PBL</b>).</li>
+						<li>When the ship reaches their quay <b>B</b>, the inside pilot returns to their station (<b>PBI</b>).</li>
+					</ul>
+				<p></p>
+				<p>
+					You are given a simple implementation of this port that handles the arrival and movement of ships.
+					It is your task to check whether or not the specified requirements are validated. However, you are only given access to trace files of the behaviour of this system (due to the exection of code). A trace file contains debugging information about the port, such as all ship positions, opening/closing of lock gates, and pilots that get dispatched. Due to this verbosity, and the total runtime of the execution, the file is quite long, and therefore validating the requirements is not to be done manually.
+					Thus, the validation will be done automatically. You will first model a set of <i>Regular Expressions</i>, and then a set of <i>Finite State Automata</i>, which you will subsequently encode, to automatically verify whether the system implementation complies with the system specification given in the requirements below (and modelled visually in <i>Sequence Diagram</i> form).
+				</p>
+				<center id="fig-3">
+					<img src="./Requirements Checking Assignment_files/class_diagram.svg" width="800"><br><br>
+					<span><b>Figure 3:</b> The <i>UML Class Diagram</i> for the port.</span>
+				</center>
+				<p>
+					The structure of the port is described in <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/#fig-3">figure 3</a>. Some additional information is provided below. You are allowed to ignore all time-based variables (i.e., all <b>duration</b>s) in your solution.
+					</p><ul>
+						<li><b>Position:</b> Enumeration that allows the identification of the current ship position.</li>
+						<li><b>Ship:</b> Identification of a ship that wants to enter the port. Each ship has a unique <b>ID</b>. The <b>waiting</b> counter is used to identify how long a ship must remain idle. The <b>finished</b> boolean is set once the ship has reached node <b>B</b>.
+							<ul>
+								<li><b>tick(void): void</b> This method will be called for each ship in the port, every iteration of the simulation. When the ship is not idle, it will signal its position to the <b>Harbour</b>.</li>
+								<li><b>advance(duration: int): void</b> Moves the ship to the next position and requests an idle time for some <b>duration</b>. This behaviour mimics the time delay to move from one position to another.</li>
+								<li><b>arrived(void): void</b> Called when the ship has reached its destination.</li>
+							</ul>
+						</li>
+						<li><b>PilotBuilding:</b> Represents a resource pool of pilots that can be dispatched. It has a <b>name</b> for unique identification and a certain amount of pilots, stored in the <b>pilots</b> field.
+							<ul>
+								<li><b>seize(duration: int): bool</b> Requests a pilot from the building. If a pilot is available, the <b>Harbour</b> will be notified that they were dispatched. The <b>duration</b> identifies how long it takes for the pilot to reach and steer the ship. Returns whether or not it was possible to dispatch a pilot.</li>
+								<li><b>release(void): void</b> Releases a pilot back to the resource pool. For the sake of simplicity, this happens instantaneous.</li>
+							</ul>
+						</li>
+						<li><b>LockController:</b> Handles the opening and closing of the locks. It has a <b>gates</b> list of booleans that identify the lock gates. The gate at index 0 represents <b>G0</b>, the one at index 1 is <b>G1</b> and <b>G2</b> is at index 2. When the boolean value is false, the gate is closed. When true, it is open.
+							<ul>
+								<li><b>open(lock_id: int): void</b> Opens a specific lock if possible. See the requirements below for more info.</li>
+								<li><b>ship_at_lock(ship_id: int, lock_id: int): void</b> Used by the <b>Harbour</b> to notify that a ship is at an open lock gate.</li>
+								<li><b>ship_past_gate(ship_id: int, lock_id: int): void</b> Used by the <b>Harbour</b> to notify that a ship has sailed past a lock gate and closes this gate.</li>
+							</ul>
+						</li>
+						<li><b>Harbour:</b> Global controller of this system. Handles all communications. In the simulation, the <b>Harbour</b> first selects the current ship before the <b>tick()</b> method is called, resulting in a ship-by-ship handling of all logic.
+							<ul>
+								<li><b>pilot_dispatched(duration: int): void</b> When called, it is known that a pilot was dispatched for the current ship.</li>
+								<li><b>ship_position(ship_id: int, pos: Position): void</b> Called by the ship to notify the <b>Harbour</b> of its position. Depending on the current ship's position, other communication messages are being send.</li>
+							</ul>
+						</li>
+					</ul>
+				<p></p>
+				<p>
+					This results in the following requirements:
+					</p><ol>
+						<li>A ship must be created before it can move through the port.</li>
+						<li>Each iteration, each ship must notify the <b>Harbour</b> of its position, unless the ship is in-between two positions.</li>
+						<li>A ship must pass through all positions in the correct order, being: <b>A</b>, <b>PO</b>, <b>G0</b>, <b>L0</b>, <b>G1</b>, <b>L1</b>, <b>G2</b>, <b>PI</b>, <b>B</b>.</li>
+						<li>When a ship is at an open gate, the gate must not close until the ship has passed the gate (i.e., the ship is at the node after the gate).</li>
+						<li>A lock gate may only open if the previous and next gate (if it exists) are closed.</li>
+						<li>A <b>PilotBuilding</b> should not dispatch a pilot if there are no pilots available.</li>
+						<li>When a ship is waiting for a pilot, eventually a pilot will be dispatched.</li>
+						<li>The amount of available pilots in a <b>PilotBuilding</b> must decrease after a dispatch and increase after a release.</li>
+					</ol>
+					For simplicity of this assignment, you will <b>only need to check use case 4 and 5</b>.
+				<p></p>
+
+        <p>
+          Note that the trace will only terminate as soon as all ships in the port have arrived at their destination. For example, if a ship arrives at <b>A</b>, the trace will always contain the arrival of the ship in <b>B</b>. Furthermore, each iteration, all ships will be handled in order. This means that if ship 0 gains a pilot, the dispatch will happen before ship 1 is handled. You can use this information to make some of the rules a little simpler.
+        </p>
+
+      </div>
+    </div>
+
+    <h2>Tasks</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          You will need to perform the following tasks step by step:
+          </p><ol>
+            <li> Write full <i>Use Cases</i> using the <a href="http://www.cs.mcgill.ca/~joerg/SEL/COMP-533_Handouts_files/COMP-533%204%20Use%20Cases.pdf" target="_blank">use case template</a> (for ONLY requirements 4 and 5).</li>
+            <li> Design the dynamic interaction behaviour in <i>UML Sequence Diagrams</i> for the above use cases (ONLY requirements 4 and 5), using the textual rendering tool <a href="http://plantuml.com/">PlantUML</a>, or using the online tool <a href="https://www.websequencediagrams.com/">WebSequenceDiagrams</a>. Start from the <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/#fig-3"><i>Class Diagram</i></a> to know what objects and methods you can use. <b>Describe all possible options.</b> Use variable names to reduce complexity. Clearly indicate the pre- and postconditions for your <i>Sequence Diagrams</i>.</li>
+            <li>
+              Write <i>Regular Expressions</i> (<i>RegEx</i>) (refer to the format of the given <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/trace.txt">output trace</a>) for verifying the above use cases. <br>
+              To make life easier, we use abbreviations to shorten the messages that you need to recognize in your <i>RegExp/FSA</i>. Here are the mappings:
+              <pre style="position: relative;">                SC x   := A ship is created with ID x
+                SA x   := The ship with ID x has arrived at its destination
+                SP x p := The ship with ID x is at position p
+                SL x y := The ship with ID x is at open lock gate y
+
+                LO y   := Lock gate y is now open
+                LC y   := Lock gate y is now closed
+
+                PD n x := Pilot building n has dispatched a pilot to the ship with ID x
+                PR n x := Pilot building n has regained a pilot from the ship with ID x
+              <div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+
+              The following is a complete example regular expression to check use case 1:
+              <pre style="position: relative;">                SP (\d+) .+\n(.|\n)*?SC \1\n
+              <div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+
+							An explanation of this regular expression is as follows: we try to find a ship position notification (<tt>SP</tt>), followed by a ship creation message (<tt>SC</tt>) of that exact ship. Where the ship is positioned is not important (<tt>.+</tt>). For the ship's ID, it is known that it is an integer, resulting in <tt>\d+</tt>. Because we want to refer to the <em>same</em> ship, we group the ship's ID and refer to it afterwards with <tt>\1</tt>.
+              <br><br>
+              Whenever this RegEx matches, we know there is a violation of the requirements. This is called a <i>negative match</i>. A <i>positive match</i> does the opposite: the code is deemed correct if the trace matches your description (in <i>Regular Expressions</i>, <i>FSA</i>, ...). For all parts, you are allowed to use either a 'positive match' or 'negative match'. Do explain why you used either kind of match, and make sure to reply "correct" or "violation" in the end, instead of saying "matched" or "not matched".
+              Choosing the right kind of match might significantly shorten your solution!
+              <br><br>
+							Another, more complicated example (using a positive match) is the complete regular expression to check use case 7 (<i>Note: this part has been edited!</i>):
+							<!--<pre>
+                Outside Pilot Dispatching:
+                ^((((SP \d+ (P[OI]|G[0-2]|L[01]|B))|(PD PB[OLI] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*
+                (SP (\d+) A\n)
+                (((PD PB[LI] \d+)|(((S[ACLP])|(L[OC])|(PR)).*))\n)*
+                (PD PBO \13\n))*
+                (((SP \d+ (P[OI]|G[0-2]|L[01]|B))|(PD PB[LI] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*$
+
+                Lock Pilot Dispatching:
+                ^((((SP \d+ (A|PI|G[0-2]|L[01]|B))|(PD PB[OLI] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*
+                (SP (\d+) PO\n)
+                (((PD PB[OI] \d+)|(((S[ACLP])|(L[OC])|(PR)).*))\n)*
+                (PD PBL \13\n))*
+                (((SP \d+ (A|PI|G[0-2]|L[01]|B))|(PD PB[OI] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*$
+
+                Inside Pilot Dispatching:
+                ^((((SP \d+ (A|PO|G[0-2]|L[01]|B))|(PD PB[OLI] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*
+                (SP (\d+) PI\n)
+                (((PD PB[OL] \d+)|(((S[ACLP])|(L[OC])|(PR)).*))\n)*
+                (PD PBI \13\n))*
+                (((SP \d+ (A|PO|G[0-2]|L[01]|B))|(PD PB[OL] \d+)|(((S[ACL])|(L[OC])|(PR)).*))\n)*$
+              </pre>-->
+              <pre style="position: relative;">                Count the Amount of Ships Using:
+                  (SC \d+\n)
+
+                Outside Pilot Dispatching:
+                  ((SP (\d+) A\n)((?!SP \3 A\n)(.|\n))*(PD PBO \3\n))
+
+                Lock Pilot Dispatching:
+                  ((SP (\d+) PO\n)((?!SP \3 PO\n)(.|\n))*(PD PBL \3\n))
+
+                Inside Pilot Dispatching:
+                  ((SP (\d+) PI\n)((?!SP \3 PI\n)(.|\n))*(PD PBI \3\n))
+              <div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+
+              An explanation for the ReGex of the outside pilot dispatching rule follows: first, the total amount of ships in the system is counted using the first RegEx. This identifies the total amount of matches that the other regexes require.
+              For each of the other RegExes, you first find a ship at a pilot requesting position, for which we look for the last occurrence in the trace. This is followed by a dispatch of the correct pilot.
+              This pattern must appear x times, where x is the amount of matches for the first RegEx. The same logic applies to the other two RegExes.
+
+              <p>
+                As you want this to be correct for all pilot buildings, you need to run both of them seperately. If all of them find x mathces, the trace is as expected. However, if one of them doesn't match x, an error is found. You can check the validity of the above <i>RegEx</i> using an online tool like <a href="https://regex101.com/" target="_blank">Regex101</a>.
+              </p>
+
+              <p>
+                <b>Clarification</b>: the above uses a <i>Regular Expression</i> notation commonly used in <i>UNIX Regular Expressions</i> (as used in the stream editor <tt>sed</tt>, for example). Below, you can find a short description of RegEx notation, as is required for the assignment.
+                </p><ul>
+                  <li><tt>[eE]</tt> stands for <tt>e</tt> <em>or</em> <tt>E</tt>.</li>
+                  <li><tt>[a-z]</tt> stands for one of the characters in the range <tt>a</tt> to <tt>z</tt>.</li>
+                  <li><tt>^</tt> means "match at the beginning of the trace".<span style="color: red;">*</span></li>
+                  <li><tt>$</tt> means "match at the end of the trace".<span style="color: red;">*</span></li>
+                  <li><tt>X|Y</tt> means "match either <tt>X</tt> or <tt>Y</tt>", with <tt>X</tt> and <tt>Y</tt> both sub-expressions.</li>
+                  <li><tt>[^x]</tt> means <em>not</em> <tt>x</tt>, hence <tt>^[^E].*\n</tt> matches every line except those that start with the <tt>E</tt> character.</li>
+                  <li> <tt>.</tt> matches any single character. Depending on the used program, the <tt>.</tt> might either match a newline or not.<span style="color: red;">*</span> In Python's <tt>re</tt> module, this does not match a newline by default.</li>
+                  <li> <tt>X?</tt> matches 0 or 1 repetitions of <tt>X</tt>.</li>
+                  <li> <tt>X*</tt> matches 0 or more repetitions of <tt>X</tt>.</li>
+                  <li> <tt>X+</tt> matches 1 or more repetitions of <tt>X</tt>.</li>
+                  <li><tt>\</tt> is used to escape meta-characters such as <tt>(</tt>. If you want to match the character <tt>(</tt>, you need the pattern <tt>\(</tt>.</li>
+                  <li>The <tt>(</tt> and <tt>)</tt> meta-characters are used to memorize a match for later use. They can be used around arbitrarily complex patterns. For example <tt>([0-9]+)</tt> matches any non-empty sequence of digits. The matched pattern is memorized and can be referred to later by using <tt>\1</tt>. Following matched bracketed patterns are referred to by <tt>\2</tt>, <tt>\3</tt>, etc. Note that you will need to encode powerful features such as this one by adding appropriate actions (side-effects) to your automaton encoding the regular expression. This can easily be done by storing a matched pattern in a variable and later referring to it again. <i>It is, however, not required to implement this feature to be used anywhere. You may require storing the ship's ID in the automaton/RegExes. It is sufficient to allow this functionality</i></li>
+                </ul>
+                You are welcome to use different variant notations (such as the one used in the <a href="https://docs.python.org/3/library/re.html">Python <i>Regular Expression</i> module</a>), as long as you explain your notation.<br>
+                <span style="color: red;">*</span> Some programs allow additional RegEx flags that change the behaviour of these symbols. You may use these flags in your solution if you clearly indicate this in your report.
+              <p></p>
+            </li>
+            <li> Design a <i>FSA</i> which encodes the <i>Regular Expressions</i> for verification (<a href="http://msdl.uantwerpen.be/people/hv/teaching/SoftwareDesign/COMP304B2003/assignments/assignment3/solution/">example</a>). You can use <a href="https://graphviz.org/" target="blank_">GraphViz</a>, <a href="http://plantuml.com/">PlantUML</a>, <a href="https://diagrams.net/">Diagrams.net</a> or <a href="http://madebyevan.com/fsm/" target="blank_">FSM</a> to design your automata (note that in FSM, it is not possible to mark an initial state, so just name it "<tt>init</tt>").</li>
+            <li> Implement this <i>FSA</i> for verification in the provided code framework (see <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/scanner.py">scanner.py</a>; an example is included at the bottom of the file).</li>
+            <li>
+              There are 6 output traces available for you to test your code out:
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace1.txt">trace1.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace2.txt">trace2.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace3.txt">trace3.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace4.txt">trace4.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace5.txt">trace5.txt</a> and
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace6.txt">trace6.txt</a>.
+              Run your <i>FSA</i> implementation (which in turn implements the <i>Regular Expressions</i>, which in turn encode the checking of interaction behaviour use cases which were modelled as <i>Sequence Diagrams</i>) on the given output traces to verify the specification.
+            </li>
+            <li> There is an intentional bug in the implementation (which is visible in some of the traces) that causes the system specification not to be satisfied. You need to figure out which requirement is being violated, and show how your <i>FSA</i> which checks this. Identify which of the traces show the violation and which ones don't. Also describe in your own words what the meaning is of this bug; for instance: <i>the ship gets crushed by the lock gate</i>.</li>
+            <li> Write a report that explains your solution for this assigment. Include your models and discuss them. Make sure to mention all your hypotheses, assumptions and conclusions. See also the "<i>submission information</i>" at the top of this page.</li>
+          </ol>
+        <p></p>
+
+        <p>
+          Take pride in your work. Make sure your report and all models and images are clearly readable. Additionally, produce clean and (preferrably) well documented code. If a text-to-figure transformation (such as for GraphViz and PlantUML) causes your images to be difficult to read, also include the source files from which these were generated (<tt>*.gv</tt> and <tt>*.puml</tt>). You will not lose points for doing too much, but you will lose points if you do too little.
+        </p>
+      </div>
+    </div>
+
+    <h2>Practical Issues</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+            <li>All parts of this (and most future) assignments use <a href="https://www.python.org/">Python 3.6+</a>. <em>Do not use features from Python 2.7 (discontinued as of January 1, 2020).</em></li>
+            <li>
+              There are 6 example output traces available:
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace1.txt">trace1.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace2.txt">trace2.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace3.txt">trace3.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace4.txt">trace4.txt</a>,
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace5.txt">trace5.txt</a> and
+              <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/traces/trace6.txt">trace6.txt</a>.
+            </li>
+            <li>Program used to implement <i>FSA</i>:  the scanner is in <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/requirementsChecking/scanner.py">scanner.py</a>, which includes an input stream class <tt>CharacterStream</tt> and a scanner/<i>FSA</i> class <tt>Scanner</tt>. A <a href="http://msdl.uantwerpen.be/people/hv/teaching/SoftwareDesign/COMP304B2003/assignments/assignment3/solution/"><tt>NumberScanner</tt></a> is included as an example <i>FSA</i>. </li>
+            <li>Useful links:
+              <ul>
+                <li>Use cases: <a href="http://www.cs.mcgill.ca/~joerg/SEL/COMP-533_Handouts_files/COMP-533%204%20Use%20Cases.pdf" target="_blank">http://www.cs.mcgill.ca/~joerg/SEL/COMP-533_Handouts_files/COMP-533%204%20Use%20Cases.pdf</a></li>
+                <li><i>Class Diagrams</i>: <a href="http://www.uml-diagrams.org/class-diagrams-overview.html" target="_blank">http://www.uml-diagrams.org/class-diagrams-overview.html</a></li>
+                <li><i>Sequence Diagrams</i>:&nbsp;<a href="http://www.tracemodeler.com/articles/a_quick_introduction_to_uml_sequence_diagrams/" target="_blank">http://www.uml-diagrams.org/sequence-diagrams.html</a></li>
+                <li><i>Regular Expressions</i>:&nbsp;<a href="http://www.zytrax.com/tech/web/regex.htm" target="_blank">http://www.zytrax.com/tech/web/regex.htm</a></li>
+                <li><i>Finite State Automata</i>:&nbsp;<a href="http://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/automata-theory/basics.html" target="_blank">http://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/automata-theory/basics.html</a></li>
+                <li>Test out <i>Regular Expressions</i> online: <a href="https://regex101.com/" target="_blank">https://regex101.com/</a></li>
+              </ul>
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  </td> 
+ </tr>
+</tbody></table>
+
+<img src="./Requirements Checking Assignment_files/red.jpg" border="0" width="100%" height="1"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr width="100%">
+  
+ </tr>
+ <tr>
+  <td align="left">Maintained by <a href="http://msdl.cs.mcgill.ca/people/hv">Hans Vangheluwe</a><a>.</a></td>
+  <td align="right">Last Modified: 2022/10/13 13:31:01.</td>
+ </tr>
+</tbody></table>
+
+
+
+</body></html>

@@ -1,0 +1,248 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Latex CBD representations}
+\author{Arno and Dogukan }
+\date{November 2021}
+
+
+\begin{document}
+
+\maketitle
+
+\section{DerivatorBlock}
+$$
+\left\{\begin{array}{lcl}
+	b7.OUT1(i) &=& 1/b7.IN1\left(i\right)\\
+	b11.OUT1(i) &=& b11.IN1\left(i-1\right)\\
+	b15.OUT1(i) &=& -b15.IN1\left(i\right)\\
+	b18.OUT1(i) &=& b18.IN1\left(i\right) + b18.IN2\left(i\right)\\
+	b30.OUT1(i) &=& b30.IN1\left(i\right) \cdot  b30.IN2\left(i\right)\\
+	b48.OUT1(i) &=& b48.IN1\left(i\right) + b48.IN2\left(i\right)\\
+	b52.OUT1(i) &=& -b52.IN1\left(i\right)\\
+	b62.OUT1(i) &=& b62.IN1\left(i\right) \cdot  b62.IN2\left(i\right)\\
+	OUT1(i) &=& b30.OUT1\left(i\right)\\
+	b7.IN1(i) &=& delta\_t.OUT1\left(i\right)\\
+	b11.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	b11.IC(i) &=& b48.OUT1\left(i\right)\\
+	b15.IN1(i) &=& b11.OUT1\left(i\right)\\
+	b18.IN2(i) &=& IN1.OUT1\left(i\right)\\
+	b18.IN1(i) &=& b15.OUT1\left(i\right)\\
+	b30.IN1(i) &=& b18.OUT1\left(i\right)\\
+	b30.IN2(i) &=& b7.OUT1\left(i\right)\\
+	b48.IN2(i) &=& IN1.OUT1\left(i\right)\\
+	b48.IN1(i) &=& b62.OUT1\left(i\right)\\
+	b52.IN1(i) &=& delta\_t.OUT1\left(i\right)\\
+	b62.IN2(i) &=& b52.OUT1\left(i\right)\\
+	b62.IN1(i) &=& IC.OUT1\left(i\right)\\
+	b11.OUT1(0) &=& b11.IC(0)\\
+\end{array}\right.
+$$
+\section{IntegratorBlock}
+$$
+\left\{\begin{array}{lcl}
+	a-6.OUT1(i) &=& a-6.IN1\left(i-1\right)\\
+	a-11.OUT1(i) &=& a-11.IN1\left(i\right) \cdot  a-11.IN2\left(i\right)\\
+	a-17.OUT1(i) &=& a-17.IN1\left(i\right) + a-17.IN2\left(i\right)\\
+	a-22.OUT1(i) &=& a-22.IN1\left(i-1\right)\\
+	b-1.OUT1(i) &=& 0\\
+	b-6.OUT1(i) &=& 1/b-6.IN1\left(i\right)\\
+	b-10.OUT1(i) &=& b-10.IN1\left(i\right) \cdot  b-10.IN2\left(i\right)\\
+	OUT1(i) &=& a-17.OUT1\left(i\right)\\
+	a-6.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-6.IC(i) &=& b-10.OUT1\left(i\right)\\
+	a-11.IN2(i) &=& delta\_t.OUT1\left(i\right)\\
+	a-11.IN1(i) &=& a-6.OUT1\left(i\right)\\
+	a-17.IN2(i) &=& a-11.OUT1\left(i\right)\\
+	a-17.IN1(i) &=& a-22.OUT1\left(i\right)\\
+	a-22.IN1(i) &=& a-17.OUT1\left(i\right)\\
+	a-22.IC(i) &=& b-1.OUT1\left(i\right)\\
+	b-6.IN1(i) &=& delta\_t.OUT1\left(i\right)\\
+	b-10.IN1(i) &=& IC.OUT1\left(i\right)\\
+	b-10.IN2(i) &=& b-6.OUT1\left(i\right)\\
+	a-6.OUT1(0) &=& a-6.IC(0)\\
+	a-22.OUT1(0) &=& a-22.IC(0)\\
+\end{array}\right.
+$$
+
+\section{FactorialBlock}
+$$
+\left\{\begin{array}{lcl}
+	a-7.OUT1(i) &=& a-7.IN1\left(i\right) \cdot  a-7.IN2\left(i\right)\\
+	a-12.OUT1(i) &=& a-12.IN1\left(i-1\right)\\
+	a-18.OUT1(i) &=& a-18.IN1\left(i\right) \leftrightarrow  a-18.IN2\left(i\right)\\
+	a-22.OUT1(i) &=& 0\\
+	a-27.OUT1(i) &=& a-27.IN1\left(i\right) + a-27.IN2\left(i\right)\\
+	a-35.OUT1(i) &=& 1\\
+	b-6.OUT1(i) &=& i\left(i\right)\\
+	OUT1(i) &=& a-27.OUT1\left(i\right)\\
+	a-7.IN2(i) &=& a-12.OUT1\left(i\right)\\
+	a-7.IN1(i) &=& b-6.OUT1\left(i\right)\\
+	a-12.IN1(i) &=& a-27.OUT1\left(i\right)\\
+	a-12.IC(i) &=& a-35.OUT1\left(i\right)\\
+	a-18.IN1(i) &=& a-22.OUT1\left(i\right)\\
+	a-18.IN2(i) &=& b-6.OUT1\left(i\right)\\
+	a-27.IN1(i) &=& a-18.OUT1\left(i\right)\\
+	a-27.IN2(i) &=& a-7.OUT1\left(i\right)\\
+	a-12.OUT1(0) &=& a-12.IC(0)\\
+\end{array}\right.
+$$
+\section{Forward DerivatorBlock}
+$$
+\left\{\begin{array}{lcl}
+	a-6.OUT1(i) &=& a-6.IN1\left(i-1\right)\\
+	a-10.OUT1(i) &=& a-10.IN1\left(i\right) + a-10.IN2\left(i\right)\\
+	a-14.OUT1(i) &=& a-14.IN1\left(i\right) + a-14.IN2\left(i\right)\\
+	a-18.OUT1(i) &=& a-18.IN1\left(i\right) \cdot  a-18.IN2\left(i\right)\\
+	a-22.OUT1(i) &=& -a-22.IN1\left(i\right)\\
+	OUT1(i) &=& a-14.OUT1\left(i\right)\\
+	a-6.IC(i) &=& a-10.OUT1\left(i\right)\\
+	a-6.IN1(i) &=& a-14.OUT1\left(i\right)\\
+	a-10.IN1(i) &=& IC.OUT1\left(i\right)\\
+	a-10.IN2(i) &=& a-22.OUT1\left(i\right)\\
+	a-14.IN2(i) &=& a-18.OUT1\left(i\right)\\
+	a-14.IN1(i) &=& a-6.OUT1\left(i\right)\\
+	a-18.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-18.IN2(i) &=& delta\_t.OUT1\left(i\right)\\
+	a-22.IN1(i) &=& a-18.OUT1\left(i\right)\\
+	a-6.OUT1(0) &=& a-6.IC(0)\\
+\end{array}\right.
+$$
+
+\section{Trapezoid Integrator}
+$$
+\left\{\begin{array}{lcl}
+	a-0.OUT1(i) &=& b-0.IN1\left(i\right) + b-0.IN2\left(i\right)\\
+	a-4.OUT1(i) &=& b-4.IN1\left(i-1\right)\\
+	a-8.OUT1(i) &=& b-8.IN1\left(i\right) \cdot  b-8.IN2\left(i\right)\\
+	a-12.OUT1(i) &=& 2\\
+	a-14.OUT1(i) &=& 1/a-14.IN1\left(i\right)\\
+	a-25.OUT1(i) &=& b-25.IN1\left(i\right) \cdot  b-25.IN2\left(i\right)\\
+	a-31.OUT1(i) &=& b-31.IN1\left(i\right) + b-31.IN2\left(i\right)\\
+	a-37.OUT1(i) &=& b-37.IN1\left(i-1\right)\\
+	a-44.OUT1(i) &=& 0\\
+	c-39.OUT1(i) &=& TrapezoidInitialCondition\left(c-39.delta\_t\left(i\right), c-39.IC\left(i\right), c-39.IN1\left(i\right)\right)\\
+	OUT1(i) &=& a-31.OUT1\left(i\right)\\
+	a-0.IN2(i) &=& a-4.OUT1\left(i\right)\\
+	a-0.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-4.IC(i) &=& c-39.OUT1\left(i\right)\\
+	a-4.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-8.IN1(i) &=& a-14.OUT1\left(i\right)\\
+	a-8.IN2(i) &=& a-0.OUT1\left(i\right)\\
+	a-14.IN1(i) &=& a-12.OUT1\left(i\right)\\
+	a-25.IN2(i) &=& delta\_t.OUT1\left(i\right)\\
+	a-25.IN1(i) &=& a-8.OUT1\left(i\right)\\
+	a-31.IN2(i) &=& a-25.OUT1\left(i\right)\\
+	a-31.IN1(i) &=& a-37.OUT1\left(i\right)\\
+	a-37.IN1(i) &=& a-31.OUT1\left(i\right)\\
+	a-37.IC(i) &=& a-44.OUT1\left(i\right)\\
+	c-39.delta\_t(i) &=& delta\_t.OUT1\left(i\right)\\
+	c-39.IC(i) &=& IC.OUT1\left(i\right)\\
+	c-39.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-4.OUT1(0) &=& b-4.IC(0)\\
+	a-37.OUT1(0) &=& b-37.IC(0)\\
+\end{array}\right.
+$$
+
+\section{Simpson}
+$$
+\left\{\begin{array}{lcl}
+	a-36.OUT1(i) &=& i\left(i\right)\\
+	a-61.OUT1(i) &=& MUX\left(a-61.IN1\left(i\right), a-61.IN2\left(i\right), a-61.select\left(i\right)\right)\\
+	a-71.OUT1(i) &=& a-71.IN1\left(i-1\right)\\
+	a-75.OUT1(i) &=& a-75.IN1\left(i-1\right)\\
+	a-81.OUT1(i) &=& 0\\
+	b-7.OUT1(i) &=& 0\\
+	b-10.OUT1(i) &=& b-10.IN1\left(i\right) + b-10.IN2\left(i\right)\\
+	b-14.OUT1(i) &=& b-14.IN1\left(i-1\right)\\
+	b-22.OUT1(i) &=& -b-22.IN1\left(i\right)\\
+	b-26.OUT1(i) &=& b-26.IN1\left(i\right) + b-26.IN2\left(i\right)\\
+	b-37.OUT1(i) &=& SimpsonFormula\left(b-37.IN1\left(i\right), b-37.IN2\left(i\right), b-37.IN3\left(i\right)\right)\\
+	b-45.OUT1(i) &=& b-45.IN1\left(i\right) + b-45.IN2\left(i\right)\\
+	b-52.OUT1(i) &=& MUX\left(b-52.IN1\left(i\right), b-52.IN2\left(i\right), b-52.select\left(i\right)\right)\\
+	b-60.OUT1(i) &=& b-60.IN1\left(i\right) \mod  b-60.IN2\left(i\right)\\
+	b-66.OUT1(i) &=& 2\\
+	c-37.OUT1(i) &=& TrapezoidFormula\left(c-37.IN1\left(i\right), c-37.IN2\left(i\right), c-37.delta\_t\left(i\right)\right)\\
+	c-49.OUT1(i) &=& c-49.IN1\left(i\right) \cdot  c-49.IN2\left(i\right)\\
+	OUT1(i) &=& a-61.OUT1\left(i\right)\\
+	a-61.IN1(i) &=& IC.OUT1\left(i\right)\\
+	a-61.select(i) &=& a-36.OUT1\left(i\right)\\
+	a-61.IN2(i) &=& b-52.OUT1\left(i\right)\\
+	a-71.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	a-71.IC(i) &=& IC.OUT1\left(i\right)\\
+	a-75.IC(i) &=& a-81.OUT1\left(i\right)\\
+	a-75.IN1(i) &=& a-71.OUT1\left(i\right)\\
+	b-10.IN1(i) &=& b-14.OUT1\left(i\right)\\
+	b-10.IN2(i) &=& c-37.OUT1\left(i\right)\\
+	b-14.IN1(i) &=& a-61.OUT1\left(i\right)\\
+	b-14.IC(i) &=& b-7.OUT1\left(i\right)\\
+	b-22.IN1(i) &=& c-37.OUT1\left(i\right)\\
+	b-26.IN1(i) &=& b-14.OUT1\left(i\right)\\
+	b-26.IN2(i) &=& b-22.OUT1\left(i\right)\\
+	b-37.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	b-37.IN3(i) &=& a-75.OUT1\left(i\right)\\
+	b-37.IN2(i) &=& a-71.OUT1\left(i\right)\\
+	b-45.IN1(i) &=& b-26.OUT1\left(i\right)\\
+	b-45.IN2(i) &=& c-49.OUT1\left(i\right)\\
+	b-52.IN1(i) &=& b-10.OUT1\left(i\right)\\
+	b-52.IN2(i) &=& b-45.OUT1\left(i\right)\\
+	b-52.select(i) &=& b-60.OUT1\left(i\right)\\
+	b-60.IN1(i) &=& a-36.OUT1\left(i\right)\\
+	b-60.IN2(i) &=& b-66.OUT1\left(i\right)\\
+	c-37.delta\_t(i) &=& delta\_t.OUT1\left(i\right)\\
+	c-37.IN1(i) &=& IN1.OUT1\left(i\right)\\
+	c-37.IN2(i) &=& a-71.OUT1\left(i\right)\\
+	c-49.IN1(i) &=& delta\_t.OUT1\left(i\right)\\
+	c-49.IN2(i) &=& b-37.OUT1\left(i\right)\\
+	a-71.OUT1(0) &=& a-71.IC(0)\\
+	a-75.OUT1(0) &=& a-75.IC(0)\\
+	b-14.OUT1(0) &=& b-14.IC(0)\\
+\end{array}\right.
+$$
+
+\section{LookUpTableBlock}
+$$
+\left\{\begin{array}{lcl}
+	\_l-YlHAasBxaOKrxFiZ4-4.OUT1(i) &=& \_l-YlHAasBxaOKrxFiZ4-4.IN1\left(i\right) < \_l-YlHAasBxaOKrxFiZ4-4.IN2\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-9.OUT1(i) &=& 10\\
+	\_l-YlHAasBxaOKrxFiZ4-20.OUT1(i) &=& MUX\left(\\_l-YlHAasBxaOKrxFiZ4-20.IN1\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-20.IN2\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-20.select\left(i\right)\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-26.OUT1(i) &=& 0\\
+	\_l-YlHAasBxaOKrxFiZ4-34.OUT1(i) &=& 170\\
+	\_l-YlHAasBxaOKrxFiZ4-36.OUT1(i) &=& \_l-YlHAasBxaOKrxFiZ4-36.IN1\left(i\right) < \_l-YlHAasBxaOKrxFiZ4-36.IN2\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-42.OUT1(i) &=& MUX\left(\\_l-YlHAasBxaOKrxFiZ4-42.IN1\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-42.IN2\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-42.select\left(i\right)\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-49.OUT1(i) &=& 10\\
+	\_l-YlHAasBxaOKrxFiZ4-56.OUT1(i) &=& 200\\
+	\_l-YlHAasBxaOKrxFiZ4-58.OUT1(i) &=& \_l-YlHAasBxaOKrxFiZ4-58.IN1\left(i\right) < \_l-YlHAasBxaOKrxFiZ4-58.IN2\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-62.OUT1(i) &=& MUX\left(\\_l-YlHAasBxaOKrxFiZ4-62.IN1\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-62.IN2\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-62.select\left(i\right)\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-67.OUT1(i) &=& 8\\
+	\_l-YlHAasBxaOKrxFiZ4-76.OUT1(i) &=& i\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-78.OUT1(i) &=& 260\\
+	\_l-YlHAasBxaOKrxFiZ4-80.OUT1(i) &=& \_l-YlHAasBxaOKrxFiZ4-80.IN1\left(i\right) < \_l-YlHAasBxaOKrxFiZ4-80.IN2\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-84.OUT1(i) &=& MUX\left(\\_l-YlHAasBxaOKrxFiZ4-84.IN1\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-84.IN2\left(i\right), \\_l-YlHAasBxaOKrxFiZ4-84.select\left(i\right)\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-89.OUT1(i) &=& 18\\
+	\_l-YlHAasBxaOKrxFiZ4-138.OUT1(i) &=& 12\\
+	OUT1(i) &=& \_l-YlHAasBxaOKrxFiZ4-20.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-4.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-9.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-4.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-76.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-20.select(i) &=& \_l-YlHAasBxaOKrxFiZ4-4.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-20.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-26.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-20.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-42.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-36.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-34.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-36.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-76.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-42.select(i) &=& \_l-YlHAasBxaOKrxFiZ4-36.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-42.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-49.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-42.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-62.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-58.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-56.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-58.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-76.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-62.select(i) &=& \_l-YlHAasBxaOKrxFiZ4-58.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-62.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-67.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-62.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-84.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-80.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-76.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-80.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-78.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-84.select(i) &=& \_l-YlHAasBxaOKrxFiZ4-80.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-84.IN1(i) &=& \_l-YlHAasBxaOKrxFiZ4-89.OUT1\left(i\right)\\
+	\_l-YlHAasBxaOKrxFiZ4-84.IN2(i) &=& \_l-YlHAasBxaOKrxFiZ4-138.OUT1\left(i\right)\\
+\end{array}\right.
+$$
+\end{document}

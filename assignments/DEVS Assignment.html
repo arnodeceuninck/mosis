@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/DEVS -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<!--<base href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/DEVS/">--><base href=".">
+
+ 
+ <meta name="author" content="Hans Vangheluwe">
+ <meta name="generator" content="None">
+ <link rel="stylesheet" type="text/css" href="./DEVS Assignment_files/standard_msdl_style.css" title="MSDL stylesheet">
+ <link rel="shortcut icon" href="http://msdl.uantwerpen.be/images/favicon.ico">
+ <title>DEVS Assignment</title>
+</head>
+<body bgcolor="#ffffff" class="vsc-initialized">
+
+<div class="portlet">    
+ <div class="portletBody">
+
+     <table border="0" cellpadding="4" cellspacing="0" width="100%" summary="table for MSDL standard page banner">
+
+ <tbody><tr>
+<!--  
+  <td valign="top" width="214" align="left">
+   <a href="http://msdl.cs.mcgill.ca/"><img border="0" src="/images/MSDLlogo.2.small.gif" align="left"></a>
+  </td>
+-->
+
+  <td valign="middle" align="right" width="100%" cellpadding="3">
+   <div class="pagetitle">DEVS Assignment&nbsp;</div>
+  </td>
+ </tr>
+
+</tbody></table>
+
+
+  
+  
+ </div>
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" summary="home page" width="100%">
+ <tbody><tr>
+  <td valign="top" align="left">
+
+
+  <div class="portlet">
+    <h2>Practical Information</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+
+            <li> <b>Due Date:</b> Tuesday 28 December before 23:55.</li>
+
+            <li> <b>Team Size:</b> 2 (pair design/programming)!<br>
+            <i>Note that as of the 2017-2018 Academic Year, each International student should team up with "local"
+              (i.e., whose Bachelor degree was obtained at the University of Antwerp).</i></li>
+
+            <li> <b>Submission Information:</b>
+              <em>Only one</em> member of each team submits a full solution. This must be a compressed archive (<tt>ZIP</tt>, <tt>RAR</tt>, <tt>TAR.GZ</tt>...) that includes your report and all models, images, code and other sources that you have used to crate your solution. The report must be called <tt>index.html</tt>. Make sure to mention the names and student IDs of all the team members.
+              The other team member <em>must</em> submit a single <tt>HTML</tt> file containing <em>only</em> the coordinates of both team members. This will allow us to put in grades for both team members in BlackBoard.
+            </li>
+
+            <li> <b>Submission Medium:</b>
+              <a href="http://blackboard.uantwerpen.be/">BlackBoard</a>. Beware that BlackBoard's clock may differ slightly from yours. If BlackBoard is not reachable due to an (unpredicted) maintenance, you submit your solution via e-mail to the TA. Make sure all group members are in CC.
+            </li>
+
+            <li> <b>Contact / TA:</b>
+                <a href="mailto:Randy.Paredis@uantwerpen.be">Randy Paredis</a>.
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+
+    <h2>Goals</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          This assignment will make you familiar with modeling, simulation and performance analysis in <em>DEVS</em>. You will learn to use modeling patterns to construct a discrete-event simulation on which specific statistics can be obtained and analyzed. This assignment is to be completed with <a href="http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS/">PythonPDEVS</a>. A <a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/">detailed documentation</a> is available. Take a look at the "<a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/queueing.html">Application to Queueing Systems</a>" example to get started with PythonPDEVS. This assignment completes the PRT example that was introduced in the previous assignments.
+        </p>
+        <p>
+          It is highly encouraged to read the documentation about the given functions and classes. If you use a function or a class in a way that disregards the "note", "warning"... labels, you will <em>not</em> receive any points on the <em>entire</em> task, even if it produces the correct results. Additionally, the documentation provides a set of examples which may help you in completing this assignment.
+        </p>
+      </div>
+    </div>
+
+    <h2>Problem Statement</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          The figure below gives an example of a PRT map of a fictional city. In total there are 10 stations, which have been marked with a circle. The distance between stations is denoted on the line segments. Each station services one (or multiple) lines. In total, the PRT contains 3 lines: red/full, yellow/striped and blue/dotted. There can be at most a single rail between two nodes in the network, even if there can be multiple lines. People arrive at a station and wait on the platform for a trolley that brings them to their desired destination station. Additionally, there are junctions with traffic lights to prevent train collisions. These junctions are identified with squares with the letter "<tt>J</tt>". The rails are one-directional, where line 2 (yellow/striped) circulates counter-clockwise and the other lines circulate clockwise.
+          </p><center><img src="./DEVS Assignment_files/railroad.svg"></center>
+        <p></p>
+        <p>
+          We are interested in studying the performance of this PRT system. Therefore, the following performance statistics must be observed. When a statistic is to be obtained for a set of stations/trolleys, also include a plot for every single component.
+          </p><ol>
+            <li>Average travel time of a passenger.</li>
+<!--            <li>Average waiting time of a passenger; i.e., the average time a passenger spent standing on a platform.</li>-->
+            <li>For each trolley, a summarized overview of trolley capacity over time.</li>
+            <li>For each trolley, the time-average trolley capacity.</li>
+<!--            <li>Average trolley waiting time; i.e., the average time a trolley spent waiting in front of a light.</li>-->
+            <li>For each station, the amount of people that have exited at that station.</li>
+            <li>For each station, the amount of people that have exited at their desired destination.</li>
+            <li>For each station, the average travel time of people that have exited at that station.</li>
+            <li>Total amount of people that have traveled over the PRT.</li>
+            <li>Number of people that have succesfully arrived at their desired destination.</li>
+<!--            <li>Average amount of people that have succesfully arrived at their desired destination within the hour.</li>-->
+            <li>Number of people still commuting when the experiment terminates.</li>
+            <li>Number of people with a destination that equals their origin station.</li>
+          </ol>
+        <p></p>
+        <p>
+          The following is a detailed description of all components for this system, as well as all messages that are being sent. Make sure not to hard-code any numbers, as this will help your analysis later on. You are allowed to group multiple components together in Coupled DEVS models. It is allowed to extend the descriptions given below, as they may not be complete. Try to optimize your code such that there is a minimum of code duplication.
+          </p><dl>
+            <dt>Passenger:</dt>
+            <dd>
+              Identifies the passengers that travel around in the PRT. Upon creation, they are given an origin and a desired destination station.
+            </dd>
+
+            <dt>Trolley:</dt>
+            <dd>Identifies the trolleys that transport passengers around over the PRT. They have a maximal capacity of 10 people and a parametrized velocity. Additionally, they can only serve one of the three lines.</dd>
+
+            <dt>Rail:</dt>
+            <dd>
+              Atomic DEVS, identifying a segment over which trolleys can travel (in a single direction). They have a certain distance, which can be combined with a <tt>Trolley</tt>'s velocity to obtain the transit time for this <tt>Rail</tt>. <tt>Trolley</tt>s cannot pass each other and there must be at least a 10 second delay between the departure of two <tt>Trolley</tt>s. For instance, a faster <tt>Trolley</tt> A will leave the <tt>Rail</tt> 10 seconds after the slower <tt>Trolley</tt> B if B is in front of A. For simplicity, there can be an infinite amount of <tt>Trolley</tt>s on a <tt>Rail</tt>.
+            </dd>
+
+            <dt>Junction:</dt>
+            <dd>Atomic DEVS that identifies a merge of multiple <tt>Rail</tt>s onto a single output. The <tt>Trolley</tt>s are merged according to their order of arrival. Furthermore, it takes 50 seconds for each <tt>Trolley</tt> to transfer the junction.</dd>
+
+            <dt>Split:</dt>
+            <dd>
+              Opposite of the <tt>Junction</tt>. There is a single input, but a set of outputs that allow a <tt>Trolley</tt> to deviate w.r.t. their line number. For instance, the user can define that lines 1 and 2 will be outputted on the right branch and line 3 will be outputted on the left branch. The <tt>Trolleys</tt> should automatically follow this logic without any delay. This block is not a required component, but will help when creating the <tt>Station</tt>.
+            </dd>
+
+            <dt>Station:</dt>
+            <dd>
+              Coupled DEVS model that contains a <tt>Generator</tt>, a <tt>Collector</tt>, a <tt>Platform</tt>, a <tt>Track</tt>, a <tt>Light</tt> and possibly a <tt>Split</tt>. The <tt>Station</tt> serves a set of <i>n</i> lines. For simplicity, there is a single input and <i>n</i> outputs (see the <tt>Split</tt> logic above). The figure below shows a shematic overview of how a <tt>Station</tt> is created with the given list of components.<br>
+              <center><img src="./DEVS Assignment_files/station.svg"></center>
+            </dd>
+
+            <dt>Generator:</dt>
+            <dd>Atomic DEVS that generates <tt>Passenger</tt>s according to a normal distributed inter-arrival process with a mean of 5 minutes and a standard deviation of 1 minute. For each <tt>Passenger</tt>, a random destination is chosen. This destination does not have to be reachable from the starting point.</dd>
+
+            <dt>Collector:</dt>
+            <dd>Atomic DEVS that obtains <tt>Passenger</tt>s. Should be used as a helper model to obtain the required statistics.</dd>
+
+            <dt>Platform:</dt>
+            <dd>
+              Atomic DEVS, identifying a location in a <tt>Station</tt> where an unlimited amount of <tt>Passenger</tt>s can wait to board a <tt>Trolley</tt>. For the purposes of this assignment, you can assume they queue on the <tt>Platform</tt> in a <em>first-in-first-out</em> order. For every line the <tt>Station</tt> serves, a different queue may be used for simplicity reasons.
+            </dd>
+
+            <dt>Track:</dt>
+            <dd>
+              Atomic or Coupled DEVS, identifying the location where <tt>Trolley</tt>s arrive at the <tt>Station</tt>. There can only be one <tt>Trolley</tt> per <tt>Track</tt>. A <tt>Trolley</tt> always halts for 1 minute at each <tt>Station</tt> (50% of the time before and 50% after boarding/disembarking). After its first wait, all <tt>Passengers</tt> that must exit at this <tt>Station</tt> disembark the <tt>Trolley</tt>, followed by the boarding of all people that need to enter that <tt>Trolley</tt> (as long as there are people waiting and there is room in the <tt>Trolley</tt>). Next, it waits the second time, before exiting the station. The <tt>Track</tt> communicates the lines it services to the <tt>Platform</tt>, such that people that have a destination station located on that line can board the <tt>Trolley</tt>. Only one <tt>Passenger</tt> can enter/exit the <tt>Trolley</tt> every 10 seconds.
+              <br>There should also be a 20% chance that a <tt>Person</tt> exits in the wrong station.
+            </dd>
+
+            <dt>Light:</dt>
+            <dd>
+              Simple <i>first-come-first-served</i> queue that releases elements upon requests.
+            </dd>
+          </dl>
+        <p></p>
+
+      </div>
+    </div>
+
+    <h2>Tasks</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          You will need to perform the following tasks step by step.
+          </p><ol>
+            <li>
+              Create all individual components for the PRT system, as described above. Try to use the patterns that were discussed in the theory lectures to solve this task. Minimize <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)">magic numbers</a> and maximize the usage of OO-programming.
+              <ul>
+                <li><i>Hint: Gradually built all your components and test their behaviour. Do not try to create a system that fully encompasses everything from scratch. This will minimize the amount of required time to complete this assignment.</i></li>
+              </ul>
+            </li>
+            <li>
+              Create the PRT network as shown in the figure above. You can either hard-code all interactions, or create your own file-type from which such a network can be read. Your choice will obviously be reflected in your grade. You may use as many model transformations as you'd like, as long as you fully describe all steps that are required to achieve the network model.
+            </li>
+            <li>
+              Prove the validity of your model by creating a function in your top-level DEVS model, which draws your rail network using <a href="https://graphviz.org/">GraphViz</a>.
+              <ul>
+                <li><i>Hint: to obtain all ports from sub-models that connect to a port called <tt>portA</tt>, you can use <tt>portA.inline</tt>. Similarly, to obtail all ports from sub-models that <tt>portA</tt> connects to, you can use <tt>portA.outline</tt>.</i></li>
+                <li><i>Hint: to obtain the DEVS model from a port called <tt>portA</tt>, you can use <tt>portA.host_DEVS</tt>.</i></li>
+              </ul>
+            </li>
+            <li>
+              Add a function in your top-level DEVS model that outputs/generates the required statistics at the end of the simulation. This function will probably also generate some plots for certain statistics.
+            </li>
+            <li>
+              Start one <tt>Trolley</tt> in each station that only serves a single line and simulate your model for 24 hours. Compare two <em>different</em> seeds and discuss the statistics. Discuss the results when
+              <ul>
+                <li>all <tt>Trolley</tt>s have the same velocity of 50 km/h.</li>
+                <li>half of the <tt>Trolley</tt>s have a velocity of 50 km/h and the other half have a velocity of 25 km/h.</li>
+              </ul>
+            </li>
+            <li>
+              Enforce that <tt>Passenger</tt>s that are generated at <tt>Station</tt> A can only travel to <tt>Station</tt>s that are reachable from A without needing to switch lines. Additionally, they should not mark A as their destination. You may use (manual/automatic) preprocessing to create a "reachable stations" data structure. Also reduce the chance for exiting in the wrong station to 3%. Compare these results to the ones obtained from the previous simulations.
+            </li>
+            <li>Use the same seeds, but alter any of the given constant values to find a better performing PRT system.</li>
+<!--            <li>-->
+<!--              Allow more complicated commutes in your system. Instead of having a single destination <tt>Station</tt>, <tt>Passenger</tt>s have a list thereof. This is the order in which the <tt>Station</tt>s need to be traveled to. They do not exit an in-between <tt>Station</tt>. The algorithm to select this list is defined as follows:-->
+<!--              <ol>-->
+<!--                <li>Pick a random amount <i>n</i> (at least 1 and at most 5) of <tt>Station</tt>s to serve.</li>-->
+<!--                <li>Pick a random line that is served by the source <tt>Station</tt>.</li>-->
+<!--                <li>Pick a random <tt>Station</tt> that is located on that line.</li>-->
+<!--                <li>Use this new station as a source <tt>Station</tt> and go back to (2).</li>-->
+<!--                <li>Loop until <i>n</i> <tt>Station</tt>s have been found.</li>-->
+<!--              </ol>-->
+<!--              Compare your simulation results again. What do you notice? Why?-->
+<!--            </li>-->
+            <li>
+              Remove the randomness from your model by changing the distribution parameters. Use this new, deterministic model to "prove" the validity of the behaviour of your system. Make sure to discuss all the components of the system. This may be a mathematical proof, a proof by simulation trace analysis or a proof by logical reasoning.
+            </li>
+            <li>
+              Write a report that explains your solution for this assigment. Include all figures and plots; and discuss them. Also clearly indicate which models can be found in which files. Make sure to mention all your hypotheses, assumptions and conclusions. See also the "<i>submission information</i>" at the top of this page.
+            </li>
+          </ol>
+        <p></p>
+        <p>
+          Notice the inconsitencies used in units (50 seconds, 25 km/h, 3 km...). It is up to you to do a conversion to a corresponding set of units. Even though real-time simulation will use the time-advance as seconds, it is not required for this to <em>represent</em> seconds. However, make a logical and well though-out decision.
+        </p>
+        <p>
+          It can be useful to create constructs that allow you to look up any station-line combination. Additionally, it is preferrable te use a predefined seed for random number generation. This allows a consistent result when testing and debugging your code.
+        </p>
+        <p>
+          While all components of the model are defined above, you are free to choose how these are implemented. <em>As long as the behaviour is equivalent to how it is described here.</em> Sometimes, there are multiple solutions to the same problem, but there are also ambiguities to allow you to make choices in the implementation. Don't choose for the most impressive solution, but rather the easiest and fastest to implement. Don't forget to discuss where and why you made certain choices!
+        </p>
+        <p>
+          Where possible, use different experiment files to setup your tasks. This allows you to return to previous tasks without issues, as well as referring to specific modules in your report. Also ensure your model is flexible enough to allow all the tasks by simply changing model parameters. If a task requires a (slight) change in the components used, make sure to include all versions of the components.
+        </p>
+        <p>
+          Your model should work for Classic DEVS, therefore you can ignore the possibilities of parallelism. If you do allow Parallel DEVS to work, make sure your model still works for Classic DEVS! To simulate using Classic DEVS, you can do the following:
+          </p><pre style="position: relative;">            sim = Simulator(model)
+            sim.setClassicDEVS()
+            sim.simulate()
+          <div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+        <p></p>
+        <p>
+          Take pride in your work. Make sure your report and all models and images are clearly readable. If a figure is difficult to read, also include the corresponding source files (<tt>*.gv</tt>, <tt>*.py</tt>...). You will not lose points for doing too much, but you will lose points if you do too little.
+        </p>
+      </div>
+    </div>
+
+    <h2>Practical Issues</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          </p><ul>
+            <li>This assignment is to be created with <a href="http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS/">PythonPDEVS</a>. Installing this on your system/virual environment can be done by executing <tt>python setup.py install --user</tt> from the source directory. Alternatively, placing the source directory on the <tt>PYTHONPATH</tt> environment variable, or marking it as a "sources root" in an IDE will work as well. Note PythonPDEVS works on both Python 2.7 as well as Python &gt;=3.6. <em>Do not use features from Python 3.10 (current alpha version).</em></li>
+            <li>The statistics can be printed after the <tt>simulate()</tt> call and printed to the console, to be plotted at the end (e.g. using gnuplot/matplotlib/bokeh). You are strongly advised to first study the "<a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/queueing.html">Application to Queueing Systems</a>" example.</li>
+            <li>Do not use real-time simulation, unless you read up on the topic in the PythonPDEVS documentation.</li>
+            <li>The theory slides describe a set of design patterns to use. Your model will be better if you do. This will be reflected in your grade.</li>
+            <li>Useful links:
+              <ul>
+                <li>PythonPDEVS documentation: <a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/">https://msdl.uantwerpen.be/documentation/PythonPDEVS/</a>.</li>
+                <li>PythonPDEVS starting examples:
+                  <ul>
+                    <li><a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/examples_classic.html">Classic Example</a></li>
+                    <li><a href="https://msdl.uantwerpen.be/documentation/PythonPDEVS/queueing.html">Application to Queueing Systems</a></li>
+                    <li><a href="https://msdl.uantwerpen.be/cloud/public/devs-store">PythonPDEVS "checkout" example (from practical session)</a>
+                  </li></ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  </td> 
+ </tr>
+</tbody></table>
+
+<img src="./DEVS Assignment_files/red.jpg" border="0" width="100%" height="1"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr width="100%">
+  
+ </tr>
+ <tr>
+  <td align="left">Maintained by <a href="http://msdl.cs.mcgill.ca/people/hv">Hans Vangheluwe</a><a>.</a></td>
+  <td align="right">Last Modified: 2021/12/13 16:41:19.</td>
+ </tr>
+</tbody></table>
+
+
+
+</body></html>

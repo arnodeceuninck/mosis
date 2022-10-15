@@ -1,0 +1,901 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CBD.preprocessing.butcher &mdash; CBD Simulator  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167094275-1"></script>
+  <script src="../../../_static/js/googleanalytics.min.js"></script>
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+
+      <div class="main-menu">
+        <ul>
+
+          <li>
+            <div class="ecosystem-dropdown">
+              <a id="dropdownMenuButtonEcosystem" data-toggle="ecosystem-dropdown">
+                Ecosystem
+              </a>
+              <div class="ecosystem-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://alchemy.host">
+                  <span class=dropdown-title>Alchemy</span>
+                  <p>Experiments logging & visualization</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">
+                  <span class=dropdown-title>Catalyst</span>
+                  <p>Accelerated deep learning R&D</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">
+                  <span class=dropdown-title>Reaction</span>
+                  <p>Convenient deep learning models serving</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="projects-dropdown">
+              <a id="dropdownMenuButtonProjects" data-toggle="projects-dropdown">
+                Projects
+              </a>
+              <div class="projects-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">
+                  <span class=dropdown-title>Codestyle</span>
+                  <p>Joint R&D codestyle</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">
+                  <span class=dropdown-title>Catalyst.Neuro</span>
+                  <p>Catalyst.Team and TReNDS collaborative project</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">
+                  <span class=dropdown-title>Classification</span>
+                  <p>Image classification pipeline with transfer learning</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">
+                  <span class=dropdown-title>Detection</span>
+                  <p>Object detection pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">
+                  <span class=dropdown-title>Segmentation</span>
+                  <p>Image semantic segmentation pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">
+                  <span class=dropdown-title>Catalyst.GAN</span>
+                  <p>GAN pipelines</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/dl-course">Deep learning course</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="catalyst-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="catalyst-left-menu" id="catalyst-left-menu">
+      <div class="catalyst-side-scroll">
+        <div class="catalyst-menu catalyst-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="catalyst-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">How to install the CBD framework?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running.html">How to run a CBD simulation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../issues.html">Common Issues and Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simple Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/SinGen.html">Sine Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/EvenNumberGen.html">Hierarchical Even Number Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/Fibonacci.html">Fibonacci Sequence Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/LCG.html">Linear Congruential Generator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/RealTime.html">Realtime Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/LivePlot.html">Live Plotting of Data During the Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/Dashboard.html">TkInter Dashboard with Editable Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/ContinuousTime.html">Continuous Time Simulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CBD.html">CBD package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="catalyst-container">
+      <div class="catalyst-page-level-bar" id="catalyst-page-level-bar">
+        <div class="catalyst-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="catalyst-breadcrumbs">
+    
+      <li>
+        <a href="../../../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="../../index.html">Module code</a> &gt;</li>
+        
+      <li>CBD.preprocessing.butcher</li>
+    
+    
+      <li class="catalyst-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="catalyst-shortcuts-wrapper" id="catalyst-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="catalyst-content-wrap" class="catalyst-content-wrap">
+        <div class="catalyst-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="catalyst-article" class="catalyst-article">
+              
+  <h1>Source code for CBD.preprocessing.butcher</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains a class to construct butcher tableaus and a set of predefined tables.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ButcherTableau"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau">[docs]</a><span class="k">class</span> <span class="nc">ButcherTableau</span><span class="p">:</span>
+	<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Mnemonic device to store the Runge-Kutta matrix, weights and nodes in</span>
+<span class="sd">	the computation of generic RK methods. The extended tableau also allows</span>
+<span class="sd">	for the error computation for adaptive step sizes. The general form of</span>
+<span class="sd">	a Butcher Tableau is shown below, where:</span>
+
+<span class="sd">	* :math:`s` identifies the number of stages;</span>
+<span class="sd">	* :math:`a_{ij}, 1 \leq j &lt; i \leq s` represents a coefficient in the</span>
+<span class="sd">	  Runge-Kutta matrix;</span>
+<span class="sd">	* :math:`b_i` and :math:`b^*_i` correspond to the weights of a higher</span>
+<span class="sd">	  and a lower order method, respectively; and</span>
+<span class="sd">	* :math:`c_i` specifies the nodes.</span>
+
+<span class="sd">	.. math::</span>
+
+<span class="sd">		\begin{array}</span>
+<span class="sd">			{c|ccccc}</span>
+<span class="sd">			0\\</span>
+<span class="sd">			c_2 &amp; a_{2,1}\\</span>
+<span class="sd">			c_3 &amp; a_{3,1} &amp; a_{3,2} \\</span>
+<span class="sd">			\vdots &amp; \vdots &amp; &amp; \ddots\\</span>
+<span class="sd">			c_s &amp; a_{s,1} &amp; a_{s,2} &amp; \cdots &amp; a_{s,s-1}\\</span>
+<span class="sd">			\hline</span>
+<span class="sd">			&amp; b_1 &amp; b_2 &amp; \cdots &amp; b_{s-1} &amp; b_s\\</span>
+<span class="sd">			&amp; b^*_1 &amp; b^*_2 &amp; \cdots &amp; b^*_{s-1} &amp; b^*_s\\</span>
+<span class="sd">		\end{array}</span>
+
+<span class="sd">	Args:</span>
+<span class="sd">		rows (iter):    Sequence of tuples :math:`(c_i, [a_{i, j}\vert 1 \leq j &lt; i])`.</span>
+<span class="sd">						When :code:`None`, nothing will be added.</span>
+<span class="sd">		weights (iter): Sequence of sequences of weights :math:`[b_{i}\vert i \leq s]`.</span>
+<span class="sd">						When :code:`None`, no weights will be added.</span>
+
+<span class="sd">	Note:</span>
+<span class="sd">		Upon instantiation, the first (empty) row will be added automatically with a</span>
+<span class="sd">		node of 0.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_weights</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+		<span class="k">if</span> <span class="n">rows</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">mtx</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">mtx</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+				<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">:</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ButcherTableau.addRow"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.addRow">[docs]</a>	<span class="k">def</span> <span class="nf">addRow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Adds a :math:`c_i` and :math:`a_{i, j}` to the tableau.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			node (numeric): The :math:`c_i`-value.</span>
+<span class="sd">			elems (iter):   :math:`a_{i, j}`, :math:`\forall j &lt; i`; i.e. the</span>
+<span class="sd">							sequence of matrix elements that correspond to the node.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">elems</span><span class="p">):</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inconsistent matrix! Expected row with </span><span class="si">%d</span><span class="s2"> elements!&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span><span class="p">))</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.addWeights"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.addWeights">[docs]</a>	<span class="k">def</span> <span class="nf">addWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">weights</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Adds a row of weights to the bottom of the matrix.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			*weights:   A sequence of the weights. I.e. :math:`b_{i}`, where :math:`1 \leq i \leq s`.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">):</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Trying to set weights on incomplete matrix&quot;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;First-Order tableau can only take a single weight&quot;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Maximal amount of weight rows (2) reached&quot;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inconsistent Butcher Tableau for Runge-Kutta approximation. &quot;</span>
+			                 <span class="s2">&quot;The sum of the weights must equal 1.&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.getNodes"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.getNodes">[docs]</a>	<span class="k">def</span> <span class="nf">getNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Obtains the nodes, i.e. the :math:`c_i`-values.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodes</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.getWeights"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.getWeights">[docs]</a>	<span class="k">def</span> <span class="nf">getWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Obtains the weight lists, i.e. the :math:`b_i` and :math:`b^*_i`-values.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.getA"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.getA">[docs]</a>	<span class="k">def</span> <span class="nf">getA</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Obtains an element from the Runge-Kutta matrix.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			i (int):    The row (1-indexed).</span>
+<span class="sd">			j (int):    The column (1-indexed).</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_matrix</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.getOrder"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.getOrder">[docs]</a>	<span class="k">def</span> <span class="nf">getOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wix</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Computes the order of the Tableau.</span>
+<span class="sd">		The order is the amount of non-zero weights.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			wix (id):   The weight index. Defaults to -1 (i.e.</span>
+<span class="sd">						the last weight row of the tableau).</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="p">[</span><span class="n">wix</span><span class="p">]</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-16</span><span class="p">])))</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.Euler"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.Euler">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">Euler</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for Euler&#39;s method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 1</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.Heun"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.Heun">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">Heun</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for Heun&#39;s method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1 &amp; 1\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 1/2 &amp; 1/2</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.HeunEuler"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.HeunEuler">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">HeunEuler</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for Heun&#39;s method,</span>
+<span class="sd">		combined with the Euler method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1 &amp; 1\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 1/2 &amp; 1/2\\</span>
+<span class="sd">				&amp; 1 &amp; 0</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="o">.</span><span class="n">Heun</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.Ralston"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.Ralston">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">Ralston</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for Ralston&#39;s method for 2nd order</span>
+<span class="sd">		accuracy. The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				2/3 &amp; 2/3\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 1/4 &amp; 3/4</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.RalstonEuler"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.RalstonEuler">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">RalstonEuler</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for Ralston&#39;s method,</span>
+<span class="sd">		combined with the Euler method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				2/3 &amp; 2/3\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 1/4 &amp; 3/4\\</span>
+<span class="sd">				&amp; 1 &amp; 0</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="o">.</span><span class="n">Ralston</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.Midpoint"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.Midpoint">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">Midpoint</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for the midpoint method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1/2 &amp; 1/2\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp;   0 &amp;   1</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.MidpointEuler"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.MidpointEuler">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">MidpointEuler</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for the midpoint method,</span>
+<span class="sd">		combined with the Euler method.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1/2 &amp; 1/2\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				&amp; 0 &amp; 1\\</span>
+<span class="sd">				&amp; 1 &amp; 0</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="o">.</span><span class="n">Midpoint</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.RK4"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.RK4">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">RK4</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for the default RK</span>
+<span class="sd">		algorithm.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1/2 &amp; 1/2\\</span>
+<span class="sd">				1/2 &amp;   0 &amp; 1/2\\</span>
+<span class="sd">				1   &amp;   0 &amp;   0 &amp;   1\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				    &amp; 1/6 &amp; 1/3 &amp; 1/3 &amp; 1/6</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.RK4Alt"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.RK4Alt">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">RK4Alt</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the Butcher Tableau for an alternative RK</span>
+<span class="sd">		algorithm. It is also called the 3/8-rule.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				0\\</span>
+<span class="sd">				1/3 &amp;  1/3\\</span>
+<span class="sd">				2/3 &amp; -1/3 &amp;   1\\</span>
+<span class="sd">				1   &amp;    1 &amp;  -1 &amp;   1\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				    &amp; 1/8 &amp; 3/8 &amp; 3/8 &amp; 1/8</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>   <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.RKF45"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.RKF45">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">RKF45</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for the</span>
+<span class="sd">		Runge-Kutta-Fehlberg algorithm of 4th and 5th order.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				    0\\</span>
+<span class="sd">				  1/4 &amp;       1/4\\</span>
+<span class="sd">				  3/8 &amp;      3/32 &amp;       9/32\\</span>
+<span class="sd">				12/13 &amp; 1932/2197 &amp; -7200/2197 &amp;  7296/2197\\</span>
+<span class="sd">				    1 &amp;   439/216 &amp;         -8 &amp;   3680/513 &amp;   -845/4104\\</span>
+<span class="sd">				  1/2 &amp;     -8/27 &amp;          2 &amp; -3544/2565 &amp;   1859/4104 &amp; -11/40\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				      &amp;    16/135 &amp;          0 &amp; 6656/12825 &amp; 28561/56430 &amp;  -9/50 &amp; 2/55\\</span>
+<span class="sd">				      &amp;    25/216 &amp;          0 &amp;  1408/2565 &amp;   2197/4104 &amp;   -1/5 &amp;    0</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">3</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span>     <span class="mi">3</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span>       <span class="mi">9</span><span class="o">/</span><span class="mi">32</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">12</span><span class="o">/</span><span class="mi">13</span><span class="p">,</span> <span class="p">[</span><span class="mi">1932</span><span class="o">/</span><span class="mi">2197</span><span class="p">,</span> <span class="o">-</span><span class="mi">7200</span><span class="o">/</span><span class="mi">2197</span><span class="p">,</span>  <span class="mi">7296</span><span class="o">/</span><span class="mi">2197</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>    <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>  <span class="mi">439</span><span class="o">/</span><span class="mi">216</span><span class="p">,</span>         <span class="o">-</span><span class="mi">8</span><span class="p">,</span>   <span class="mi">3680</span><span class="o">/</span><span class="mi">513</span><span class="p">,</span>   <span class="o">-</span><span class="mi">845</span><span class="o">/</span><span class="mi">4104</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span>    <span class="o">-</span><span class="mi">8</span><span class="o">/</span><span class="mi">27</span><span class="p">,</span>          <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3544</span><span class="o">/</span><span class="mi">2565</span><span class="p">,</span>   <span class="mi">1859</span><span class="o">/</span><span class="mi">4104</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="mi">40</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>       <span class="mi">16</span><span class="o">/</span><span class="mi">135</span><span class="p">,</span>          <span class="mi">0</span><span class="p">,</span> <span class="mi">6656</span><span class="o">/</span><span class="mi">12825</span><span class="p">,</span> <span class="mi">28561</span><span class="o">/</span><span class="mi">56430</span><span class="p">,</span>  <span class="o">-</span><span class="mi">9</span><span class="o">/</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">55</span><span class="p">)</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>       <span class="mi">25</span><span class="o">/</span><span class="mi">216</span><span class="p">,</span>          <span class="mi">0</span><span class="p">,</span>  <span class="mi">1408</span><span class="o">/</span><span class="mi">2565</span><span class="p">,</span>   <span class="mi">2197</span><span class="o">/</span><span class="mi">4104</span><span class="p">,</span>   <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span>    <span class="mi">0</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+<div class="viewcode-block" id="ButcherTableau.DOPRI"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.DOPRI">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">DOPRI</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for the</span>
+<span class="sd">		`Dormand-Prince method &lt;https://www.sciencedirect.com/science/article/pii/0771050X80900133?via%3Dihub&gt;`_.</span>
+<span class="sd">		This is the default method in the :code:`ode45` solver for MATLAB and GNU Octave, among others.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				   0\\</span>
+<span class="sd">				 1/5 &amp;         1/5\\</span>
+<span class="sd">				3/10 &amp;        3/40 &amp;        9/40\\</span>
+<span class="sd">				 4/5 &amp;       44/45 &amp;      -56/15 &amp;       32/9\\</span>
+<span class="sd">				 8/9 &amp;  19372/6561 &amp; -25360/2187 &amp; 64448/6561 &amp; -212/729\\</span>
+<span class="sd">				   1 &amp;   9017/3168 &amp;     -355/33 &amp; 46732/5247 &amp;   49/176 &amp;   -5103/18656\\</span>
+<span class="sd">				   1 &amp;      35/384 &amp;           0 &amp;   500/1113 &amp;  125/192 &amp;    -2187/6784 &amp;    11/84\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				      &amp;     35/384 &amp;           0 &amp;   500/1113 &amp;  125/192 &amp;    -2187/6784 &amp;    11/84 &amp;    0\\</span>
+<span class="sd">				      &amp; 5179/57600 &amp;           0 &amp; 7571/16695 &amp;  393/640 &amp; -92097/339200 &amp; 187/2100 &amp; 1/40</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span>        <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span>       <span class="mi">3</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span>        <span class="mi">9</span><span class="o">/</span><span class="mi">40</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span>      <span class="mi">44</span><span class="o">/</span><span class="mi">45</span><span class="p">,</span>      <span class="o">-</span><span class="mi">56</span><span class="o">/</span><span class="mi">15</span><span class="p">,</span>       <span class="mi">32</span><span class="o">/</span><span class="mi">9</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">8</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span> <span class="mi">19372</span><span class="o">/</span><span class="mi">6561</span><span class="p">,</span> <span class="o">-</span><span class="mi">25360</span><span class="o">/</span><span class="mi">2187</span><span class="p">,</span> <span class="mi">64448</span><span class="o">/</span><span class="mi">6561</span><span class="p">,</span> <span class="o">-</span><span class="mi">212</span><span class="o">/</span><span class="mi">729</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>   <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>  <span class="mi">9017</span><span class="o">/</span><span class="mi">3168</span><span class="p">,</span>     <span class="o">-</span><span class="mi">355</span><span class="o">/</span><span class="mi">33</span><span class="p">,</span> <span class="mi">46732</span><span class="o">/</span><span class="mi">5247</span><span class="p">,</span>   <span class="mi">49</span><span class="o">/</span><span class="mi">176</span><span class="p">,</span>   <span class="o">-</span><span class="mi">5103</span><span class="o">/</span><span class="mi">18656</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>   <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>     <span class="mi">35</span><span class="o">/</span><span class="mi">384</span><span class="p">,</span>           <span class="mi">0</span><span class="p">,</span>   <span class="mi">500</span><span class="o">/</span><span class="mi">1113</span><span class="p">,</span>  <span class="mi">125</span><span class="o">/</span><span class="mi">192</span><span class="p">,</span>    <span class="o">-</span><span class="mi">2187</span><span class="o">/</span><span class="mi">6784</span><span class="p">,</span>    <span class="mi">11</span><span class="o">/</span><span class="mi">84</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>        <span class="mi">35</span><span class="o">/</span><span class="mi">384</span><span class="p">,</span>           <span class="mi">0</span><span class="p">,</span>   <span class="mi">500</span><span class="o">/</span><span class="mi">1113</span><span class="p">,</span>  <span class="mi">125</span><span class="o">/</span><span class="mi">192</span><span class="p">,</span>    <span class="o">-</span><span class="mi">2187</span><span class="o">/</span><span class="mi">6784</span><span class="p">,</span>    <span class="mi">11</span><span class="o">/</span><span class="mi">84</span><span class="p">,</span>    <span class="mi">0</span><span class="p">)</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>    <span class="mi">5179</span><span class="o">/</span><span class="mi">57600</span><span class="p">,</span>           <span class="mi">0</span><span class="p">,</span> <span class="mi">7571</span><span class="o">/</span><span class="mi">16695</span><span class="p">,</span>  <span class="mi">393</span><span class="o">/</span><span class="mi">640</span><span class="p">,</span> <span class="o">-</span><span class="mi">92097</span><span class="o">/</span><span class="mi">339200</span><span class="p">,</span> <span class="mi">187</span><span class="o">/</span><span class="mi">2100</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">40</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+	<span class="n">RKDP</span> <span class="o">=</span> <span class="n">DOPRI</span>
+	<span class="s2">&quot;Alias of :func:`DOPRI`.&quot;</span>
+
+	<span class="n">DormandPrince</span> <span class="o">=</span> <span class="n">DOPRI</span>
+	<span class="s2">&quot;Alias of :func:`DOPRI`.&quot;</span>
+
+<div class="viewcode-block" id="ButcherTableau.RKCK"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.RKCK">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">RKCK</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for the</span>
+<span class="sd">		`Cash-Karp method &lt;https://dl.acm.org/doi/10.1145/79505.79507&gt;`_ for 4th and 5th order</span>
+<span class="sd">		accurate solutions.</span>
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				   0\\</span>
+<span class="sd">				 1/5 &amp;         1/5\\</span>
+<span class="sd">				3/10 &amp;        3/40 &amp;    9/40\\</span>
+<span class="sd">				 3/5 &amp;        3/10 &amp;   -9/10 &amp;         6/5\\</span>
+<span class="sd">				   1 &amp;      -11/54 &amp;     5/2 &amp;      -70/27 &amp;        35/27\\</span>
+<span class="sd">				 7/8 &amp;  1631/55296 &amp; 175/512 &amp;   575/13824 &amp; 44275/110592 &amp;  253/4096\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				      &amp;     37/378 &amp;       0 &amp;     250/621 &amp;      125/594 &amp;         0 &amp; 512/1771\\</span>
+<span class="sd">				      &amp; 2825/27648 &amp;       0 &amp; 18575/48384 &amp;  13525/55296 &amp; 277/14336 &amp;      1/4</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span>       <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span>       <span class="mi">3</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span>    <span class="mi">9</span><span class="o">/</span><span class="mi">40</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span>       <span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span>   <span class="o">-</span><span class="mi">9</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span>         <span class="mi">6</span><span class="o">/</span><span class="mi">5</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>   <span class="mi">1</span><span class="p">,</span> <span class="p">[</span>     <span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="mi">54</span><span class="p">,</span>     <span class="mi">5</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>      <span class="o">-</span><span class="mi">70</span><span class="o">/</span><span class="mi">27</span><span class="p">,</span>        <span class="mi">35</span><span class="o">/</span><span class="mi">27</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span> <span class="mi">7</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1631</span><span class="o">/</span><span class="mi">55296</span><span class="p">,</span> <span class="mi">175</span><span class="o">/</span><span class="mi">512</span><span class="p">,</span>   <span class="mi">575</span><span class="o">/</span><span class="mi">13824</span><span class="p">,</span> <span class="mi">44275</span><span class="o">/</span><span class="mi">110592</span><span class="p">,</span>  <span class="mi">253</span><span class="o">/</span><span class="mi">4096</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>        <span class="mi">37</span><span class="o">/</span><span class="mi">378</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>     <span class="mi">250</span><span class="o">/</span><span class="mi">621</span><span class="p">,</span>      <span class="mi">125</span><span class="o">/</span><span class="mi">594</span><span class="p">,</span>         <span class="mi">0</span><span class="p">,</span> <span class="mi">512</span><span class="o">/</span><span class="mi">1771</span><span class="p">)</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>    <span class="mi">2825</span><span class="o">/</span><span class="mi">27648</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span> <span class="mi">18575</span><span class="o">/</span><span class="mi">48384</span><span class="p">,</span>  <span class="mi">13525</span><span class="o">/</span><span class="mi">55296</span><span class="p">,</span> <span class="mi">277</span><span class="o">/</span><span class="mi">14336</span><span class="p">,</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div>
+
+	<span class="n">CashKarp</span> <span class="o">=</span> <span class="n">RKCK</span>
+	<span class="s2">&quot;Alias of :func:`RKCK`.&quot;</span>
+
+<div class="viewcode-block" id="ButcherTableau.BogackiShampine"><a class="viewcode-back" href="../../../CBD.preprocessing.butcher.html#CBD.preprocessing.butcher.ButcherTableau.BogackiShampine">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">BogackiShampine</span><span class="p">():</span>
+		<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Creates and returns the extended Butcher Tableau for the</span>
+<span class="sd">		`Bogacki-Shampine method &lt;https://doi.org/10.1016%2F0893-9659%2889%2990079-7&gt;`_ for 3th order</span>
+<span class="sd">		accurate solutions.</span>
+
+<span class="sd">		It is implemented in the :code:`ode23` function in MATLAB.</span>
+
+<span class="sd">		The Tableau is as follows:</span>
+
+<span class="sd">		.. math::</span>
+
+<span class="sd">			\begin{array}</span>
+<span class="sd">				{c|cc}</span>
+<span class="sd">				  0\\</span>
+<span class="sd">				1/2 &amp;  1/2\\</span>
+<span class="sd">				3/4 &amp;    0 &amp; 3/4\\</span>
+<span class="sd">				  1 &amp;  2/9 &amp; 1/3 &amp; 4/9\\</span>
+<span class="sd">				\hline</span>
+<span class="sd">				    &amp;  2/9 &amp; 1/3 &amp; 4/9 &amp;   0\\</span>
+<span class="sd">					&amp; 7/24 &amp; 1/4 &amp; 1/3 &amp; 1/8</span>
+<span class="sd">			\end{array}</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">tab</span> <span class="o">=</span> <span class="n">ButcherTableau</span><span class="p">()</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span>  <span class="mi">1</span><span class="p">,</span> <span class="p">[</span> <span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">9</span><span class="p">])</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>   <span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span>   <span class="mi">0</span><span class="p">)</span>
+		<span class="n">tab</span><span class="o">.</span><span class="n">addWeights</span><span class="p">(</span>  <span class="mi">7</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">tab</span></div></div>
+</pre></div>
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Randy Paredis.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="catalyst-content-right" id="catalyst-content-right">
+          <div class="catalyst-right-menu" id="catalyst-right-menu">
+            <div class="catalyst-side-scroll" id="catalyst-side-scroll-right">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+         <script src="../../../_static/jquery.js"></script>
+         <script src="../../../_static/underscore.js"></script>
+         <script src="../../../_static/doctools.js"></script>
+         <script src="../../../_static/math.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://catalyst-team.com/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Ecosystem</a></li>
+            <li><a class="nav-dropdown-item" href="https://alchemy.host">Alchemy</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">Catalyst</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">Reaction</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Projects</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">Codestyle</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">Catalyst.Neuro</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">Classification</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">Detection</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">Segmentation</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">Catalyst.GAN</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://catalyst-team.com/">Support</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+            <li><a href="https://www.patreon.com/catalyst_team" target="_blank">Patreon</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <div class="footer-social-icons">
+            <a href="https://t.me/catalyst_team" target="_blank" class="telegram"></a>
+            <a href="https://twitter.com/catalyst_core" target="_blank" class="twitter"></a>
+            <a href="https://join.slack.com/t/catalyst-team-core/shared_invite/zt-d9miirnn-z86oKDzFMKlMG4fgFdZafw" target="_blank" class="ods"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/catalyst">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../../../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      catalystAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.catalyst-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

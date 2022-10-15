@@ -1,0 +1,630 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CBD.tracers.color &mdash; CBD Simulator  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167094275-1"></script>
+  <script src="../../../_static/js/googleanalytics.min.js"></script>
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+
+      <div class="main-menu">
+        <ul>
+
+          <li>
+            <div class="ecosystem-dropdown">
+              <a id="dropdownMenuButtonEcosystem" data-toggle="ecosystem-dropdown">
+                Ecosystem
+              </a>
+              <div class="ecosystem-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://alchemy.host">
+                  <span class=dropdown-title>Alchemy</span>
+                  <p>Experiments logging & visualization</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">
+                  <span class=dropdown-title>Catalyst</span>
+                  <p>Accelerated deep learning R&D</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">
+                  <span class=dropdown-title>Reaction</span>
+                  <p>Convenient deep learning models serving</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="projects-dropdown">
+              <a id="dropdownMenuButtonProjects" data-toggle="projects-dropdown">
+                Projects
+              </a>
+              <div class="projects-dropdown-menu">
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">
+                  <span class=dropdown-title>Codestyle</span>
+                  <p>Joint R&D codestyle</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">
+                  <span class=dropdown-title>Catalyst.Neuro</span>
+                  <p>Catalyst.Team and TReNDS collaborative project</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">
+                  <span class=dropdown-title>Classification</span>
+                  <p>Image classification pipeline with transfer learning</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">
+                  <span class=dropdown-title>Detection</span>
+                  <p>Object detection pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">
+                  <span class=dropdown-title>Segmentation</span>
+                  <p>Image semantic segmentation pipeline</p>
+                </a>
+                <a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">
+                  <span class=dropdown-title>Catalyst.GAN</span>
+                  <p>GAN pipelines</p>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/dl-course">Deep learning course</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="catalyst-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="catalyst-left-menu" id="catalyst-left-menu">
+      <div class="catalyst-side-scroll">
+        <div class="catalyst-menu catalyst-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="catalyst-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">How to install the CBD framework?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../running.html">How to run a CBD simulation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../issues.html">Common Issues and Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simple Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/SinGen.html">Sine Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/EvenNumberGen.html">Hierarchical Even Number Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/Fibonacci.html">Fibonacci Sequence Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/LCG.html">Linear Congruential Generator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/RealTime.html">Realtime Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/LivePlot.html">Live Plotting of Data During the Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/Dashboard.html">TkInter Dashboard with Editable Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/ContinuousTime.html">Continuous Time Simulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Internal Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CBD.html">CBD package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="catalyst-container">
+      <div class="catalyst-page-level-bar" id="catalyst-page-level-bar">
+        <div class="catalyst-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="catalyst-breadcrumbs">
+    
+      <li>
+        <a href="../../../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="../../index.html">Module code</a> &gt;</li>
+        
+          <li><a href="../tracers.html">CBD.tracers</a> &gt;</li>
+        
+      <li>CBD.tracers.color</li>
+    
+    
+      <li class="catalyst-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="catalyst-shortcuts-wrapper" id="catalyst-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="catalyst-content-wrap" class="catalyst-content-wrap">
+        <div class="catalyst-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="catalyst-article" class="catalyst-article">
+              
+  <h1>Source code for CBD.tracers.color</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Helper file for color information when printing to the terminal.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<div class="viewcode-block" id="COLOR"><a class="viewcode-back" href="../../../CBD.tracers.color.html#CBD.tracers.color.COLOR">[docs]</a><span class="k">class</span> <span class="nc">COLOR</span><span class="p">:</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Color interface to write colored text to the console. This can be used</span>
+<span class="sd">	to mark certain components of a trace, when writing to the console.</span>
+
+<span class="sd">	Colors may be combined using string concatenation (+).</span>
+
+<span class="sd">	Note:</span>
+<span class="sd">		To make this work on Windows 10, `VT100 emulation</span>
+<span class="sd">		&lt;https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN&gt;`_</span>
+<span class="sd">		needs to be enabled. For other versions, `ANSICON &lt;https://github.com/adoxa/ansicon&gt;`_</span>
+<span class="sd">		needs to be used. On other OS, it should work out-of-the-bag.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="COLOR.colorize"><a class="viewcode-back" href="../../../CBD.tracers.color.html#CBD.tracers.color.COLOR.colorize">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">colorize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="n">colors</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Colors the text in a given set of colors and terminates the coloring at the end.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			text (str): The text to color.</span>
+<span class="sd">			*colors:    The colors for the text. May be given as a set of arguments, or</span>
+<span class="sd">						as a concatenated string.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">col</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">ENDC</span></div>
+
+<div class="viewcode-block" id="COLOR.uncolorize"><a class="viewcode-back" href="../../../CBD.tracers.color.html#CBD.tracers.color.COLOR.uncolorize">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">uncolorize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Removes all colorization indicators from the string.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			text (str): The string to remove color from.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\033\[\d+m&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="COLOR.rainbow"><a class="viewcode-back" href="../../../CBD.tracers.color.html#CBD.tracers.color.COLOR.rainbow">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">rainbow</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Colors each letter of the text in another color, based on the color list.</span>
+
+<span class="sd">		Args:</span>
+<span class="sd">			text (str):     Text to color.</span>
+<span class="sd">			colors (iter):  An ordered sequence of colors.</span>
+<span class="sd">							Defaults to the colors of the rainbow.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">COLOR</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">DARK</span> <span class="o">+</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">LYELLOW</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">,</span>
+			          <span class="n">COLOR</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">CYAN</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">DARK</span> <span class="o">+</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">BLUE</span><span class="p">,</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">PURPLE</span><span class="p">)</span>
+		<span class="n">ntext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
+			<span class="n">ntext</span> <span class="o">+=</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">L</span><span class="p">])</span>
+		<span class="k">return</span> <span class="n">ntext</span></div>
+
+	<span class="n">ENDC</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Ends any coloring. Must be used at the end to prevent color &quot;creep&quot;.&quot;&quot;&quot;</span>
+
+	<span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text bold.&quot;&quot;&quot;</span>
+
+	<span class="n">DARK</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[2m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text slightly darker.&quot;&quot;&quot;</span>
+
+	<span class="n">ITALIC</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[3m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text slanted/cursive/italic.&quot;&quot;&quot;</span>
+
+	<span class="n">ULINE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[4m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text underlined.&quot;&quot;&quot;</span>
+
+	<span class="n">BLINK</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[5m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text blink at the cursor blink rate.&quot;&quot;&quot;</span>
+
+	<span class="n">HIGHLIGHT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[7m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Highlights the text by swapping foreground and background colors.&quot;&quot;&quot;</span>
+
+	<span class="n">STRIKE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[9m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Draws a line through the text, commonly known as &#39;strikethrough&#39;.&quot;&quot;&quot;</span>
+
+	<span class="n">UULINE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[21m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text doubly underlined.&quot;&quot;&quot;</span>
+
+	<span class="n">OLINE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[53m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text overlined.&quot;&quot;&quot;</span>
+
+	<span class="n">DARKGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[30m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text dark gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">RED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[31m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text red (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">GREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[32m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text green (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">YELLOW</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[33m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text yellow (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[34m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text blue (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">PURPLE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[35m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text purple (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">CYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[36m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text cyan (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LIGHTGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[37m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text light gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BDARKGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[40m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background dark gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BRED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[41m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background red (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BGREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[42m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background green (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BYELLOW</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[43m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background yellow (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BBLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[44m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background blue (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BPURPLE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[45m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background purple (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BCYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[46m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background cyan (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLIGHTGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[47m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background light gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LDARKGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[90m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter dark gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LRED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter red (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LGREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[92m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter green (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LYELLOW</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[93m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter yellow (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LBLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter blue (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LPURPLE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[95m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter purple (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LCYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[96m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter cyan (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">LLIGHTGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[97m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the text a lighter light gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLDARKGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[100m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter dark gray (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLRED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[101m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter red (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLGREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[102m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter green (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLYELLOW</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[103m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter yellow (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLBLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[104m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter blue (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLPURPLE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[105m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter purple (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLCYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[106m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter cyan (depends on the terminal palette).&quot;&quot;&quot;</span>
+
+	<span class="n">BLLIGHTGRAY</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[107m&#39;</span>
+	<span class="sd">&quot;&quot;&quot;Makes the background a lighter light gray (depends on the terminal palette).&quot;&quot;&quot;</span></div>
+</pre></div>
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Randy Paredis.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="catalyst-content-right" id="catalyst-content-right">
+          <div class="catalyst-right-menu" id="catalyst-right-menu">
+            <div class="catalyst-side-scroll" id="catalyst-side-scroll-right">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+         <script src="../../../_static/jquery.js"></script>
+         <script src="../../../_static/underscore.js"></script>
+         <script src="../../../_static/doctools.js"></script>
+         <script src="../../../_static/math.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://catalyst-team.com/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Ecosystem</a></li>
+            <li><a class="nav-dropdown-item" href="https://alchemy.host">Alchemy</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/catalyst">Catalyst</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/reaction">Reaction</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/catalyst-team">Projects</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/codestyle">Codestyle</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/neuro">Catalyst.Neuro</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/classification">Classification</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/detection">Detection</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/segmentation">Segmentation</a></li>
+            <li><a class="nav-dropdown-item" href="https://github.com/catalyst-team/gan">Catalyst.GAN</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://catalyst-team.com/">Support</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://github.com/catalyst-team/catalyst/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+            <li><a href="https://www.patreon.com/catalyst_team" target="_blank">Patreon</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <div class="footer-social-icons">
+            <a href="https://t.me/catalyst_team" target="_blank" class="telegram"></a>
+            <a href="https://twitter.com/catalyst_core" target="_blank" class="twitter"></a>
+            <a href="https://join.slack.com/t/catalyst-team-core/shared_invite/zt-d9miirnn-z86oKDzFMKlMG4fgFdZafw" target="_blank" class="ods"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://catalyst-team.com/" aria-label="Catalyst"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/catalyst-team/catalyst">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../../../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      catalystAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.catalyst-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+matplotlib
+bokeh
+tqdm  # For progress bar
+catalyst-sphinx-theme  # For documentation

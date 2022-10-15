@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0074)http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<!--<base href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/">--><base href=".">
+
+ 
+ <meta name="author" content="Hans Vangheluwe">
+ <meta name="generator" content="None">
+ <link rel="stylesheet" type="text/css" href="./Statecharts Assignment_files/standard_msdl_style.css" title="MSDL stylesheet">
+ <link rel="shortcut icon" href="http://msdl.uantwerpen.be/images/favicon.ico">
+ <title>Statecharts Assignment</title>
+</head>
+<body bgcolor="#ffffff" class="vsc-initialized">
+
+<div class="portlet">    
+ <div class="portletBody">
+
+     <table border="0" cellpadding="4" cellspacing="0" width="100%" summary="table for MSDL standard page banner">
+
+ <tbody><tr>
+<!--  
+  <td valign="top" width="214" align="left">
+   <a href="http://msdl.cs.mcgill.ca/"><img border="0" src="/images/MSDLlogo.2.small.gif" align="left"></a>
+  </td>
+-->
+
+  <td valign="middle" align="right" width="100%" cellpadding="3">
+   <div class="pagetitle">Statecharts Assignment&nbsp;</div>
+  </td>
+ </tr>
+
+</tbody></table>
+
+
+  
+  
+ </div>
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" summary="home page" width="100%">
+ <tbody><tr>
+  <td valign="top" align="left">
+
+   <style>
+     h5 {
+        background: unset !important;
+        border: unset !important;
+        padding: unset !important;
+        text-transform: unset !important;
+        font-weight: bold !important;
+     }
+   </style>
+
+  <div class="portlet">
+
+    <h2>Submission</h2>
+    <p>
+      </p><ul>
+        <li> <b>Due Date:</b> Sunday 12 December 2021, before 23:55.</li>
+
+        <li> <b>Team Size:</b> 2 (pair design/programming)!<br>
+        <i>Note that as of the 2017-2018 Academic Year, each International student should team up with "local"
+          (i.e., whose Bachelor degree was obtained at the University of Antwerp).</i></li>
+
+        <li><b>Checklist:</b>
+          <ul>
+            <li>Transformed the requirements into black-box test scenarios</li>
+            <li>Implemented the requirements in statechart</li>
+            <li>The statechart passes the black-box test, and YAKINDU reports 100% coverage</li>
+            <li>Generated Python code from the statechart, and the generated code works with the GUI</li>
+            <li>Wrote report</li>
+          </ul>
+        </li>
+
+        <li> <b>Submission Information:</b>
+          <em>Only one</em> member of each team submits a full solution. This must be a compressed archive (<tt>ZIP</tt>, <tt>RAR</tt>, <tt>TAR.GZ</tt>...) that includes your report and all the files needed to run your solution, including the files from the "starting point" that you are not allowed to edit, and your generated Python code. The report must be called <tt>index.html</tt>. Make sure to mention the names and student IDs of all the team members.
+          The other team member <em>must</em> submit a single <tt>HTML</tt> file containing <em>only</em> the coordinates of both team members. This will allow us to put in grades for both team members in BlackBoard.
+        </li>
+
+        <li> <b>Submission Medium:</b>
+          <a href="http://blackboard.uantwerpen.be/">BlackBoard</a>. Beware that BlackBoard's clock may differ slightly from yours. If BlackBoard is not reachable due to an (unpredicted) maintenance, you submit your solution via e-mail to the TA. Make sure all group members are in CC.
+        </li>
+
+        <li> <b>Contact / TA:</b>
+            <a href="mailto:Joeri.Exelmans@uantwerpen.be">Joeri Exelmans</a>.
+        </li>
+      </ul>
+    <p></p>
+
+    <h2>Goals</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          The main goal of this assignment is to familiarize yourself with Statechart modelling, simulation, testing and code synthesis. All this is to be done with <a href="https://www.itemis.com/en/yakindu/state-machine/">YAKINDU Statechart Tools</a>.
+        </p>
+      </div>
+    </div>
+
+    <style>
+      .interface {
+        background-color: #faebd2;
+        padding: 2pt;
+        padding-left: 20pt;
+        border-width: 1px;
+        border-color: #000;
+        border-style: solid;
+      }
+      .tip {
+        background-color: #ddd;
+        padding: 10pt;
+        border-width: 1px;
+        border-color: #000;
+        border-style: solid;
+        display: inline-block;
+        margin: 10pt;
+      }
+      table.compact-table {
+        border-collapse: collapse;
+      }
+      table.compact-table tr td {
+        border:1px solid black;
+        padding: 4pt;
+      }
+    </style>
+
+    <h2>Requirements</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>You will use the Statecharts formalism to model the behavior of a (single) Personal Rapid Transport trolley. This trolley drives laps on a one-way track, repeatedly passing by 4 different stations:</p>
+        <img src="./Statecharts Assignment_files/train-track-stations.svg" width="500px">
+        <h3>Requesting a stop</h3>
+        <p>At any point in time, a stop at a station can be requested. For every station, the trolley has either scheduled at stop, or not: Requesting the same stop multiple times before the train has stopped there, has no extra effect.</p>
+
+        <div class="interface">
+          <h5>Input events</h5>
+          <ul>
+            <li><pre style="position: relative;">requestStop: integer<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Raised when a stop has been requested. The integer parameter is the station of the requested stop, and is 0, 1, 2 or 3.</p></li>
+          </ul>
+          <h5>Interface variables</h5>
+          <ul>
+            <li><pre style="position: relative;">stopsAt: integer<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>A bitmap of the currently scheduled stops. If bit <i>i</i> is 1, a stop at station <i>i</i> is scheduled. The trolley's statechart should read and write this variable for its internal logic.</p>
+              <div class="tip">
+                TIP: To work with a bitmap, use bitwise operations in YAKINDU action code:
+                <table class="compact-table">
+                  <tbody><tr><td>Set bit <i>i</i></td><td><pre style="position: relative;">stopsAt |= (1 &lt;&lt; i)<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></td></tr>
+                  <tr><td>Unset bit <i>i</i></td><td><pre style="position: relative;">stopsAt &amp;= ~(1 &lt;&lt; i)<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></td></tr>
+                  <tr><td>Test if bit <i>i</i> is set:</td><td><pre style="position: relative;">stopsAt &amp; (1 &lt;&lt; i) != 0<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></td></tr>
+                </tbody></table>
+              </div>
+              <p>Additionally, the GUI reads this variable to display the currently scheduled stops. The buttons of scheduled stops are greyed-out:</p>
+              <img src="./Statecharts Assignment_files/station-buttons.png">
+            </li>
+          </ul>
+        </div>
+
+        <h3>Normal operation</h3>
+
+        <p>During <i>normal</i> operation, at any point in time, the trolley's behavior alternates between these modes:</p>
+        <ol>
+          <li>Arrival at a station</li>
+          <li>Departure to a station</li>
+        </ol>
+        <p>We'll now explain the behavior of each of these modes.</p>
+
+        <h4>Arrival at a station</h4>
+        <p>If the trolley has just arrived at a station, the following steps must happen:</p>
+        <ol>
+          <li>We wait for 1 second</li>
+          <li>Then, the doors are opened.</li>
+          <li>Then, only if the <b>both</b> of the following conditions hold, will the mode change to "Departure to a station":
+            <ol type="a">
+              <li>The doors must have been open for a duration of at least 2 seconds.</li>
+              <li>A stop at another station has been requested.</li>
+            </ol>
+          </li>
+        </ol>
+        <p>Additionally, between steps 2 and 3, requesting a stop for the station the trolley is currently stopped at, has no effect.</p>
+
+        <h4>Departure to a station</h4>
+        <p>This mode consists of the following steps:</p>
+        <ol>
+          <li>The trolley runs the "closing doors" procedure (see section "Closing the doors", below) until completion (i.e. until the doors are closed).</li>
+          <li>We wait for 1 second.</li>
+          <li>Then, the trolley accelerates to "full speed", which is <b>24 m/s</b>.</li>
+          <li>Only after the trolley has reached its full speed, should it respond to an incoming approachingStation-event (indicating that we are nearing a station). The approachingStation-event contains an integer parameter, indicating the ID of the station the trolley is approaching.
+            <ul>
+              <li>If a stop has been scheduled at this station, should the following steps happen:
+                <ol type="1">
+                  <li>Brake until standstill.</li>
+                  <li>Change the mode to "Arrival at a station" (described above).</li>
+                </ol>
+              </li>
+              <li>Otherwise, the event is ignored.</li>
+            </ul>
+            <br>
+            <div class="tip">
+              NOTE: The reason we require the trolley to first accelerate to full speed before allowing it to stop at a station, is because the approachingStation-event always occurs at a fixed distance before the respective station. This fixed distance is approximately the braking distance of the trolley at full speed. It was simply easier to develop the framework this way :)
+              <br>
+              It is therefore possible for the trolley to drive past a station at which a stop was scheduled, if the trolley has not yet reached full speed in time. The trolley will stop at that station during its next lap.
+            </div>
+          </li>
+        </ol>
+        <div class="interface">
+          <h5>Output events</h5>
+          <ul>
+            <li><pre style="position: relative;">setTargetSpeed: real<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Sets the target speed of the trolley. If the target speed differs from the current speed, the trolley will accelerate or decelerate accordingly.</p></li>
+          </ul>
+          <h5>Input events</h5>
+          <ul>
+            <li><pre style="position: relative;">atTargetSpeed<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Raised when the trolley has reached the target speed that was set earlier.</p>
+              <p>You may assume that the control over the electric motor is perfect, and after adjusting the target speed, this event is raised <i>once</i>, at which point, the target speed is perfectly maintained (acceleration becomes 0).</p></li>
+            <li><pre style="position: relative;">approachingStation: integer<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Raised when the trolley is at a certain (fixed) distance from the given station, such that, if the current speed is 24 m/s, this distance is approximately equal to the current braking distance.</p></li>
+          </ul>
+        </div>
+
+
+        <h4>Opening the doors</h4>
+        <p>Opening the doors of the trolley is straightforward, and happens instantaneously. While the doors are open, passengers can board and unboard the trolley.</p>
+
+        <h4>Passenger (un)boarding</h4>
+        <p>The trolley can never carry more than 6 passengers, or less than 0 (duh-huh).</p>
+        <p>Additionally, the boarding or unboarding of a passenger causes the door to be "obstructed" for the duration of 1 second. While the door is obstructed, boarding or unboarding is impossible.</p>
+
+        <h4>Closing the doors</h4>
+        <p>Closing the doors <b>always</b> happens as the following sequence of steps:</p>
+        <ol>
+          <li>The "closing doors" signal is activated. Passengers can still (un)board at this point. The signal is merely supposed to put pressure on the passengers to hurry up.</li>
+          <li>Then, as soon as the door has not been obstructed for 1 second (counting since the start of the "closing doors" signal), the "closing doors" signal is deactivated, and the doors are closed.</li>
+        </ol>
+
+        <h5>Example: Doors and departure to another station</h5>
+        <p>The following example summarizes the doors and (un)boarding behavior in the context of arrival at a station and departure to another station:</p>
+        <p>We assume that the trolley has just made a stop at a station, and another stop was already scheduled.
+        The 'closing the doors'-sequence starts after 2 seconds of opening the doors. This causes the "closing doors signal" to start.
+        Meanwhile, a passenger unboards and another passenger boards. The door is obstructed twice, each time for a duration of 1 second.
+        Finally, while the doors-signal is active and the door has been unobstructed for 1 second, the doors can close.</p>
+        <img src="./Statecharts Assignment_files/boarding.svg">
+        <div class="tip">TIP! You can literally write this scenario as a black-box test for your solution.</div>
+
+        <div class="interface">
+          <h5>Output events</h5>
+          <ul>
+            <li><pre style="position: relative;">openDoors<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Opens the doors (instantaneously)</p></li>
+            <li><pre style="position: relative;">closeDoors<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Closes the doors (instantaneously)</p></li>
+            <li><pre style="position: relative;">startDoorsSignal<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Starts the "closing doors" signal</p></li>
+            <li><pre style="position: relative;">stopDoorsSignal<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Stops the "closing doors" signal</p></li>
+          </ul>
+          <h5>Input events</h5>
+          <ul>
+            <li><pre style="position: relative;">board<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Raised when a passenger attempts to board the trolley.</p></li>
+            <li><pre style="position: relative;">unboard<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Raised when a passenger attempts to unboard the trolley.</p></li>
+          </ul>
+          <h5>Interface variables</h5>
+          <p>These variables are displayed in the GUI:</p>
+          <ul>
+            <li><pre style="position: relative;">numPassengers: integer<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Number of passengers currently on the trolley.</p></li>
+            <li><pre style="position: relative;">remainingCapacity: integer<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Remaining passenger capacity. Must always be equal to (6 - numPassengers).</p></li>
+          </ul>
+        </div>
+
+        <h3>Exceptional operation: Emergency stop</h3>
+        <p>Until now we have described "normal operation". Normal operation can temporarily be interrupted by an emergency stop. An emergency stop can always happen, even if the trolley is currently stopped at a station.</p>
+        <h4>Starting an emergency stop</h4>
+        <p>An emergency stop executes the following sequence of steps:</p>
+        <ol>
+          <li>Start braking until standstill. This step is skipped if the emergency stop occurs while the trolley is stopped at a station.</li>
+          <li>Then, the doors open, without delay.</li>
+        </ol>
+        <p>The doors remain open and the trolley cannot move for as long as the emergency stop lasts. Passengers can board and unboard while the doors are opened, as usual.</p>
+        <p>Stops can still be requested/scheduled, and will be executed after the emergency stop is over.</p>
+        <h4>Ending an emergency stop</h4>
+        <p>An emergency stop cannot be ended before the trolley has come to a <b>full stop</b>, i.e. it cannot be "canceled" early. If an emergency stop is ended, the following must happen:</p>
+        <ul>
+          <li>If the trolley was driving to a station, it re-starts the "Departure to a station"-sequence (defined above) again, from the beginning (closing the doors, accelerating, etc.).</li>
+          <li>If the trolley was stopped at a station, it re-starts the "Arrival at a station"-sequence, but at step 3 (meaning: the doors will remain open for at least another 2 seconds before the trolley can depart). The doors are not closed and re-opened; they simply remain open.</li>
+        </ul>
+
+        <div class="interface">
+          <h5>Input events</h5>
+          <ul>
+            <li><pre style="position: relative;">startEmergency<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Initiate an emergency stop.</p></li>
+            <li><pre style="position: relative;">endEmergency<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Attempt to end an emergency stop.</p></li>
+          </ul>
+        </div>
+
+        <h3>Initial state</h3>
+        <p>Initially, it is as if we have just completed step 2 of "Arrival at a station":</p>
+        <ul>
+          <li>The trolley is stopped (at station 0, in the GUI)</li>
+          <li>The doors are open</li>
+          <li>The doors signal is off</li>
+        </ul>
+        <p>Furthermore:</p>
+        <ul>
+          <li>No stops are scheduled</li>
+          <li>There are 0 passengers on board</li>
+        </ul>
+
+        <h3>GUI</h3>
+        <p>It is important to know that the GUI will only read and display the current values of the interface variables when a refreshUI-event is raised by the statechart. This event should be raised every time one of the interface variables are changed.</p>
+        <div class="interface">
+          <h5>Output events</h5>
+          <ul>
+            <li><pre style="position: relative;">refreshUI<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+              <p>Causes the UI to read the current values of all interface variables (stopsAt, numPassengers and remainingCapacity) and update them in the view.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Getting started</h2>
+    <p>Download <a href="https://www.itemis.com/en/yakindu/state-machine/">YAKINDU Statechart Tools 4</a> (the latest version at the time of writing) and register for a free academic (Professional) license, with your university e-mail address. You will be automatically e-mailed a license key that will remain valid for 3 months.</p>
+    <div class="tip">NOTE: You can only register with your university e-mail once. If your earlier academic license has expired, you will have to send proof of enrollment to YAKINDU (you can obtain such a proof through <a href="https://sisastudent.uantwerpen.be/">SiSA</a>), which will be manually reviewed.</div>
+    <div class="tip">NOTE: You can also register for a free Standard license, for non-commercial use. You will be required to send scans of your ID card to YAKINDU, which will be manually reviewed.</div>
+
+    <p>Download the <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/Mosis21StartingPoint.zip">assignment zip file</a>. Import this archive as a project into your YAKINDU workspace. It contains the following files, which you <b>must edit</b>:</p>
+    <ul>
+      <li><tt>Trolley.ysc</tt>: The starting point for the Trolley statechart model. The statechart interface has already been defined. Do no alter the interface! You can (and probably should) add internal variables, and/or internal events.</li>
+      <li><tt>TrolleyTest.sctunit</tt>: The starting point for writing a black-box unit test for the Trolley statechart.</li>
+    </ul>
+    <p>The archive also contains the following files, which you <b>must not edit</b>:</p>
+    <ul>
+      <li><tt>MotorControl.ysc</tt>: A statechart that sets the acceleration of the motor, based on a target speed (received from the trolley control) and the current speed (received from the "physics"). It notifies the trolley component when the selected target speed has been reached.</li>
+      <li><tt>Physics.ysc</tt>: A discrete, fixed-time-step (every 10 ms) approximation of the trolley's position as an integral of the trolley's speed, which again is an integral of the trolley's acceleration.</li>
+      <li><tt>System.ysc</tt>: A statechart instantiating the Trolley, MotorControl and Physics statecharts, and connecting their interfaces.</li>
+      <li><tt>Statechart.sgen</tt>: This file describes how YAKINDU should generate Python code from the <tt>*.ysc</tt> files. To manually generate Python code, right-click on <tt>Statechart.sgen</tt>, and select "Generate code artifacts". Usually however, YAKINDU automatically does this every time you save your model.</li>
+      <li><tt>main.py</tt>: After you have generated Python code from your statechart, you can run this script to see your model in action!
+      To run the script, you need Python 3 (The assignment was developed with Python 3.9), and the TkInter Python library (included with most Python distributions).
+      <br>
+      <img src="./Statecharts Assignment_files/ui.png"></li>
+    </ul>
+
+    <p><i>For the curious student, here is an overview of the system's architecture:</i></p>
+    <img src="./Statecharts Assignment_files/architecture.svg">
+
+    <h2>Testing your solution</h2>
+    <div class="portletBody">
+      <div class="portletContent odd">
+        <p>
+          There are various ways you can "test" if your work is correct:
+          </p><ol type="a">
+            <li>You can write a unit test in YAKINDU. There are 2 "dimensions" here:
+              <ul>
+                <li>Isolated vs. system-as-a-whole
+                  <ul>
+                    <li>Isolated: You write a unit test for the Trolley statechart (<tt>Trolley.ysc</tt>).</li>
+                    <li>System-as-a-whole: You write a unit test for the entire system (<tt>System.ysc</tt>). We advice against this, because some parts of the system contain floating point arithmetic, which can be a bit unpredictable.</li>
+                  </ul>
+                </li>
+                <li>Black-box vs. white-box
+                  <ul>
+                    <li>Black-box: A black-box test only reads and writes parts of the statechart that are part of its interface, that is:
+                      <ul>
+                        <li>Raise an input event</li>
+                        <li>Assert that an output event is (not) raised</li>
+                        <li>Read the values of interface variables</li>
+                      </ul>
+                    </li>
+                    <li>White-box: A white-box test can additionally:
+                      <ul>
+                        <li>Check which states are active</li>
+                        <li>Read the values of internal variables.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  Black-box testing has 2 very important advantages:
+                  <ol>
+                    <li>Enables <b>test-driven development</b>: When implementing a feature, you can non-ambiguously describe the desired behavior as a test <i>before</i> you actually implement the feature. This way, you keep your mind focused on the "what", whithout prematurely getting lost in the "how".</li>
+                    <li>Black-box tests are <b>portable</b> between different implementations, as long as they have the same interface. If you alter your implementation, you do not have to alter your test.</li>
+                  </ol>
+                </li>
+              </ul>
+              <p>Included with the assignment is the starting point for a <b>black-box</b> unit test <tt>TrolleyTest.sctunit</tt> for the Trolley statechart. You are <b>required</b> to further extend this black-box test with additional scenarios, derived from the requirements, until YAKINDU reports 100% coverage of the transitions in your statechart.</p>
+
+              <p>If you think it is useful for you, you are allowed (but not required) to write an additional white-box unit test as well, or even write a (white/black-box) test for the system-as-a-whole. Please put any additional tests in a separate files, and include them in your submission.</p>
+            </li>
+            <li>You can interactively debug the statechart within YAKINDU. This is a white-box approach, because you can observe which states are active at any point in time, and which transitions are firing. You have 2 options here:
+              <ul>
+                <li>Isolated: You can debug the Trolley statechart in isolation. This has the advantage that the debugging environment is not "polluted" with events from e.g. the physics simulation, which occur very frequently (every 10 ms).</li>
+                <li>System-as-a-whole: You can also debug the system-as-a-whole (<tt>System.ysc</tt>). This can be useful if the system behaves differently from what you expected, and debugging the Trolley statechart in isolation does not explain the behavior.</li>
+              </ul>
+            </li>
+            <li>You can generate Python code from your statechart and run it with the Python (GUI) application. The Python app has the 4 stations hardcoded in it, and with a completed solution, you should observe the trolley making its scheduled stops. A downside of this approach, is that you cannot see the internals of your statechart (e.g. what states are active?).</li>
+          </ol>
+        <p></p>
+      </div>
+    </div>
+
+    <h2>Tips</h2>
+    <p>We recommend you to work in teams of 2, practicing "pair programming": One student is at "the controls", the other student observes, comments, spots mistakes.</p>
+    <p>We recommend you to work in the following iterative fashion, repeating the following steps:</p>
+    <ol>
+      <li>Write a black-box test scenario for a new feature</li>
+      <li>Implement the feature in the statechart</li>
+      <li>Verify if the feature is correctly implemented (and verify if there are any regressions wrt. earlier-written tests)</li>
+    </ol>
+    <p>The assignment has been designed specifically to encourage use of as many Statechart features as possible: composite states, orthogonal states, history, internal events, internal variables, timed transitions, enter/exit actions, guard conditions and action code. Make sure you understand these features, and use them, where you think they are appropriate.</p>
+    <p>YAKINDU has excellent <a href="https://www.itemis.com/en/yakindu/state-machine/documentation/">documentation</a>.</p>
+    <p>If some part of the requirements is not clear enough, or if you have spotted an ambiguity, please e-mail me.</p>
+
+    <h2>Report</h2>
+    <p>You are also <b>required</b> to write a small (HTML) report.</p>
+    <p>At the beginning, you list the following things:</p>
+    <ul>
+      <li>The <b>names and student IDs</b> of the team members</li>
+      <li>The amount of <b>time spent</b> working on the project: Please be honest, this helps us estimate the workload for future assignments.</li>
+    </ul>
+    Then, in a structure you are free to choose, you describe your <em>workflow</em> (How did you work together? (pair programming / divided the work / ...) In what order did you implement different features? etc.), and give an <em>overview of your solution</em> (but please do not describe every tiny detail). Include screenshots of (components of) your statechart, where appropriate.<p></p>
+    <p>The report should probably not contain more than 1000 words.</p>
+
+    <h2>Additional material</h2>
+    <ul>
+      <li>
+        <p>Recording of YAKINDU tutorial (for second term students):</p>
+        <p><a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/2ndterm-tutorial.mp4">2ndterm-tutorial.mp4</a></p>
+        <p>The traffic light example from this tutorial (you can import it as a YAKINDU project):</p>
+        <p><a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/2ndterm-trafficlight-example-project.zip">2ndterm-trafficlight-example-project.zip</a></p>
+      </li>
+      <!--<li>
+        <p>The traffic light example from the practical session (first term!) on Yakindu is also available here:</p>
+        <p><a href="trafficlight-example.zip">trafficlight-example.zip</a></p>
+        <p>You can import it as a YAKINDU project. Additionally you can run the Python GUI (main.py).</p>
+      </li>-->
+      <li>
+        <p>YAKINDU semantics: General overview of statechart execution: RTC steps, input, internal, output events and after-triggers.</p>
+        <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/yakindu-semantics.pdf">yakindu-semantics.pdf</a>
+      </li>
+      <li>
+        <p>YAKINDU semantics: RTC steps and use of choice element</p>
+        <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/yakindu-examples.pdf">yakindu-examples.pdf</a>
+      </li>
+      <li>
+        <p>Shortcoming of YAKINDU's unit testing framework</p>
+        <a href="http://msdl.uantwerpen.be/people/hv/teaching/MoSIS/assignments/Statecharts/yakindu-unit-test.pdf">yakindu-unit-test.pdf</a>
+      </li>
+    </ul>
+  </div>
+  </td> 
+ </tr>
+</tbody></table>
+
+<img src="./Statecharts Assignment_files/red.jpg" border="0" width="100%" height="1"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr width="100%">
+  
+ </tr>
+ <tr>
+  <td align="left">Maintained by <a href="http://msdl.cs.mcgill.ca/people/hv">Hans Vangheluwe</a><a>.</a></td>
+  <td align="right">Last Modified: 2022/07/13 13:15:39.</td>
+ </tr>
+</tbody></table>
+
+
+
+</body></html>

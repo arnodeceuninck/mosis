@@ -1,0 +1,217 @@
+<style>
+<!--
+ /***********************************************************************/
+ /*                                                                     */
+ /*    CSS Stylesheet for MSDL website                                  */
+ /*                                                                     */
+ /*      2000 base example by Juergen Etzkorn (DLR)                     */
+ /*    8/2000 first major adaptation by HV (for homepage)               */
+ /*    8/2001 second major adaptation by HV (for MSDL pages)            */
+ /*           inspiration from style sheet of modelica.org              */
+ /*    4/2004 third major adaptation by HV (for MSDL pages)             */
+ /*           inspiration from style sheets of plone.org                */
+ /*                                                                     */
+ /***********************************************************************/
+ /* assignment of all tags and fontfamilies */
+ p,
+ h1,h2,h3,h4,h5,h6,
+ ul,ol,dl,li,dd,dt,
+ div,
+ table,td,th,tr,
+ address,
+ blockquote,b,i,
+ body,form,frame,
+ center,hr,br,dir
+  {font-family:Arial,Helvetica,Geneva,Sans-Serif,Lucida,Verdana;}
+/*
+ p,
+ h1,h2,h3,h4,h5,h6,
+ ul,ol,dl,li,dd,dt,
+ div,
+ address,
+ blockquote,b,i,
+ body,form,frame,
+ center,hr,br,dir
+  {background-color: white;}
+*/
+ pre, tt
+  {font-family: courier,monospace,Lucidatypewriter;
+   font-size: small;}
+ body
+  {font-style: normal;
+   font-size: 11pt;
+   color: black;
+   background: #F9F9F9;
+   margin-left: 3mm;
+   margin-right: 3mm;}
+ form
+  {font-style: normal;
+   font-size: 11pt;
+   color: black;
+/*   background:white; */
+   margin-left: 3mm;
+   margin-right: 3mm;}
+  h1
+   {font-size: large;
+    font-weight: bold;
+    text-align: right;
+    color: black;}
+  h2
+   {font-size: large;
+    font-weight: bold;
+    text-align: left;
+/*
+    padding-top: 0.5ex;
+    padding-bottom: 0.5ex;
+    padding-left: 0.5ex; 
+    padding-right: 0.5ex; 
+    margin-top: 1ex;
+*/
+    color: white;
+    background-color: #AA1111;}
+  #fullwidth
+   {width:99%;
+    border:0.1px #AA1111 solid;}
+  h3
+   {font-size: small;
+    font-weight: bold;
+    text-align: left;
+    color: #AA1111;}
+  h4, h5, h6
+   {font-size: small;
+    color: black;}
+    /* margin-top: 10pt */
+  p
+   {font-size: small;}
+  p.comment
+   {font-size: small; color:#AA1111;}
+  p.footer
+   {font-family:Arial,Helvetica,Geneva,Sans-Serif,Lucida,Verdana; font-size: small; margin-top: 0pt;}
+  div
+   {font-size: small;}
+  div.topBorder
+   {margin-top: 20pt}
+  address
+   {font-style: normal;
+    font-size: small;
+    text-align: left;
+    color: #888800;}
+  dir
+   {font-size: small;}
+  ul
+   {font-size: small;}
+  ol
+   {font-size: small;}
+  dl
+   {font-size: small;}
+  img
+   {border:0;}
+  th
+   {font-size:small;
+    vertical-align: top;
+    color:#AA1111;}
+  td
+   {font-size: small;
+    vertical-align: top;
+    /*background-color: white;*/}
+  td.bottom
+   {font-size: small;
+    vertical-align: bottom;
+    color: black;}
+  /* links */
+  a:link
+   {color: #111166;
+    text-decoration:underline;}
+  a:visited
+   {color: black;
+    text-decoration:underline;}
+  a:active
+   {color: red;}
+  a:hover
+   {color: #AA0000;}
+  p.navigation
+   {font-size: small;
+    font-weight: normal;}
+  div.navigation
+   {font-size: small;
+    font-weight:normal;}
+  a.navigation
+   {text-decoration: none;}
+  td.navigation
+   {font-size: small;
+    font-weight: bold;
+    vertical-align: middle;}
+  .indent
+   {margin-left:10px;}
+  hr
+   {color: black;}
+  a.navbar 
+   {text-decoration: underline;}
+.portlet {
+    border: none;
+    margin-bottom: 1em;
+    font-family:Arial,Helvetica,Geneva,Sans-Serif,Lucida,Verdana;
+    padding: 0;
+} 
+.portlet h5 { 
+    background: #eeeeee;
+    border: 1px solid #aa0000;
+    border-style: solid solid none solid;
+    padding: 0em 0.5em 0em 0.5em;
+/*    text-transform: lowercase; */
+    display: inline;
+    font-size: 1em;
+    height: 1em;
+    font-weight: normal;
+    white-space: nowrap;
+}   
+.portletBody {
+    background: white;
+    border-collapse: collapse;
+    border: 1px solid #aa0000;
+}
+.portletDetails {
+    text-align: right;
+}
+.portletMore {
+    display: block;
+    text-align: right;
+}
+.portletContent {
+    padding: 0.5em;
+}
+.portletClose {
+    float: right;
+    text-transform: none;
+    border-left: 1px solid #aa0000;
+    padding: 0em 0.2em;
+}
+.portlet .even {
+    background-color: #eeeeee;
+}
+.portlet .odd {
+    background-color: transparent;
+}
+.portlet input {
+    font-size: 100%;
+}
+.portlet ul {
+    list-style-type: circle;
+}
+.portlet ol {
+    list-style-type: decimal;
+}
+.portlet li {
+    margin: 0;
+    padding: 0.1em;
+    line-height: 1.3em;
+}
+.pagetitle {
+    background: white;
+    font-size: 38px;
+    font-family:Arial,Helvetica,Geneva,Sans-Serif,Lucida,Verdana;
+    font-weight: bold;
+    text-align: right;
+    color: #bb0000;
+}
+</style>
